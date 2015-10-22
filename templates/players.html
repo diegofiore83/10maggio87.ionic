@@ -1,0 +1,11 @@
+﻿<ion-view view-title="Players">
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-thumbnail-left" ng-repeat="player in players" ng-href="#/app/players/{{player.Tag}}">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <h2>{{player.Name}}</h2>
+                <p>{{player.Nation}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

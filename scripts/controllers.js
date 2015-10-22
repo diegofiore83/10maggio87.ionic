@@ -33,16 +33,15 @@
     };
 })
 
-.controller('PlaylistsCtrl', function ($scope) {
-    $scope.playlists = [
-      { title: 'Reggae', id: 1 },
-      { title: 'Chill', id: 2 },
-      { title: 'Dubstep', id: 3 },
-      { title: 'Indie', id: 4 },
-      { title: 'Rap', id: 5 },
-      { title: 'Cowbell', id: 6 }
-    ];
+.controller('PlayersCtrl', function ($scope, $http) {
+    $scope.players = [];
+
+    $http.get('http://api.10maggio87.it/api/players/team').then(function(resp) {
+        $scope.players = resp.data;
+    }, function(err) {
+        console.error('ERR', err);
+    });
 })
 
-.controller('PlaylistCtrl', function ($scope, $stateParams) {
+.controller('PlayerCtrl', function ($scope, $stateParams) {
 });

@@ -140,8 +140,8 @@
     <Content Include="templates\browse.html" />
     <Content Include="templates\login.html" />
     <Content Include="templates\menu.html" />
-    <Content Include="templates\playlist.html" />
-    <Content Include="templates\playlists.html" />
+    <Content Include="templates\player.html" />
+    <Content Include="templates\players.html" />
     <Content Include="res\native\windows\CordovaApp_TemporaryKey.pfx" />
     <Content Include="scripts\frameworks\angular-resource.min.js" />
     <Content Include="scripts\frameworks\angular-route.min.js" />

@@ -4,11 +4,11 @@
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://cordova.io" email="dev@cordova.apache.org">10maggio87.it Team</author>
   <content src="index.html" />
-  <!-- Access to all the subdomains on 10maggio87.it -->
-  <access origin="http://*.10maggio87.it" />
+  <access origin="*" />
   <preference name="SplashScreen" value="screen" />
   <preference name="windows-target-version" value="8.0" />
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="true" />
+  <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
   <vs:platformSpecificValues />
 </widget>

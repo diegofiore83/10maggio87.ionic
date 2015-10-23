@@ -35,11 +35,12 @@
 
 .controller('PlayersCtrl', function ($scope, $http) {
     $scope.players = [];
+    $scope.error = "no error";
 
     $http.get('http://api.10maggio87.it/api/players/team').then(function(resp) {
         $scope.players = resp.data;
     }, function(err) {
-        console.error('ERR', err);
+        $scope.error = err;
     });
 })
 

@@ -1,0 +1,8 @@
+{
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "local",
+            "path": "C:\\Applicazioni\\Playground\\apps\\10maggio87.ionic\\plugins\\cordova-plugin-whitelist"
+        }
+    }
+}

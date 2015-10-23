@@ -10,5 +10,6 @@
     <preference name="windows-target-version" value="8.0" />
     <preference name="windows-phone-target-version" value="8.1" />
     <preference name="Fullscreen" value="true" />
+    <vs:plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
     <vs:platformSpecificValues />
 </widget>

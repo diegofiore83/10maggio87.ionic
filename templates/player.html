@@ -1,5 +1,11 @@
-﻿<ion-view view-title="Player">
+﻿<ion-view view-title="Scheda Giocatore">
     <ion-content>
-        <h1>Player</h1>
+        <div class="list card">
+            <div class="item item-avatar">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Profile.Tag}}.jpg">
+                <h2>{{player.Profile.Name}}</h2>
+                <p>{{player.Profile.Position | position}}</p>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

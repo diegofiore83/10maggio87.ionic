@@ -64,7 +64,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
       })
 
     .state('app.single', {
-        url: "/players/:playerId",
+        url: "/players/:playerTag",
         views: {
             'menuContent': {
                 templateUrl: "templates/player.html",

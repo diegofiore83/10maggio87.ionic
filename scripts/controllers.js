@@ -54,5 +54,21 @@
     });
 })
 
-.controller('PlayerCtrl', function ($scope, $stateParams) {
+.controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+    $scope.playerTag = $stateParams.playerTag;
+
+    $http.get('http://api.10maggio87.it/api/player/' + $stateParams.playerTag).then(function (resp) {
+        $scope.player = resp.data;
+    }, function (err) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Loading Error',
+            template: 'Check your connection'
+        });
+        alertPopup.then(function (res) {
+            console.log(err);
+        });
+    }).finally(function () {
+        $ionicLoading.hide();
+    });
+
 });

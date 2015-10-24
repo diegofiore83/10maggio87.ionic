@@ -137,6 +137,7 @@
     <Content Include="lib\ionic\js\ionic.min.js" />
     <Content Include="lib\ionic\version.json" />
     <Content Include="merges\wp8\css\overrides.css" />
+    <Content Include="scripts\filters.js" />
     <Content Include="templates\browse.html" />
     <Content Include="templates\login.html" />
     <Content Include="templates\menu.html" />

@@ -33,14 +33,24 @@
     };
 })
 
-.controller('PlayersCtrl', function ($scope, $http) {
+.controller('PlayersCtrl', function ($scope, $http, $ionicLoading, $ionicPopup) {
     $scope.players = [];
-    $scope.error = "no error";
 
-    $http.get('http://api.10maggio87.it/api/players/team').then(function(resp) {
+    // Setup the loader
+    $ionicLoading.show({ content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+    $http.get('http://api.10maggio87.it/api/players/team').then(function (resp) {
         $scope.players = resp.data;
     }, function(err) {
-        $scope.error = err;
+        var alertPopup = $ionicPopup.alert({
+            title: 'Loading Error',
+            template: 'Check your connection'
+        });
+        alertPopup.then(function (res) {
+            console.log(err);
+        });
+    }).finally(function () {
+        $ionicLoading.hide();
     });
 })
 

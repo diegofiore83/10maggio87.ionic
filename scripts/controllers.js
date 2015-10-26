@@ -37,7 +37,7 @@
     $scope.players = [];
 
     // Setup the loader
-    $ionicLoading.show({ content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+    $ionicLoading.show({ templateUrl:"templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
     $http.get('http://api.10maggio87.it/api/players/team').then(function (resp) {
         $scope.players = resp.data;
@@ -56,6 +56,8 @@
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.playerTag = $stateParams.playerTag;
+
+    $ionicLoading.show({ templateUrl:"templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
     $http.get('http://api.10maggio87.it/api/player/' + $stateParams.playerTag).then(function (resp) {
         $scope.player = resp.data;

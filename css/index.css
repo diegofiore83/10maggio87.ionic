@@ -1,3 +1,8 @@
 ﻿body { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
-.ion-player-image { width: 50px; height: 40px; position: absolute; top: 5px; right: 10px; }
+
+.text-center { text-align: center; }
+.text-value { color: #000; }
+.button-value { line-height: 44px;font-size: 28px; }
+
+.ion-player-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 10px; }
 .ion-position-text { position: absolute; bottom: 5px; right: 10px; }

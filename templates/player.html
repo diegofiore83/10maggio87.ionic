@@ -5,6 +5,26 @@
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Profile.Tag}}.jpg">
                 <h2>{{player.Profile.Name}}</h2>
                 <p>{{player.Profile.Position | position}}</p>
+                <img class="ion-player-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Profile.Nation}}.png">
+            </div>
+            <div class="item item-text-wrap">
+                <img class="full-image" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/2015-16/{{player.Profile.Tag}}.jpg">
+                <h2 class="text-center">Dati Personali</h2>
+                <p>Nazionalità: <span class="text-value">{{player.Profile.Nation}}</span></p>
+                <p>Nato a: <span class="text-value">{{player.Profile.PlaceOfBirth}}</span></p>
+                <p>Il: <span class="text-value">{{player.Profile.DateOfBirth | date:'dd/MM/yyyy'}}</span></p>
+                <!--<div class="row">
+                    <div class="col col-33"><p>Stagioni: <span class="text-value">3</span></p></div>
+                    <div class="col col-33"><p>Presenze: <span class="text-value">177</span></p></div>
+                    <div class="col col-33"><p>Reti: <span class="text-value">18</span></p></div>
+                </div>-->
+            </div>
+            <div class="item item-text-wrap">
+                <div class="button-bar">
+                    <a class="button button-positive icon-left button-value ion-android-hand">3</a>
+                    <a class="button button-positive icon-left button-value ion-tshirt">177</a>
+                    <a class="button button-positive icon-left button-value ion-ios-football">18</a>
+                </div>
             </div>
         </div>
     </ion-content>

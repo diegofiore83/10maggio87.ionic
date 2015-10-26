@@ -18,6 +18,7 @@
                 case 'Dif': return "Difensore";
                 case 'Cen': return "Centrocampista";
                 case 'Att': return "Attaccante";
+                case 'All': return "Allenatore";
                 default: return "Undefined";
             }
         };

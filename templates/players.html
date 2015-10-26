@@ -5,7 +5,7 @@
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
                 <h2>{{player.Name}}</h2>
                 <p>{{player.Nation}}</p>
-                <p>{{player.DataOfBirth | date:'dd/MM/yyyy'}} ({{player.DataOfBirth | ageFilter}} anni)</p>
+                <p>{{player.DateOfBirth | date:'dd/MM/yyyy'}} ({{player.DateOfBirth | ageFilter}} anni)</p>
                 <p class="ion-position-text">{{player.Position | position}}</p>
                 <img class="ion-player-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
             </ion-item>

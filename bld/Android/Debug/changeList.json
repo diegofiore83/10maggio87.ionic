@@ -1,9 +1,20 @@
 {
-  "changedFilesIos": [],
+  "changedFilesIos": [
+    "templates\\player.html",
+    "css\\index.css",
+    "index.html",
+    "lib\\ionic\\css\\ionic.css",
+    "templates\\browse.html",
+    "lib\\ionic\\js\\ionic.bundle.js",
+    "scripts\\controllers.js",
+    "templates\\loading.html"
+  ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
-  "changedFiles": [],
+  "changedFiles": [
+    "templates\\player.html"
+  ],
   "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []

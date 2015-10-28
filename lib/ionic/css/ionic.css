@@ -2,7 +2,7 @@
  * Copyright 2014 Drifty Co.
  * http://drifty.com/
  *
- * Ionic, v1.1.0-nightly-1583
+ * Ionic, v1.1.0
  * A powerful HTML5 mobile app framework.
  * http://ionicframework.com/
  *
@@ -17,10 +17,10 @@
   https://twitter.com/benjsperry  https://twitter.com/ionicframework
   MIT License: https://github.com/driftyco/ionicons
 
-  Android-style icons originally built by Google’s
+  Android-style icons originally built by Googleâ€™s
   Material Design Icons: https://github.com/google/material-design-icons
   used under CC BY http://creativecommons.org/licenses/by/4.0/
-  Modified icons to fit ionicon’s grid from original.
+  Modified icons to fit ioniconâ€™s grid from original.
 */
 @font-face {
   font-family: "Ionicons";
@@ -5471,13 +5471,6 @@ a.item-content {
       transition: opacity 0.4s ease-in;
       opacity: 1; }
 
-.slider-slide.ng-enter, .slider-slide.ng-leave, .slider-slide.ng-animate, .slider-pager-page.ng-enter, .slider-pager-page.ng-leave, .slider-pager-page.ng-animate {
-  -webkit-transition: none !important;
-  transition: none !important; }
-.slider-slide.ng-animate, .slider-pager-page.ng-animate {
-  -webkit-animation: none 0s;
-  animation: none 0s; }
-
 .scroll-refresher {
   position: absolute;
   top: -60px;
@@ -5545,12 +5538,7 @@ a.item-content {
   -webkit-overflow-scrolling: touch;
   width: 100%; }
   .overflow-scroll > .scroll.overscroll {
-    position: fixed;
-    right: 0;
-    left: 0; }
-
-.overflow-scroll.padding > .scroll.overscroll {
-  padding: 10px; }
+    position: fixed; }
 
 @-webkit-keyframes refresh-spin {
   0% {
@@ -6271,12 +6259,22 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
   /* hide any radio button inputs elements (the ugly circles) */
   position: absolute;
   left: -9999px; }
-  .item-radio input:checked + .radio-content .item-content {
+  .item-radio input:checked ~ .item-content {
     /* style the item content when its checked */
     background: #f7f7f7; }
-  .item-radio input:checked + .radio-content .radio-icon {
+  .item-radio input:checked ~ .radio-icon {
     /* show the checkmark icon when its checked */
     visibility: visible; }
+
+.platform-android.grade-b .item-radio, .platform-android.grade-c .item-radio {
+  -webkit-animation: androidCheckedbugfix infinite 1s; }
+
+@-webkit-keyframes androidCheckedbugfix {
+  from {
+    padding: 0; }
+
+  to {
+    padding: 0; } }
 
 /**
  * Range

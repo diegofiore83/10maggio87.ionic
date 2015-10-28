@@ -1,8 +1,11 @@
-﻿body { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
+﻿body, .ionic-body, html, 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, 
+.tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .text-center { text-align: center; }
+.text-top { padding-top: 5px; }
 .text-value { color: #000; }
-.button-value { line-height: 44px;font-size: 28px; }
+.button-value { line-height: 46px; font-size: 28px; }
 
-.ion-player-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 10px; }
+.ion-player-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
 .ion-position-text { position: absolute; bottom: 5px; right: 10px; }

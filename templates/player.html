@@ -9,21 +9,38 @@
             </div>
             <div class="item item-text-wrap">
                 <img class="full-image" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/2015-16/{{player.Profile.Tag}}.jpg">
-                <h2 class="text-center">Dati Personali</h2>
+                <h2 class="text-center text-top">Dati Personali</h2>
                 <p>Nazionalità: <span class="text-value">{{player.Profile.Nation}}</span></p>
                 <p>Nato a: <span class="text-value">{{player.Profile.PlaceOfBirth}}</span></p>
                 <p>Il: <span class="text-value">{{player.Profile.DateOfBirth | date:'dd/MM/yyyy'}}</span></p>
-                <!--<div class="row">
-                    <div class="col col-33"><p>Stagioni: <span class="text-value">3</span></p></div>
-                    <div class="col col-33"><p>Presenze: <span class="text-value">177</span></p></div>
-                    <div class="col col-33"><p>Reti: <span class="text-value">18</span></p></div>
-                </div>-->
             </div>
             <div class="item item-text-wrap">
                 <div class="button-bar">
-                    <a class="button button-positive icon-left button-value ion-android-hand">3</a>
-                    <a class="button button-positive icon-left button-value ion-tshirt">177</a>
-                    <a class="button button-positive icon-left button-value ion-ios-football">18</a>
+                    <a class="button button-positive icon-left button-value ion-ios-list-outline">{{player.Career.SeasonsTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-tshirt">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-ios-football">{{player.Career.GoalsTot}}</a>
+                </div>
+                <h2 class="text-center text-top">Riepilogo Stagioni</h2>
+                <div class="row">
+                    <div class="col col-20 text-center"><h5>Anno</h5></div>
+                    <div class="col col-20 text-center"><h5>Totale</h5></div>
+                    <div class="col col-20 text-center"><h5>Campionato</h5></div>
+                    <div class="col col-20 text-center"><h5>Europa</h5></div>
+                    <div class="col col-20 text-center"><h5>Altre Coppe</h5></div>
+                </div>
+                <div class="row item" ng-repeat="appearance in player.Career.Appearances">
+                    <div class="col col-20 text-center">{{appearance.Year}}</div>
+                    <div class="col col-20 text-center"><p>{{appearance.AppearancesCa + appearance.AppearancesCi + appearance.AppearancesEu}} - {{appearance.GoalsCa + appearance.GoalsCi + appearance.GoalsEu}}</p></div>
+                    <div class="col col-20 text-center"><p>{{appearance.AppearancesCa}} - {{appearance.GoalsCa}}</p></div>
+                    <div class="col col-20 text-center"><p>{{appearance.AppearancesEu}} - {{appearance.GoalsEu}}</p></div>
+                    <div class="col col-20 text-center"><p>{{appearance.AppearancesCi}} - {{appearance.GoalsCi}}</p></div>
+                </div>
+                <div class="row item">
+                    <div class="col col-20 text-center"></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesTot}} - {{player.Career.GoalsTot}}</div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCaTot}} - {{player.Career.GoalsCaTot}}</div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesEuTot}} - {{player.Career.GoalsEuTot}}</div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCiTot}} - {{player.Career.GoalsCiTot}}</div>
                 </div>
             </div>
         </div>

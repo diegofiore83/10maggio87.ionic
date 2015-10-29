@@ -9,3 +9,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 
 .ion-player-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
 .ion-position-text { position: absolute; bottom: 5px; right: 10px; }
+.ion-trophies { position: absolute; bottom: 0; right: 12px; }
+.ion-custom-trophy { float: right; text-align: center; margin: 0 5px; }
+.ion-custom-trophy img { width: 24px; height: 24px; }
+.ion-custom-trophy p { font-size: 10px; }

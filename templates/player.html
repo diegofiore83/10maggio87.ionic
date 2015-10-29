@@ -13,6 +13,12 @@
                 <p>Nazionalità: <span class="text-value">{{player.Profile.Nation}}</span></p>
                 <p>Nato a: <span class="text-value">{{player.Profile.PlaceOfBirth}}</span></p>
                 <p>Il: <span class="text-value">{{player.Profile.DateOfBirth | date:'dd/MM/yyyy'}}</span></p>
+                <div class="ion-trophies">
+                    <div class="ion-custom-trophy" ng-repeat="trophy in player.Trophies">
+                        <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Trofei/{{trophy.Competition.split(' ').join('_')}}.png" />
+                        <p>{{trophy.Year}}</p>
+                    </div>
+                </div>
             </div>
             <div class="item item-text-wrap">
                 <div class="button-bar">

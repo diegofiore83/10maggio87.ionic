@@ -24,7 +24,7 @@
                 <div class="button-bar">
                     <a class="button button-positive icon-left button-value ion-ios-list-outline">{{player.Career.SeasonsTot}}</a>
                     <a class="button button-positive icon-left button-value ion-tshirt" ng-if="player.Profile.Position != 'All'">{{player.Career.AppearancesTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-compose">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-compose" ng-if="player.Profile.Position == 'All'">{{player.Career.AppearancesTot}}</a>
                     <a class="button button-positive icon-left button-value ion-ios-football" ng-if="player.Profile.Position != 'All'">{{player.Career.GoalsTot}}</a>
                 </div>
                 <h2 class="text-center text-top">Riepilogo Stagioni</h2>

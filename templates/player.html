@@ -23,8 +23,9 @@
             <div class="item item-text-wrap">
                 <div class="button-bar">
                     <a class="button button-positive icon-left button-value ion-ios-list-outline">{{player.Career.SeasonsTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-tshirt">{{player.Career.AppearancesTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-ios-football">{{player.Career.GoalsTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-tshirt" ng-if="player.Profile.Position != 'All'">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-compose">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-ios-football" ng-if="player.Profile.Position != 'All'">{{player.Career.GoalsTot}}</a>
                 </div>
                 <h2 class="text-center text-top">Riepilogo Stagioni</h2>
                 <div class="row">
@@ -36,17 +37,17 @@
                 </div>
                 <div class="row item" ng-repeat="season in player.Career.SeasonsStats">
                     <div class="col col-20 text-center">{{season.Season}}</div>
-                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa + season.Appearance.AppearancesCi + season.Appearance.AppearancesEu}} - {{season.Appearance.GoalsCa + season.Appearance.GoalsCi + season.Appearance.GoalsEu}}</p></div>
-                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa}} - {{season.Appearance.GoalsCa}}</p></div>
-                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesEu}} - {{season.Appearance.GoalsEu}}</p></div>
-                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCi}} - {{season.Appearance.GoalsCi}}</p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa + season.Appearance.AppearancesCi + season.Appearance.AppearancesEu}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCa + season.Appearance.GoalsCi + season.Appearance.GoalsEu}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCa}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesEu}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsEu}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCi}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCi}}</span></p></div>
                 </div>
                 <div class="row item">
                     <div class="col col-20 text-center"></div>
-                    <div class="col col-20 text-center">{{player.Career.AppearancesTot}} - {{player.Career.GoalsTot}}</div>
-                    <div class="col col-20 text-center">{{player.Career.AppearancesCaTot}} - {{player.Career.GoalsCaTot}}</div>
-                    <div class="col col-20 text-center">{{player.Career.AppearancesEuTot}} - {{player.Career.GoalsEuTot}}</div>
-                    <div class="col col-20 text-center">{{player.Career.AppearancesCiTot}} - {{player.Career.GoalsCiTot}}</div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCaTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsCaTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesEuTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsEuTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCiTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsCiTot}}</span></div>
                 </div>
             </div>
         </div>

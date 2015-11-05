@@ -8,8 +8,7 @@
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\player.html",
-    "scripts\\controllers.js"
+    "templates\\player.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -73,4 +73,10 @@
         $ionicLoading.hide();
     });
 
+    $scope.currentCompetition = [0, 0, 0, 0, 0];
+
+    $scope.selectCompetition = function (seasonIndex, competitionIndex) {
+        $scope.currentCompetition[seasonIndex] = competitionIndex;
+    };
+
 });

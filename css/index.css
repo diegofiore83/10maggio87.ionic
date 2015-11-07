@@ -6,8 +6,10 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 .text-top { padding-top: 5px; }
 .text-value { color: #000; }
 .button-value { line-height: 46px; font-size: 28px; }
+.ion-highlighted a{ background-color: lightblue !important; }
 
-.ion-player-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
+.ion-nation-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
+.ion-record-text { position: absolute; top: -10px; right: 18px; }
 .ion-position-text { position: absolute; bottom: 5px; right: 10px; }
 .ion-trophies { position: absolute; bottom: 0; right: 12px; }
 .ion-custom-trophy { float: right; text-align: center; margin: 0 5px; }

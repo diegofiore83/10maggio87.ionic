@@ -152,6 +152,7 @@
     <Content Include="merges\android\scripts\platformOverrides.js" />
     <Content Include="merges\windows\scripts\platformOverrides.js" />
     <Content Include="merges\windows\scripts\winstore-jscompat.js" />
+    <Content Include="templates\record.html" />
     <Content Include="templates\search.html" />
     <Folder Include="merges\ios\scripts\" />
     <Folder Include="plugins\" />

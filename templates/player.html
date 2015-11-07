@@ -1,11 +1,11 @@
-﻿<ion-view view-title="Scheda Giocatore">
+﻿<ion-view view-title="Profilo Giocatore" ng-cloak>
     <ion-content>
         <div class="card">
             <div class="item item-avatar">
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Profile.Tag}}.jpg">
                 <h2>{{player.Profile.Name}}</h2>
                 <p>{{player.Profile.Position | position}}</p>
-                <img class="ion-player-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Profile.Nation}}.png">
+                <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Profile.Nation}}.png">
             </div>
             <div class="item item-text-wrap">
                 <img class="full-image" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/2015-16/{{player.Profile.Tag}}.jpg">
@@ -22,10 +22,10 @@
             </div>
             <div class="item item-text-wrap">
                 <div class="button-bar">
-                    <a class="button button-positive icon-left button-value ion-ios-list-outline">{{player.Career.SeasonsTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-tshirt" ng-if="player.Profile.Position != 'All'">{{player.Career.AppearancesTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-compose" ng-if="player.Profile.Position == 'All'">{{player.Career.AppearancesTot}}</a>
-                    <a class="button button-positive icon-left button-value ion-ios-football" ng-if="player.Profile.Position != 'All'">{{player.Career.GoalsTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-ios-list-outline" ng-href="#/app/record/16">{{player.Career.SeasonsTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-tshirt" ng-if="player.Profile.Position != 'All'" ng-href="#/app/record/14">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-compose" ng-if="player.Profile.Position == 'All'" ng-href="#/app/record/22">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-ios-football" ng-if="player.Profile.Position != 'All'" ng-href="#/app/record/13">{{player.Career.GoalsTot}}</a>
                 </div>
                 <h2 class="text-center text-top">Riepilogo Stagioni</h2>
                 <div class="row">

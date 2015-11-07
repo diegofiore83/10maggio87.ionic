@@ -1,4 +1,4 @@
-﻿<ion-view view-title="Rosa">
+﻿<ion-view view-title="Rosa" ng-cloak>
     <ion-content>
         <ion-list>
             <ion-item class="item item-thumbnail-left" ng-repeat="player in players" ng-href="#/app/players/{{player.Tag}}">
@@ -7,7 +7,7 @@
                 <p>{{player.Nation}}</p>
                 <p>{{player.DateOfBirth | date:'dd/MM/yyyy'}} ({{player.DateOfBirth | ageFilter}} anni)</p>
                 <p class="ion-position-text">{{player.Position | position}}</p>
-                <img class="ion-player-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
+                <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
             </ion-item>
         </ion-list>
     </ion-content>

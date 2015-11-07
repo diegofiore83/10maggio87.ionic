@@ -22,4 +22,16 @@
                 default: return "Undefined";
             }
         };
-    });
+    })
+    .filter('record', function () {
+        return function (id) {
+
+            switch (id) {
+                case "13": return "Classifica Marcatori";
+                case "14": return "Classifica Presenze";
+                case "16": return "Classifica Stagioni";
+                case "22": return "Classifica Panchine";
+                default : return "Record";
+            }
+        };
+});

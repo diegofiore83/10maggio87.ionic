@@ -42,16 +42,26 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
                 templateUrl: "templates/search.html"
             }
         }
-     })
+    })
 
-     .state('app.browse', {
-        url: "/browse",
+    .state('app.record', {
+        url: "/record/:recordId",
         views: {
             'menuContent': {
-                templateUrl: "templates/browse.html"
+                templateUrl: "templates/record.html",
+                controller: 'RecordCtrl'
             }
         }
-      })
+    })
+
+     .state('app.browse', {
+         url: "/browse",
+         views: {
+             'menuContent': {
+                 templateUrl: "templates/browse.html"
+             }
+         }
+     })
 
       .state('app.players', {
           url: "/players",
@@ -72,6 +82,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
             }
         }
     });
+
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/app/players');
 });

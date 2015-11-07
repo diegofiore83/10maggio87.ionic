@@ -1,0 +1,12 @@
+﻿<ion-view view-title="{{recordId | record}}" ng-cloak>
+    <ion-content>
+        <div class="list card">
+            <ion-item class="item item-avatar" ng-repeat="player in players" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/players/{{player.Tag}}">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <h2>{{player.Name}}</h2>
+                <p>{{player.Position | position}} - {{player.Nation}}</p>
+                <h1 class="ion-record-text">{{player.Total}}</h1>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

@@ -84,11 +84,13 @@
 .controller('RecordCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.recordId = $stateParams.recordId;
 
+    $scope.showTotal = 'Total';
+
     $scope.players = [];
 
     $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-    $http.get('http://api.10maggio87.it/api/record/story/' + $stateParams.recordId).then(function (resp) {
+    $http.get('http://api.10maggio87.it/api/record/story/' + $stateParams.recordId + '/0').then(function (resp) {
         $scope.players = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({

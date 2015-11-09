@@ -13,9 +13,7 @@
   "deletedPluginsIos": [],
   "changedFiles": [
     "templates\\record.html",
-    "css\\index.css",
-    "templates\\player.html",
-    "templates\\players.html"
+    "css\\index.css"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

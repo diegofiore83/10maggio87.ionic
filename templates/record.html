@@ -1,11 +1,20 @@
 ﻿<ion-view view-title="{{recordId | record}}" ng-cloak>
     <ion-content>
+        <div class="button-bar button-filter">
+            <a class="button button-positive button-full" ng-click="showTotal = 'Total'">Tutte</a>
+            <a class="button button-positive button-full" ng-click="showTotal = 'TotalCa'">Campionato</a>
+            <a class="button button-positive button-full" ng-click="showTotal = 'TotalCi'">Coppa Italia</a>
+            <a class="button button-positive button-full" ng-click="showTotal = 'TotalEu'">Europa</a>
+        </div>
         <div class="list card">
-            <ion-item class="item item-avatar" ng-repeat="player in players" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/players/{{player.Tag}}">
+            <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : showTotal : true)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/players/{{player.Tag}}">
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
                 <h2>{{player.Name}}</h2>
                 <p>{{player.Position | position}} - {{player.Nation}}</p>
-                <h1 class="ion-record-text">{{player.Total}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'Total'">{{player.Total}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCa'">{{player.TotalCa}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCi'">{{player.TotalCi}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalEu'">{{player.TotalEu}}</h1>
             </ion-item>
         </div>
     </ion-content>

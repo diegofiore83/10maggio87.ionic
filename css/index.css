@@ -5,6 +5,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 .text-center { text-align: center; }
 .text-top { padding-top: 5px; }
 .text-value { color: #000; }
+.button-filter a { font-size: 14px; padding: 0 4px !important; }
 .button-value { line-height: 46px; font-size: 28px; }
 .ion-highlighted a{ background-color: lightblue !important; }
 

@@ -56,28 +56,35 @@
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.playerTag = $stateParams.playerTag;
-
-    $ionicLoading.show({ templateUrl:"templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-
-    $http.get('http://api.10maggio87.it/api/player/' + $stateParams.playerTag).then(function (resp) {
-        $scope.player = resp.data;
-    }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
-    }).finally(function () {
-        $ionicLoading.hide();
-    });
-
+    $scope.hasDetails = false; 
     $scope.currentCompetition = [0, 0, 0, 0, 0];
 
     $scope.selectCompetition = function (seasonIndex, competitionIndex) {
         $scope.currentCompetition[seasonIndex] = competitionIndex;
     };
+
+    $scope.getPlayer = function (hasDetails) {
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $scope.hasDetails = hasDetails;
+
+        $http.get('http://api.10maggio87.it/api/player/' + $stateParams.playerTag + '/' + hasDetails).then(function (resp) {
+            $scope.player = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getPlayer(false);
 
 })
 

@@ -1,13 +1,14 @@
 {
   "changedFilesIos": [
-    "scripts\\controllers.js",
-    "templates\\record.html"
+    "templates\\player.html",
+    "scripts\\controllers.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\record.html"
+    "templates\\player.html",
+    "scripts\\controllers.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

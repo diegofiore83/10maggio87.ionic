@@ -1,0 +1,17 @@
+﻿<ion-view view-title="Calendario" ng-cloak>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item item-match" ng-repeat="match in matches" ng-href="#/app/match/{{match.Id}}">
+                <span class="item-match-teams text-center">
+                    <img class="item-match-logo-home" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Teams.replace(' - ','-').split('-')[0]}}.png"></img>
+                    {{match.Teams}}
+                    <img class="item-match-logo-away" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Teams.replace(' - ','-').split('-')[1]}}.png"></img>
+                </span>
+                <span class="item-match-datetime text-center">{{match.Date | date:'EEEE d MMMM yyyy'}}{{ {true: '', false: ' - ' + (match.Time | date:'HH:mm')}[(match.Time | date:'HH:mm') == '00:00'] }}</span>
+                <span class="item-match-competition text-left">{{match.Competition}}</span>
+                <span class="item-match-result text-right" ng-if="match.Result != ''">{{match.Result}}</span>
+                <span class="item-match-resultext text-right" ng-if="match.Result == '' || !match.Result">da giocare</span>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

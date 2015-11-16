@@ -63,26 +63,37 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
          }
      })
 
-      .state('app.players', {
-          url: "/players",
-          views: {
-              'menuContent': {
-                  templateUrl: "templates/players.html",
-                  controller: 'PlayersCtrl'
-              }
-          }
-      })
+    .state('app.players', {
+        url: "/players/:season",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/players.html",
+                controller: 'PlayersCtrl'
+            }
+        }
+    })
 
-    .state('app.single', {
-        url: "/players/:playerTag",
+    .state('app.player', {
+        url: "/player/:playerTag",
         views: {
             'menuContent': {
                 templateUrl: "templates/player.html",
                 controller: 'PlayerCtrl'
             }
         }
-    });
+    })
+
+    .state('app.calendar', {
+        url: "/calendar/:season",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/calendar.html",
+                controller: 'CalendarCtrl'
+            }
+        }
+    })
+    ;
 
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/app/players');
+    $urlRouterProvider.otherwise('/app/calendar/2015-16');
 });

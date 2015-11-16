@@ -7,7 +7,7 @@
             <a class="button button-positive button-full" ng-click="getRecords(25, 'TotalEu')">Europa</a>
         </div>
         <div class="list card">
-            <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : showTotal : true)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/players/{{player.Tag}}">
+            <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : showTotal : true)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/player/{{player.Tag}}">
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
                 <h2>{{player.Name}}</h2>
                 <p>{{player.Position | position}} - {{player.Nation}}</p>

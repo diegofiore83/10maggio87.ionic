@@ -7,8 +7,7 @@
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\calendar.html",
-    "css\\index.css"
+    "templates\\calendar.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

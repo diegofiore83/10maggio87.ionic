@@ -138,10 +138,12 @@
     <Content Include="lib\ionic\version.json" />
     <Content Include="merges\wp8\css\overrides.css" />
     <Content Include="scripts\filters.js" />
+    <Content Include="scripts\frameworks\angular-locale_it-it.js" />
     <Content Include="templates\browse.html" />
     <Content Include="templates\loading.html" />
     <Content Include="templates\login.html" />
     <Content Include="templates\menu.html" />
+    <Content Include="templates\match.html" />
     <Content Include="templates\player.html" />
     <Content Include="templates\calendar.html" />
     <Content Include="templates\players.html" />

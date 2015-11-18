@@ -3,6 +3,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 .tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 .text-center { text-align: center; }
+.text-justify { text-align: justify; }
 .text-top { padding-top: 5px; }
 .text-value { color: #000; }
 .button-filter a { font-size: 14px; padding: 0 4px !important; }

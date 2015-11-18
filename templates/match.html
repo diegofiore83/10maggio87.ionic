@@ -1,0 +1,23 @@
+﻿<ion-view view-title="Tabellino Partita" ng-cloak>
+    <ion-content>
+        <div class="card">
+            <div class="item item-avatar">
+                <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png" />
+                <h2>{{match.Teams}} {{match.Result}}</h2>
+                <p>{{match.Competition}}</p>
+                <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Opponent}}.png">
+            </div>
+            <div class="item item-text-wrap">
+                <h2 class="text-center text-top">{{match.Date | date:'EEEE d MMMM yyyy'}} - ore {{ {true: '', false: (match.Time | date:'HH:mm')}[(match.Time | date:'HH:mm') == '00:00'] }}</h2>
+                <div style="background: url('http://www.10maggio87.it/Images/Assets/Stadi/{{match.Stadium.split(' ').join('_')}}.jpg') center no-repeat; min-height: 150px;"></div>
+                <h2 class="text-center text-top">{{match.Stadium}} di {{match.HostCity}}</h2>              
+            </div>
+            <div class="item item-text-wrap">
+                <div class="text-justify" ng-bind-html="match.Commentary | toTrusted"></div>
+            </div>
+        </div>
+        <div class="button-bar button-filter" ng-if="!hasDetails">
+            <a class="button button-positive button-full" ng-click="getMatch(true)">Mostra Tabellino</a>
+        </div>
+    </ion-content>
+</ion-view>

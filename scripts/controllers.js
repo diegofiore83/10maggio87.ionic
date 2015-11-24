@@ -80,6 +80,57 @@
         });
     };
 
+
+    $scope.displayScoreboard = function (player) {
+        var display = "";
+        if (player.YellowCard)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/yellow.png' class='icon' />";
+        if (player.RedCard)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/red.png' class='icon' />";
+        for (var i = 0; i < player.GoalsConceded; i++)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/in-goal.png' class='icon' />";
+        for (i = 0; i < player.OwnGoals; i++)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/own-goal.png' class='icon' />";
+        for (i = 0; i < player.Goals; i++)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/score-goal.png' class='icon' />";
+        for (i = 0; i < player.Assist; i++)
+            display = display + "<img src='http://www.10maggio87.it/Images/Layout/Tabellino/assist-goal.png' class='icon'/>";
+        return display;
+    };
+
+    $scope.displayVote = function (player) {
+        if (player.Corriere == null || player.Gazzetta == null) {
+            if (player.Corriere == null && player.Gazzetta == null)
+                return 'sv';
+            else if (player.Corriere == null)
+                return player.Gazzetta;
+            else {
+                return player.Corriere;
+            }
+        }
+        return (player.Corriere + player.Gazzetta) / 2;
+    };
+
+    $scope.isSub = function (player) {
+        for (var i in $scope.match.Scoreboard) {
+            var playerIt = $scope.match.Scoreboard[i];
+            if (player.PlayerId == playerIt.SubId) {
+                return true;
+            }
+        };
+        return false;
+    }
+
+    $scope.isThe = function (player, status) {
+        for (var i in $scope.match.Scoreboard) {
+            var playerIt = $scope.match.Scoreboard[i];
+            if (player.PlayerId == playerIt.PlayerId && playerIt.Status == status) {
+                return true;
+            }
+        };
+        return false;
+    }
+
     $scope.getMatch(true);
 
 })
@@ -89,11 +140,11 @@
     $scope.players = [];
 
     // Setup the loader
-    $ionicLoading.show({ templateUrl:"templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+    $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
     $http.get('http://api.10maggio87.it/api/players/team/' + $scope.season).then(function (resp) {
         $scope.players = resp.data;
-    }, function(err) {
+    }, function (err) {
         var alertPopup = $ionicPopup.alert({
             title: 'Loading Error',
             template: 'Check your connection'
@@ -108,7 +159,7 @@
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.playerTag = $stateParams.playerTag;
-    $scope.hasDetails = false; 
+    $scope.hasDetails = false;
     $scope.currentCompetition = [0, 0, 0, 0, 0];
 
     $scope.selectCompetition = function (seasonIndex, competitionIndex) {
@@ -137,7 +188,6 @@
     };
 
     $scope.getPlayer(false);
-
 })
 
 .controller('RecordCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
@@ -146,7 +196,7 @@
     $scope.recordLoaded = 25;
     $scope.players = [];
 
-    $scope.getRecords = function(records, order) {
+    $scope.getRecords = function (records, order) {
         $scope.showTotal = order;
         $scope.recordLoaded = records;
 

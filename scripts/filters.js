@@ -1,14 +1,20 @@
 ﻿angular.module('angularApp.filters', [])
     .filter('ageFilter', function () {
-        function calculateAge(date) { // birthday is a date
+        function calculateAge(date, season) { // birthday is a date
+            var currentSeason = season.split('-')[0];
             var birthday = new Date(date);
-            var ageDifMs = Date.now() - birthday.getTime();
+            var ageDifMs;
+            if (currentSeason == '2015')
+                ageDifMs = Date.now() - birthday.getTime();
+            else {
+                ageDifMs = new Date('December 31, ' + currentSeason + ' 00:00:00') - birthday.getTime();
+            }
             var ageDate = new Date(ageDifMs); // miliseconds from epoch
             return Math.abs(ageDate.getUTCFullYear() - 1970);
         }
 
-        return function (birthdate) {
-            return calculateAge(birthdate);
+        return function (birthdate, season) {
+            return calculateAge(birthdate, season);
         };
     })
     .filter('position', function () {

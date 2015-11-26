@@ -106,7 +106,8 @@
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "scripts\\filters.js"
+    "templates\\menu.html",
+    "css\\index.css"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

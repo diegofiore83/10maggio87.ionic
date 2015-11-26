@@ -2,13 +2,15 @@
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, 
 .tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+ion-content { background-color: #1b91ce; }
+
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
 .text-top { padding-top: 5px; }
 .text-value { color: #000; }
-.button-filter a { font-size: 14px; padding: 0 4px !important; }
+.button-filter a { font-size: 14px; padding: 0 4px !important; margin-top: 20px !important; margin-bottom: 0 !important; }
 .button-value { line-height: 46px; font-size: 28px; }
-.ion-highlighted a{ background-color: lightblue !important; }
+.ion-highlighted a{ background-color: #73c8ee !important; }
 .card > h3 { font-size: 16px; }
 
 .ion-nation-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
@@ -31,9 +33,9 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 .item-match { }
 .item-match .item-content { height: 50px; padding: 0;}
 .item-match .item-match-teams { position: absolute; left: 55px; top: 15px; }
-.item-match .item-match-logo-opponent { position: absolute; right: 110px; top: 13px; width: 28px; }
-.item-match .item-match-result { position: absolute; right: 40px; top: 16px; font-size: 24px; }
-.item-match .item-match-date { position: absolute; right: 26px; top: 15px; }
+.item-match .item-match-logo-opponent { position: absolute; right: 90px; top: 13px; width: 28px; }
+.item-match .item-match-result { position: absolute; right: 26px; top: 16px; font-size: 24px; }
+.item-match .item-match-date { position: absolute; right: 15px; top: 15px; }
 .item-match .item-match-logo-competition { position: absolute; left: 15px; top: 13px; width: 24px; }
 
 .item-scoreboard { min-height: 50px; height: 50px; }

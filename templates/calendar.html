@@ -1,13 +1,15 @@
 ﻿<ion-view view-title="Calendario {{season}}" ng-cloak>
     <ion-content>
-        <ion-list>
-            <ion-item class="item-match" ng-repeat="match in matches" ng-href="#/app/match/{{match.Id}}">
-                <span class="item-match-teams text-left">{{match.Teams}}</span>
-                <img class="item-match-logo-opponent" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Opponent}}.png" />
-                <span class="item-match-result text-center" ng-if="match.Result != ''">{{match.Result}}</span>
-                <span class="item-match-date text-center" ng-if="match.Result == '' || !match.Result">{{match.Date | date:'dd/MM/yy'}}</span>
-                <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png"/>
-            </ion-item>
-        </ion-list>
+        <div class="card">
+            <ion-list>
+                <ion-item class="item-match" ng-repeat="match in matches" ng-href="#/app/match/{{match.Id}}">
+                    <span class="item-match-teams text-left">{{match.Teams}}</span>
+                    <img class="item-match-logo-opponent" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Opponent}}.png" />
+                    <span class="item-match-result text-center" ng-if="match.Result != ''">{{match.Result}}</span>
+                    <span class="item-match-date text-center" ng-if="match.Result == '' || !match.Result">{{match.Date | date:'dd/MM/yy'}}</span>
+                    <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png" />
+                </ion-item>
+            </ion-list>
+        </div>
     </ion-content>
 </ion-view>

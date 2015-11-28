@@ -8,12 +8,16 @@
   <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
   <author href="http://www.10maggio87.it" email="dev@cordova.apache.org">10maggio87.it Team</author>
   <content src="index.html" />
-  <preference name="SplashScreen" value="screen" />
-  <preference name="SplashScreenDelay" value="10000" />
+  
+  <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+  <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
+  
   <preference name="windows-target-version" value="8.0" />
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />
-
+  <preference name="SplashScreen" value="splash" />
+  <preference name="SplashScreenDelay" value="10000" />
+   
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />
   <icon src="res/icons/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
@@ -25,9 +29,8 @@
   <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
   <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
   <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
+  <gap:splash src="splash.png" />
   
-  <gap:plugin name="cordova-plugin-whitelist" source="npm" />
-  <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
   <allow-navigation href="http://*/*" />
   <allow-intent href="https://*/*" />
 </widget>

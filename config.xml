@@ -16,7 +16,7 @@
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />
   <preference name="SplashScreen" value="splash" />
-  <preference name="SplashScreenDelay" value="10000" />
+  <preference name="SplashScreenDelay" value="3000" />
    
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />

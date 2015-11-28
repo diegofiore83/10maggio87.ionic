@@ -22,6 +22,7 @@
   <icon src="res/icons/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
 
   <gap:plugin name="cordova-plugin-whitelist" source="npm" />
+  <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
   <allow-navigation href="http://*/*" />
   <allow-intent href="https://*/*" />
 </widget>

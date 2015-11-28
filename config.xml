@@ -9,6 +9,7 @@
   <author href="http://www.10maggio87.it" email="dev@cordova.apache.org">10maggio87.it Team</author>
   <content src="index.html" />
   <preference name="SplashScreen" value="screen" />
+  <preference name="SplashScreenDelay" value="10000" />
   <preference name="windows-target-version" value="8.0" />
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />

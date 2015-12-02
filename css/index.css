@@ -48,3 +48,5 @@ ion-content { background-color: #1b91ce; }
 .item-scoreboard .item-sub-out { position: absolute; top: 5px; left: 15px; }
 .item-scoreboard.ion-best .item-content { background-color: #EEE8AA; }
 .item-scoreboard.ion-worst .item-content { background-color: #FFDAB9; }
+
+.item-html { font-size: 14px !important; }

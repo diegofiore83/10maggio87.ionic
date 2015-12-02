@@ -1,0 +1,19 @@
+﻿<ion-view view-title="News - {{news.Tag}}" ng-cloak>
+    <ion-content>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <h2 class="text-justify"><strong>{{news.Title}}</strong></h2>
+            </div>
+            <div class="item item-text-wrap">
+                <img class="full-image" ng-src="{{news.Image}}" />
+                <h2 class="text-center text-top">{{news.Date | date:'EEEE d MMMM yyyy - HH:mm'}}</h2>
+            </div>
+            <div class="item item-text-wrap">
+                <a class="button button-small button-assertive" ng-repeat="keyword in news.Keywords.split(', ')">{{keyword}}</a>
+            </div>
+            <div class="item item-text-wrap">
+                <div class="item-html text-justify" ng-bind-html="news.Html | toTrusted"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

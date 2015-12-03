@@ -4,14 +4,21 @@
     "css\\index.css",
     "templates\\match.html",
     "scripts\\app.js",
-    "scripts\\controllers.js"
+    "scripts\\controllers.js",
+    "res\\screens\\android\\screen-hdpi-portrait.png",
+    "res\\screens\\android\\screen-ldpi-portrait.png",
+    "res\\screens\\android\\screen-mdpi-portrait.png",
+    "res\\screens\\android\\screen-xhdpi-portrait.png",
+    "templates\\news-list.html"
   ],
-  "deletedFilesIos": [],
+  "deletedFilesIos": [
+    "templates\\news - Copy.html"
+  ],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\news.html",
-    "scripts\\controllers.js"
+    "templates\\news-list.html",
+    "css\\index.css"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

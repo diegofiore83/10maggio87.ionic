@@ -50,3 +50,9 @@ ion-content { background-color: #1b91ce; }
 .item-scoreboard.ion-worst .item-content { background-color: #FFDAB9; }
 
 .item-html { font-size: 14px !important; }
+
+.item-news { padding: 1px;display: inline-block;border: none; }
+.item-news img { float: left; width: 30%;}
+.item-news .item-tag { float: left; margin-left: 2%; width: 33%;}
+.item-news .item-date { float: left; margin-right: 2%; width: 33%;}
+.item-news h2 { float: left; width: 66%; margin-left: 2%;}

@@ -103,17 +103,27 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
-    .state('app.news', {
-        url: "/news/:newsId",
+    .state('app.newsId', {
+        url: "/news/id/:newsId",
         views: {
             'menuContent': {
                 templateUrl: "templates/news.html",
                 controller: 'NewsCtrl'
             }
         }
+    })
+
+    .state('app.newsKeyword', {
+        url: "/news/keyword/:keyword",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/news-list.html",
+                controller: 'NewsListCtrl'
+            }
+        }
     });
 
     // if none of the above states are matched, use this as the fallback
     // $urlRouterProvider.otherwise('/app/calendar/2015-16');
-    $urlRouterProvider.otherwise('/app/news/9598');
+    $urlRouterProvider.otherwise('/app/news/id/9598');
 });

@@ -1,4 +1,4 @@
-﻿<ion-view view-title="News - {{news.Tag}}" ng-cloak>
+﻿<ion-view view-title="{{news.Tag}}" ng-cloak>
     <ion-content>
         <div class="card">
             <div class="item item-text-wrap">
@@ -9,7 +9,7 @@
                 <h2 class="text-center text-top">{{news.Date | date:'EEEE d MMMM yyyy - HH:mm'}}</h2>
             </div>
             <div class="item item-text-wrap">
-                <a class="button button-small button-assertive" ng-repeat="keyword in news.Keywords.split(', ')">{{keyword}}</a>
+                <a class="button button-small button-assertive" ng-repeat="keyword in news.Keywords.split(', ')" ng-href="#/app/news/keyword/{{keyword}}">{{keyword}}</a>
             </div>
             <div class="item item-text-wrap">
                 <div class="item-html text-justify" ng-bind-html="news.Html | toTrusted"></div>

@@ -3,6 +3,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6,
 .tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 ion-content { background-color: #1b91ce; }
+.napoli {color: #1b91ce; }
 
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
@@ -51,8 +52,12 @@ ion-content { background-color: #1b91ce; }
 
 .item-html { font-size: 14px !important; }
 
-.item-news { padding: 1px;display: inline-block;border: none; }
+.item-news { padding: 1px; display: inline-block; border: none; }
 .item-news img { float: left; width: 30%;}
 .item-news .item-tag { float: left; margin-left: 2%; width: 33%;}
 .item-news .item-date { float: left; margin-right: 2%; width: 33%;}
-.item-news h2 { float: left; width: 66%; margin-left: 2%;}
+.item-news h2 { float: left; width: 66%; margin-left: 2%; font-weight: bold; font-size: 14px; }
+
+.item-news-card { padding: 1px; display: inline-block; border: none; margin-bottom: 10px; }
+.item-news-card img { float: left; width: 100%;}
+.item-news-card h2 { float: left; width: 100%; padding: 5px; font-weight: bold; font-size: 14px; }

@@ -9,15 +9,17 @@
     "res\\screens\\android\\screen-ldpi-portrait.png",
     "res\\screens\\android\\screen-mdpi-portrait.png",
     "res\\screens\\android\\screen-xhdpi-portrait.png",
-    "templates\\news-list.html"
+    "templates\\news-list.html",
+    "templates\\menu.html",
+    "templates\\news-cards.html"
   ],
   "deletedFilesIos": [
-    "templates\\news - Copy.html"
+    "templates\\news - Copy.html",
+    "templates\\news-list - Copy.html"
   ],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\news-list.html",
     "css\\index.css"
   ],
   "deletedFiles": [],

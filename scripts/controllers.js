@@ -163,22 +163,34 @@
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
 
-    // Setup the loader
-    $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+    var url = 'http://api.10maggio87.it/api/news/last/';
+    if (typeof $stateParams.keyword == "string") {
+        url = 'http://api.10maggio87.it/api/news/keyword/' + $scope.keyword + '/';
+    }
+    $scope.newsLoaded = 10;
 
-    $http.get('http://api.10maggio87.it/api/news/keyword/' + $scope.keyword + '/10').then(function (resp) {
-        $scope.newsList = resp.data;
-    }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
+    $scope.getNews = function(news) {
+        $scope.newsLoaded = news;
+
+        // Setup the loader
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $http.get(url + $scope.newsLoaded).then(function (resp) {
+            $scope.newsList = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
         });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
-    }).finally(function () {
-        $ionicLoading.hide();
-    });
+    };
+
+    $scope.getNews($scope.newsLoaded);
 })
 
 .controller('PlayersCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {

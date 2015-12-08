@@ -1,26 +1,17 @@
 {
   "changedFilesIos": [
-    "templates\\news.html",
-    "css\\index.css",
-    "templates\\match.html",
-    "scripts\\app.js",
+    "templates\\news-cards.html",
     "scripts\\controllers.js",
-    "res\\screens\\android\\screen-hdpi-portrait.png",
-    "res\\screens\\android\\screen-ldpi-portrait.png",
-    "res\\screens\\android\\screen-mdpi-portrait.png",
-    "res\\screens\\android\\screen-xhdpi-portrait.png",
-    "templates\\news-list.html",
-    "templates\\menu.html",
-    "templates\\news-cards.html"
+    "css\\index.css",
+    "templates\\match.html"
   ],
-  "deletedFilesIos": [
-    "templates\\news - Copy.html",
-    "templates\\news-list - Copy.html"
-  ],
+  "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "css\\index.css"
+    "templates\\news-cards.html",
+    "css\\index.css",
+    "templates\\match.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

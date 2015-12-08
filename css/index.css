@@ -13,6 +13,8 @@ ion-content { background-color: #1b91ce; }
 .button-value { line-height: 46px; font-size: 28px; }
 .ion-highlighted a{ background-color: #73c8ee !important; }
 .card > h3 { font-size: 16px; }
+.card-title { padding: 2px !important; }
+.card-title h2 { font-weight: bold; }
 
 .ion-nation-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
 .ion-record-text { position: absolute; top: -10px; right: 18px; }

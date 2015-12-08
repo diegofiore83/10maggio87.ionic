@@ -1,6 +1,21 @@
-﻿<ion-view view-title="Ultime News" ng-cloak>
+﻿<ion-view view-title="Bacheca" ng-cloak>
     <ion-content>
         <div class="card">
+            <div class="item card-title">
+                <h2 class="text-center text-top">Prossima Partita</h2>
+            </div>
+            <ion-item class="item-match" ng-href="#/app/match/{{match.Id}}">
+                <span class="item-match-teams text-left">{{match.Teams}}</span>
+                <img class="item-match-logo-opponent" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Opponent}}.png" />
+                <span class="item-match-result text-center" ng-if="match.Result != ''">{{match.Result}}</span>
+                <span class="item-match-date text-center" ng-if="match.Result == '' || !match.Result">{{match.Date | date:'dd/MM/yy'}}</span>
+                <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png" />
+            </ion-item>
+        </div>
+        <div class="card">
+            <div class="item card-title">
+                <h2 class="text-center text-top">Ultime Notizie</h2>
+            </div>
             <ul class="list">
                 <li class="item item-text-wrap item-news-card" ng-repeat="news in newsList">
                     <a ng-href="#/app/news/id/{{news.Id}}">

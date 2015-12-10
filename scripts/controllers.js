@@ -169,12 +169,28 @@
     }
     $scope.newsLoaded = 10;
 
+    $scope.getNextMatch = function () {
+        $scope.match = {};
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get('http://api.10maggio87.it/api/matches/next').then(function (resp) {
+            $scope.match = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+            $scope.getNews($scope.newsLoaded);
+        });
+    };
+
     $scope.getNews = function(news) {
         $scope.newsLoaded = news;
-
-        // Setup the loader
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-
         $http.get(url + $scope.newsLoaded).then(function (resp) {
             $scope.newsList = resp.data;
         }, function (err) {
@@ -187,28 +203,12 @@
             });
         }).finally(function () {
             $ionicLoading.hide();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
         });
     };
 
-    $scope.getMatch = function(type) {
-        $scope.match = {};
-
-        $http.get('http://api.10maggio87.it/api/matches/next').then(function (resp) {
-            $scope.match = resp.data;
-        }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
-        }).finally(function () {
-            $scope.getNews($scope.newsLoaded);
-        });
-    };
-
-    $scope.getMatch('next');
+    $scope.getNextMatch();
     
 })
 

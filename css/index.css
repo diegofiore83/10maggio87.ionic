@@ -36,7 +36,7 @@ ion-content { background-color: #1b91ce; }
 .item-match { }
 .item-match .item-content { height: 50px; padding: 0;}
 .item-match .item-match-teams { position: absolute; left: 55px; top: 15px; }
-.item-match .item-match-logo-opponent { position: absolute; right: 90px; top: 13px; width: 28px; }
+.item-match .item-match-logo-opponent { position: absolute; right: 75px; top: 13px; width: 28px; }
 .item-match .item-match-result { position: absolute; right: 26px; top: 16px; font-size: 24px; }
 .item-match .item-match-date { position: absolute; right: 15px; top: 15px; }
 .item-match .item-match-logo-competition { position: absolute; left: 15px; top: 13px; width: 24px; }

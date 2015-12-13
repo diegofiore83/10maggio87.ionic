@@ -58,13 +58,12 @@
 .controller('MatchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.matchId = $stateParams.matchId;
     $scope.hasDetails = true;
+    $scope.hasMatchHistory = false;
+    $scope.matchHistory = [];
 
     $scope.getMatch = function (hasDetails) {
-
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-
         $scope.hasDetails = hasDetails;
-
         $http.get('http://api.10maggio87.it/api/match/' + $scope.matchId + '/' + hasDetails).then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
@@ -80,6 +79,23 @@
         });
     };
 
+    $scope.getMatchHistory = function () {
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get('http://api.10maggio87.it/api/matches/previous/' + $scope.match.Profile.Opponent + '/').then(function (resp) {
+            $scope.matchHistory = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+            $scope.hasMatchHistory = true;
+        });
+    };
 
     $scope.displayScoreboard = function (player) {
         var display = "";

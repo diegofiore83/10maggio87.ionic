@@ -312,4 +312,27 @@
 
     $scope.getRecords($scope.recordLoaded, $scope.showTotal);
 
+})
+
+.controller('SearchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+    $scope.players = [];
+    $scope.playersLoaded = 25;
+    $scope.filters = {};
+    $scope.playerSearch = function () {
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $http.get('http://api.10maggio87.it/api/players/search/' + $scope.filters.player + '/' + $scope.playersLoaded).then(function (resp) {
+            $scope.players = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    }
 });

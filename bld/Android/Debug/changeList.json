@@ -4,17 +4,18 @@
     "templates\\match.html",
     "templates\\calendar.html",
     "css\\index.css",
-    "templates\\news-cards.html"
+    "templates\\news-cards.html",
+    "templates\\search.html",
+    "scripts\\app.js",
+    "templates\\menu.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
+    "templates\\search.html",
     "scripts\\controllers.js",
-    "templates\\calendar.html",
-    "css\\index.css",
-    "templates\\match.html",
-    "templates\\news-cards.html"
+    "templates\\menu.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -1,5 +1,17 @@
-﻿<ion-view view-title="Search">
+﻿<ion-view view-title="Cerca">
     <ion-content>
-        <h1>Search</h1>
-    </ion-content>
+        <div class="card">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Cerca Giocatore" ng-model="filters.player" ng-change="playerSearch()">
+            </label>
+        </div>
+        <div class="card">
+            <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : 'Tag' : false)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/player/{{player.Tag}}">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <h2>{{player.Name}}</h2>
+                <p>{{player.Position | position}} - {{player.Nation}}</p>
+            </ion-item>
+        </div>
+</ion-content>
 </ion-view>

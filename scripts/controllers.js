@@ -315,14 +315,14 @@
 })
 
 .controller('SearchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
-    $scope.players = [];
-    $scope.playersLoaded = 25;
+    $scope.type = $stateParams.type;
+    $scope.results = [];
     $scope.filters = {};
     $scope.playerSearch = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
         if ($scope.filters.player != '') {
-            $http.get('http://api.10maggio87.it/api/players/search/' + $scope.filters.player + '/' + $scope.playersLoaded).then(function(resp) {
-                $scope.players = resp.data;
+            $http.get('http://api.10maggio87.it/api/' + $scope.type + '/search/' + $scope.filters.player + '/25').then(function (resp) {
+                $scope.results = resp.data;
             }, function(err) {
                 var alertPopup = $ionicPopup.alert({
                     title: 'Loading Error',
@@ -335,7 +335,7 @@
                 $ionicLoading.hide();
             });
         } else {
-            $scope.players = [];
+            $scope.results = [];
             $ionicLoading.hide();
         }
     }

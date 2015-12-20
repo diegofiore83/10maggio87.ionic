@@ -36,7 +36,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     })
 
     .state('app.search', {
-        url: "/search",
+        url: "/search/:type",
         views: {
             'menuContent': {
                 templateUrl: "templates/search.html",

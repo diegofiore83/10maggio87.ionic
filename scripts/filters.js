@@ -40,8 +40,19 @@
                 default : return "Record";
             }
         };
-    }).filter('toTrusted', function ($sce) {
+    })
+    .filter('toTrusted', function ($sce) {
         return function (value) {
             return $sce.trustAsHtml(value);
+        };
+    })
+    .filter('translate', function () {
+        return function (text) {
+            switch (text) {
+                case 'managers': return "Allenatori";
+                case 'players': return "Giocatori";
+                case 'teams': return "Squadre";
+                default: return "Undefined";
+            }
         };
     });

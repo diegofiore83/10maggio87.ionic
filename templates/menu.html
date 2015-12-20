@@ -16,26 +16,29 @@
         </ion-header-bar>
         <ion-content>
             <ion-list>
-                <ion-item nav-clear menu-close ng-click="login()" class="item-icon-left">
-                    Login
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/search" class="item-icon-left">
-                    <i class="icon ion-search napoli"></i>Giocatori
-                </ion-item>
-                <ion-item nav-clear menu-close href="#/app/browse" class="item-icon-left">
-                    Browse
+                <ion-item nav-clear menu-close ng-href="#/app/news/last" class="item-icon-left">
+                    <i class="icon ion-clipboard napoli"></i>Notizie
                 </ion-item>
                 <ion-item nav-clear menu-close ng-href="#/app/players/2015-16" class="item-icon-left">
-                    <i class="icon ion-person-stalker napoli"></i>Squadra
+                    <i class="icon ion-person-stalker napoli"></i>Rosa
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/search/players" class="item-icon-left">
+                    <i class="icon ion-search napoli"></i>Giocatori
                 </ion-item>
                 <ion-item nav-clear menu-close ng-href="#/app/calendar/2015-16" class="item-icon-left">
                     <i class="icon ion-calendar napoli"></i>Calendario
                 </ion-item>
-                <ion-item nav-clear menu-close ng-href="#/app/news/last" class="item-icon-left">
-                    <i class="icon ion-clipboard napoli"></i>Notizie
+                <ion-item nav-clear menu-close href="#/app/search/managers" class="item-icon-left">
+                    <i class="icon ion-search napoli"></i>Allenatori
+                </ion-item>
+                <ion-item nav-clear menu-close href="#/app/browse" class="item-icon-left">
+                    Browse
                 </ion-item>
                 <ion-item nav-clear menu-close ng-href="#/app/news/last" class="item-icon-left">
                     <i class="icon ion-stats-bars napoli"></i>Statistiche
+                </ion-item>
+                <ion-item nav-clear menu-close ng-click="login()" class="item-icon-left">
+                    Login
                 </ion-item>
             </ion-list>
         </ion-content>

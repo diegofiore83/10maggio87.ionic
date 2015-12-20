@@ -7,15 +7,15 @@
     "templates\\news-cards.html",
     "templates\\search.html",
     "scripts\\app.js",
-    "templates\\menu.html"
+    "templates\\menu.html",
+    "scripts\\filters.js"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
     "templates\\search.html",
-    "scripts\\controllers.js",
-    "templates\\menu.html"
+    "scripts\\filters.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

@@ -1,9 +1,18 @@
 {
-  "changedFilesIos": [],
+  "changedFilesIos": [
+    "scripts\\controllers.js",
+    "templates\\team.html",
+    "css\\index.css",
+    "templates\\menu.html",
+    "templates\\match.html"
+  ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
-  "changedFiles": [],
+  "changedFiles": [
+    "css\\index.css",
+    "templates\\match.html"
+  ],
   "deletedFiles": [],
   "addedPlugins": [],
   "deletedPlugins": []

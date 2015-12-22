@@ -135,7 +135,7 @@
             }
         };
         return false;
-    }
+    };
 
     $scope.isThe = function (player, status) {
         for (var i in $scope.match.Scoreboard) {
@@ -145,7 +145,7 @@
             }
         };
         return false;
-    }
+    };
 
     $scope.getMatch(true);
 
@@ -318,10 +318,10 @@
     $scope.type = $stateParams.type;
     $scope.results = [];
     $scope.filters = {};
-    $scope.playerSearch = function () {
+    $scope.recordSearch = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        if ($scope.filters.player != '') {
-            $http.get('http://api.10maggio87.it/api/' + $scope.type + '/search/' + $scope.filters.player + '/25').then(function (resp) {
+        if ($scope.filters.text != '') {
+            $http.get('http://api.10maggio87.it/api/' + $scope.type + '/search/' + $scope.filters.text + '/25').then(function (resp) {
                 $scope.results = resp.data;
             }, function(err) {
                 var alertPopup = $ionicPopup.alert({
@@ -339,4 +339,58 @@
             $ionicLoading.hide();
         }
     }
+})
+
+.controller('TeamCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+    $scope.name = $stateParams.name;
+    $scope.matchHistory = [];
+
+    $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+    $http.get('http://api.10maggio87.it/api/team/' + $scope.name + '/').then(function (resp) {
+        $scope.records = resp.data;
+        $scope.total = $scope.getTotal();
+    }, function (err) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Loading Error',
+            template: 'Check your connection'
+        });
+        alertPopup.then(function (res) {
+            console.log(err);
+        });
+    }).finally(function () {
+        $ionicLoading.hide();
+        $scope.getMatchHistory();
+    });
+
+    $scope.getMatchHistory = function () {
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get('http://api.10maggio87.it/api/matches/previous/' + $scope.name + '/').then(function (resp) {
+            $scope.matchHistory = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getTotal = function () {
+        var total = { P: 0, W: 0, D: 0, L: 0, GS: 0, GC: 0 };
+        for (var i = 0; i < $scope.records.length; i++) {
+            var record = $scope.records[i];
+            total.P += record.P;
+            total.W += record.W;
+            total.D += record.D;
+            total.L += record.L;
+            total.GS += record.GS;
+            total.GC += record.GC;
+        }
+        return total;
+    };
+
 });

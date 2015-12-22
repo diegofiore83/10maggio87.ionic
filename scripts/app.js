@@ -45,6 +45,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
+    .state('app.team', {
+        url: "/team/:name",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/team.html",
+                controller: 'TeamCtrl'
+            }
+        }
+    })
+
     .state('app.record', {
         url: "/record/:recordId",
         views: {

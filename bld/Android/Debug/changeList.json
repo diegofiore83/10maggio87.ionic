@@ -4,14 +4,14 @@
     "templates\\team.html",
     "css\\index.css",
     "templates\\menu.html",
-    "templates\\match.html"
+    "templates\\match.html",
+    "templates\\record.html"
   ],
   "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "css\\index.css",
-    "templates\\match.html"
+    "scripts\\controllers.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

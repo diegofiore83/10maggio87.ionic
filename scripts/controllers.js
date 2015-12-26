@@ -312,6 +312,12 @@
 
     $scope.getRecords($scope.recordLoaded, $scope.showTotal);
 
+    $scope.getDigits = function () {
+        if ($scope.recordId == 23)
+            return 3;
+        return 0;
+    };
+
 })
 
 .controller('SearchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {

@@ -11,10 +11,10 @@
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
                 <h2>{{player.Name}}</h2>
                 <p>{{player.Position | position}} - {{player.Nation}}</p>
-                <h1 class="ion-record-text" ng-if="showTotal == 'Total'">{{player.Total}}</h1>
-                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCa'">{{player.TotalCa}}</h1>
-                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCi'">{{player.TotalCi}}</h1>
-                <h1 class="ion-record-text" ng-if="showTotal == 'TotalEu'">{{player.TotalEu}}</h1>
+                    <h1 class="ion-record-text" ng-if="showTotal == 'Total'">{{player.Total | number: getDigits()}}</h1>
+                    <h1 class="ion-record-text" ng-if="showTotal == 'TotalCa'">{{player.TotalCa | number: getDigits()}}</h1>
+                    <h1 class="ion-record-text" ng-if="showTotal == 'TotalCi'">{{player.TotalCi | number: getDigits()}}</h1>
+                    <h1 class="ion-record-text" ng-if="showTotal == 'TotalEu'">{{player.TotalEu | number: getDigits()}}</h1>
             </ion-item>
         </div>
         <div class="button-bar button-filter">

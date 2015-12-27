@@ -5,13 +5,17 @@
     "css\\index.css",
     "templates\\menu.html",
     "templates\\match.html",
-    "templates\\record.html"
+    "templates\\record.html",
+    "templates\\seasons.html",
+    "scripts\\app.js"
   ],
-  "deletedFilesIos": [],
+  "deletedFilesIos": [
+    "templates\\players - Copy.html"
+  ],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "scripts\\controllers.js"
+    "templates\\seasons.html"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

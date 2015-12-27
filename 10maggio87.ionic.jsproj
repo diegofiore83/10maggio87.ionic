@@ -142,6 +142,7 @@
     <Content Include="templates\browse.html" />
     <Content Include="templates\loading.html" />
     <Content Include="templates\login.html" />
+    <Content Include="templates\seasons.html" />
     <Content Include="templates\team.html" />
     <Content Include="templates\news-cards.html" />
     <Content Include="templates\news-list.html" />

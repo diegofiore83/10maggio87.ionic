@@ -94,6 +94,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
+    .state('app.seasons', {
+        url: "/seasons",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/seasons.html",
+                controller: 'SeasonsCtrl'
+            }
+        }
+    })
+
     .state('app.calendar', {
         url: "/calendar/:season",
         views: {

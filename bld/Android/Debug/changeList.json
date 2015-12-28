@@ -15,7 +15,8 @@
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\seasons.html"
+    "templates\\seasons.html",
+    "css\\index.css"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

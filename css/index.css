@@ -65,3 +65,4 @@ ion-content { background-color: #1b91ce; }
 .item-news-card { padding: 1px; display: inline-block; border: none; margin-bottom: 10px; }
 .item-news-card img { float: left; width: 100%;}
 .item-news-card h2 { float: left; width: 100%; padding: 5px; font-weight: bold; font-size: 14px; }
+.item-news-card h3 { float: left; width: 100%; padding: 2px 5px; font-weight: bold; font-size: 12px; }

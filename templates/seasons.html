@@ -4,14 +4,23 @@
             <div class="item card-title">
                 <h2 class="text-center text-top">Stagioni</h2>
             </div>
-            <ul class="list">
-                <li class="item item-text-wrap item-news-card" ng-repeat="season in filtered = (seasons | orderBy : Year : true)">
+            <div class="list">
+                <div class="item item-text-wrap item-news-card" ng-repeat="season in filtered = (seasons | orderBy : Year : true)">
                     <a ng-href="#/app/players/{{season.Year}}">
-                        <img ng-src="http://www.10maggio87.it/Images/Assets/Squadre/{{season.Year}}.jpg" />
-                        <h2 class="text-center">{{season.Year}} - {{season.Competition}}</h2>
+                        <div class="row">
+                            <div class="col col-50">
+                                <img ng-src="http://www.10maggio87.it/Images/Assets/Squadre/{{season.Year}}.jpg" />
+                            </div>
+                            <div class="col col-50">
+                                <h2 class="text-center">{{season.Year}}</h2>
+                                <h3 class="text-left">{{season.Position}}° in {{season.Competition}}</h3>
+                                <h3 class="text-left" ng-if="season.ResultCi != 'non partecipato'">{{season.ResultCi}} di Coppa Italia</h3>
+                                <h3 class="text-left" ng-if="season.CompetitionEu != 'non partecipato'">{{season.ResultEu}}  di {{season.CompetitionEu}}</h3>
+                            </div>
+                        </div>                       
                     </a>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
-</ion-content>
+    </ion-content>
 </ion-view>

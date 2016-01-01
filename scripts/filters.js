@@ -37,6 +37,8 @@
                 case "14": return "Classifica Presenze";
                 case "16": return "Classifica Stagioni";
                 case "22": return "Classifica Panchine";
+                case "24": return "Marcatori per Anno";
+                case "25": return "Presenze per Anno";
                 default : return "Record";
             }
         };

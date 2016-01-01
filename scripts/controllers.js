@@ -283,29 +283,29 @@
     $scope.getPlayer(false);
 })
 
-.controller('RecordCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('RecordCtrl', function($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.recordId = $stateParams.recordId;
     $scope.showTotal = 'Total';
     $scope.recordLoaded = 25;
     $scope.players = [];
 
-    $scope.getRecords = function (records, order) {
+    $scope.getRecords = function(records, order) {
         $scope.showTotal = order;
         $scope.recordLoaded = records;
 
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/record/story/' + $stateParams.recordId + '/' + $scope.recordLoaded + '/' + $scope.showTotal).then(function (resp) {
+        $http.get('http://api.10maggio87.it/api/record/story/' + $stateParams.recordId + '/' + $scope.recordLoaded + '/' + $scope.showTotal).then(function(resp) {
             $scope.players = resp.data;
-        }, function (err) {
+        }, function(err) {
             var alertPopup = $ionicPopup.alert({
                 title: 'Loading Error',
                 template: 'Check your connection'
             });
-            alertPopup.then(function (res) {
+            alertPopup.then(function(res) {
                 console.log(err);
             });
-        }).finally(function () {
+        }).finally(function() {
             $ionicLoading.hide();
         });
     };

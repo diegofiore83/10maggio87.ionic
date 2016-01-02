@@ -74,12 +74,12 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
          }
      })
 
-    .state('app.players', {
-        url: "/players/:season",
+    .state('app.season', {
+        url: "/season/:season",
         views: {
             'menuContent': {
-                templateUrl: "templates/players.html",
-                controller: 'PlayersCtrl'
+                templateUrl: "templates/season.html",
+                controller: 'SeasonCtrl'
             }
         }
     })

@@ -228,28 +228,6 @@
     
 })
 
-.controller('PlayersCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
-    $scope.season = $stateParams.season;
-    $scope.players = [];
-
-    // Setup the loader
-    $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-
-    $http.get('http://api.10maggio87.it/api/players/team/' + $scope.season).then(function (resp) {
-        $scope.players = resp.data;
-    }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
-    }).finally(function () {
-        $ionicLoading.hide();
-    });
-})
-
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.playerTag = $stateParams.playerTag;
     $scope.hasDetails = false;
@@ -345,6 +323,47 @@
             $ionicLoading.hide();
         }
     }
+})
+
+.controller('SeasonCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+    $scope.season = $stateParams.season;
+    $scope.players = [];
+    $scope.tab = 'players';
+
+    $scope.getTeamPlayers = function () {
+        $scope.tab = 'players';
+        // Setup the loader
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $http.get('http://api.10maggio87.it/api/players/team/' + $scope.season).then(function(resp) {
+            $scope.players = resp.data;
+        }, function(err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function(res) {
+                console.log(err);
+            });
+        }).finally(function() {
+            $ionicLoading.hide();
+        });
+    }
+
+    $scope.getTeamInfo = function () {
+        $scope.tab = 'info';
+    };
+
+    $scope.getTeamCalendar = function () {
+        $scope.tab = 'calendar';
+    };
+
+    $scope.getTeamFormation = function () {
+        $scope.tab = 'formation';
+    };
+
+    $scope.getTeamPlayers();
+
 })
 
 .controller('SeasonsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {

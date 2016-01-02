@@ -43,8 +43,10 @@
                 <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{matchH.Competition.split(' ').join('_')}}.png" />
             </ion-item>
         </div>
-        <div class="button-bar button-filter" ng-if="!hasMatchHistory">
-            <a class="button button-assertive button-full" ng-click="getMatchHistory()">Mostra Precedenti</a>
+        <div class="padding-side">
+            <div class="button-bar button-filter" ng-if="!hasMatchHistory">
+                <a class="button button-assertive button-full" ng-click="getMatchHistory()">Mostra Precedenti</a>
+            </div>
         </div>
     </ion-content>
 </ion-view>

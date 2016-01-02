@@ -6,7 +6,7 @@
             </div>
             <div class="list">
                 <div class="item item-text-wrap item-news-card" ng-repeat="season in filtered = (seasons | orderBy : Year : true)">
-                    <a ng-href="#/app/players/{{season.Year}}">
+                    <a ng-href="#/app/season/{{season.Year}}">
                         <div class="row">
                             <div class="col col-50">
                                 <img ng-src="http://www.10maggio87.it/Images/Assets/Squadre/{{season.Year}}.jpg" />

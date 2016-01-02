@@ -1,0 +1,33 @@
+﻿<ion-view view-title="Stagione {{season}}" ng-cloak>
+    <ion-content>
+        <div class="padding-side">
+            <div class="button-bar button-filter">
+                <a class="button button-assertive button-full" ng-click="getTeamPlayers()">Rosa</a>
+                <a class="button button-assertive button-full" ng-click="getTeamInfo()">Società</a>
+                <a class="button button-assertive button-full" ng-click="getTeamCalendar()">Calendario</a>
+                <a class="button button-assertive button-full" ng-click="getTeamFormation()">Formazione</a>
+            </div>
+        </div>
+        <div class="card" ng-if="tab == 'players'">
+            <ion-list>
+                <ion-item class="item item-thumbnail-left" ng-repeat="player in players" ng-href="#/app/player/{{player.Tag}}">
+                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                    <h2>{{player.Name}}</h2>
+                    <p>{{player.Nation}}</p>
+                    <p>{{player.DateOfBirth | date:'dd/MM/yyyy'}} ({{player.DateOfBirth | ageFilter : season }} anni)</p>
+                    <p class="ion-position-text">{{player.Position | position}}</p>
+                    <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
+                </ion-item>
+            </ion-list>
+        </div>
+        <div class="card" ng-if="tab == 'info'">
+            <h2>Team Info</h2>
+        </div>
+        <div class="card" ng-if="tab == 'calendar'">
+            <h2>Team Calendar</h2>
+        </div>
+        <div class="card" ng-if="tab == 'formation'">
+            <h2>Team Formation</h2>
+        </div>
+    </ion-content>
+</ion-view>

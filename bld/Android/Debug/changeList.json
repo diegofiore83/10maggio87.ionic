@@ -105,13 +105,16 @@
     "res\\screens\\android\\screen-mdpi-portrait.png",
     "templates\\calendar.html",
     "lib\\ionic\\js\\ionic-angular.min.js",
+    "templates\\season.html"
+  ],
+  "deletedFilesIos": [
     "templates\\players.html"
   ],
-  "deletedFilesIos": [],
   "addedPluginsIos": [],
   "deletedPluginsIos": [],
   "changedFiles": [
-    "templates\\menu.html"
+    "templates\\season.html",
+    "scripts\\controllers.js"
   ],
   "deletedFiles": [],
   "addedPlugins": [],

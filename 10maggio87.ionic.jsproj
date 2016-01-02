@@ -151,7 +151,7 @@
     <Content Include="templates\match.html" />
     <Content Include="templates\player.html" />
     <Content Include="templates\calendar.html" />
-    <Content Include="templates\players.html" />
+    <Content Include="templates\season.html" />
     <Content Include="res\native\windows\CordovaApp_TemporaryKey.pfx" />
     <Content Include="scripts\frameworks\angular-resource.min.js" />
     <Content Include="scripts\frameworks\angular-route.min.js" />

@@ -17,6 +17,7 @@ ion-content { background-color: #1b91ce; }
 .card-title { padding: 2px !important; }
 .card-title h2 { font-weight: bold; }
 .padding-side { padding-left: 10px; padding-right: 10px;}
+.item-avatar.item-logo > img:first-child { border-radius: 0; }
 
 .ion-nation-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
 .ion-record-text { position: absolute; top: -10px; right: 18px; }
@@ -68,3 +69,17 @@ ion-content { background-color: #1b91ce; }
 .item-news-card img { float: left; width: 100%;}
 .item-news-card h2 { float: left; width: 100%; padding: 5px; font-weight: bold; font-size: 14px; }
 .item-news-card h3 { float: left; width: 100%; padding: 2px 5px; font-weight: bold; font-size: 12px; }
+
+.item-shirt { width: 280px; height: 260px; background: url('http://www.10maggio87.it/Images/Assets/Sponsor/Maglia.png') top center no-repeat transparent; position: relative; left: 0; top: 0; margin: 0 auto; }
+.item-shirt img { position: absolute; }
+.item-shirt img.sponsor { top: 90px; left: 95px; width: 90px; }
+.item-shirt img.Diadora { top: 70px; left: 114px; width: 60px; }
+.item-shirt img.Macron { top: 70px; left: 84px; width: 60px; }
+.item-shirt img.Linea { top: 55px; left: 150px; width: 45px; }
+.item-shirt img.nr { top: 60px; left: 162px; width: 30px; }
+.item-shirt img.Umbro { top: 55px; left: 84px; width: 45px; }
+.item-shirt img.Lotto { top: 55px; left: 84px; width: 45px; }
+.item-shirt img.Nike { top: 60px; left: 90px; width: 40px; }
+.item-shirt img.Legea { top: 68px; left: 114px; width: 55px; }
+.item-shirt img.Kappa { top: 60px; left: 90px; width: 40px; }
+.item-shirt img.nessuno { top: 60px; left: 160px; width: 25px; }

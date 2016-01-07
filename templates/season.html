@@ -78,7 +78,24 @@
             </ion-list>
         </div>
         <div class="card" ng-if="tab == 'formation'">
-            <h3 class="text-center text-top">Formazione: 4-4-2</h3>
+            <h3 class="text-center text-top">Formazione Tipo</h3>
+            <ion-list>
+                <ion-item class=" item item-avatar" ng-repeat="player in formation.slice(0,11)" ng-href="#/app/player/{{player.Tag}}">
+                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                    <h2>{{player.Name}}</h2>
+                    <p>{{player.Position | position}}</p>
+                    <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
+                </ion-item>
+            </ion-list>
+            <h3 class="text-center text-top">Riserve</h3>
+            <ion-list>
+                <ion-item class=" item item-avatar" ng-repeat="player in formation.slice(11)" ng-href="#/app/player/{{player.Tag}}">
+                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                    <h2>{{player.Name}}</h2>
+                    <p>{{player.Position | position}}</p>
+                    <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
+                </ion-item>
+            </ion-list>
         </div>
     </ion-content>
 </ion-view>

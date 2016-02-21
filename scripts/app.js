@@ -94,6 +94,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
+    .state('app.primates', {
+        url: "/primates",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/primates.html",
+                controller: 'PrimatesCtrl'
+            }
+        }
+    })
+
     .state('app.seasons', {
         url: "/seasons",
         views: {

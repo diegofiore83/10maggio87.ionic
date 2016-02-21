@@ -13,6 +13,7 @@ ion-content { background-color: #1b91ce; }
 .button-value { line-height: 46px; font-size: 28px; }
 .ion-highlighted a{ background-color: #73c8ee !important; }
 .card { margin: 10px !important; }
+.card.isRecord { outline: 5px solid greenyellow; }
 .card > h3 { font-size: 16px; }
 .card-title { padding: 2px !important; }
 .card-title h2 { font-weight: bold; }
@@ -21,6 +22,9 @@ ion-content { background-color: #1b91ce; }
 
 .ion-nation-image { width: 30px; height: 30px; position: absolute; top: 20px; right: 18px; }
 .ion-record-text { position: absolute; top: -10px; right: 18px; }
+.ion-recordman-text { font-size: 24px !important; }
+.ion-recordman-text.cn-longtext { font-size: 14px !important; }
+.ion-primacy-text { position: absolute; top: 6px; right: 10px; font-size: 24px !important; }
 .ion-position-text { position: absolute; bottom: 5px; right: 10px; }
 .ion-trophies { position: absolute; bottom: 0; right: 12px; }
 .ion-custom-trophy { float: right; text-align: center; margin: 0 5px; }
@@ -69,6 +73,8 @@ ion-content { background-color: #1b91ce; }
 .item-news-card img { float: left; width: 100%;}
 .item-news-card h2 { float: left; width: 100%; padding: 5px; font-weight: bold; font-size: 14px; }
 .item-news-card h3 { float: left; width: 100%; padding: 2px 5px; font-weight: bold; font-size: 12px; }
+
+.item-teamlogo { width: 20%; margin-left: 40%; margin-bottom: 10px; }
 
 .item-shirt { width: 280px; height: 260px; background: url('http://www.10maggio87.it/Images/Assets/Sponsor/Maglia.png') top center no-repeat transparent; position: relative; left: 0; top: 0; margin: 0 auto; }
 .item-shirt img { position: absolute; }

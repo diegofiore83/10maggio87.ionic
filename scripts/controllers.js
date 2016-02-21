@@ -261,6 +261,60 @@
     $scope.getPlayer(false);
 })
 
+.controller('PrimatesCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+
+    $scope.getPrimates = function () {
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $http.get('http://api.10maggio87.it/api/primates/').then(function (resp) {
+            $scope.primates = resp.data;
+        }, function (err) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Loading Error',
+                template: 'Check your connection'
+            });
+            alertPopup.then(function (res) {
+                console.log(err);
+            });
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.bolds = ["Serie A", "Serie B", "Serie C1", "casa", "trasferta", "reti", "presenze", "sconfitte", "pareggi", "vittorie", "Sconfitte", "Pareggi", "Vittorie", "Media punti", "Risultati utili", "Risultati negativi", "Coppa Italia", "Supercoppa Italiana", "Europa"];
+
+    $scope.displayPrimacy = function (type, value) {
+        if (type.indexOf("Percentuale") > 0) {
+            return value + " %";
+        }
+        return value;
+    };
+
+    $scope.getLink = function (type, recordman) {
+        if (type == "Giocatore") {
+            return "#/app/player/" + recordman.split(' - ')[0];
+        }
+        return "#/app/season/" + recordman.split(' - ')[0];
+    };
+
+    $scope.isRecord = function (primacy) {
+        if (primacy.Description.indexOf('minim') > -1) {
+            if (primacy.ActualRecord <= primacy.Record) {
+                return true;
+            }
+            return false;
+        } else {
+            if (primacy.ActualRecord >= primacy.Record) {
+                return true;
+            }
+            return false;
+        }
+    };
+
+    $scope.getPrimates();
+})
+
 .controller('RecordCtrl', function($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
     $scope.recordId = $stateParams.recordId;
     $scope.showTotal = 'Total';

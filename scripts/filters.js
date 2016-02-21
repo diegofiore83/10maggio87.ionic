@@ -57,4 +57,18 @@
                 default: return "Undefined";
             }
         };
+    })
+    .filter('makeitbold', function () {
+
+        function replaceAll(txt, find, replace) {
+            return txt.replace(new RegExp(find, 'g'), replace);
+        }
+
+        return function(text, bolds) {
+            for (var i in bolds) {
+                var bold = bolds[i];
+                text = replaceAll(text, bold, "<strong>" + bold + "</strong>");
+            }
+            return text;
+        }
     });

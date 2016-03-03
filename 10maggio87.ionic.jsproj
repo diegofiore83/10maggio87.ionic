@@ -139,6 +139,10 @@
     <Content Include="merges\wp8\css\overrides.css" />
     <Content Include="scripts\filters.js" />
     <Content Include="scripts\frameworks\angular-locale_it-it.js" />
+    <Content Include="scripts\frameworks\enc-base64-min.js" />
+    <Content Include="scripts\frameworks\hmac-sha256.js" />
+    <Content Include="scripts\frameworks\hmacAuthInterceptor.js" />
+    <Content Include="scripts\frameworks\md5.js" />
     <Content Include="templates\browse.html" />
     <Content Include="templates\loading.html" />
     <Content Include="templates\login.html" />

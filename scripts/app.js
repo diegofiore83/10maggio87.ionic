@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers'])
+angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'hmacAuthInterceptor'])
 
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -20,7 +20,20 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     });
 })
 
-.config(function ($compileProvider, $stateProvider, $urlRouterProvider) {
+.run(['hmacInterceptor', function (hmacInterceptor) {
+    console.log('Run Hmac Interceptor');
+    // Configure the interceptor
+    hmacInterceptor.host = 'localhost:38589'; // 'localhost:3000';
+    hmacInterceptor.whitelist = '/authenticate';
+    hmacInterceptor.accessId = '4d53bce03ec34c0a911182d4c228ee6c';
+    hmacInterceptor.secretKey = 'A93reRTUJHsCuQSHR+L3GxqOJyDmQpCgps102ciuabc=';
+
+    // hmacInterceptor.headers.authorization = 'Authorization';
+}])
+
+.config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
+
+    $httpProvider.interceptors.push('hmacInterceptor');
 
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
     // // Use $compileProvider.urlSanitizationWhitelist(...) for Angular 1.2

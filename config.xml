@@ -5,8 +5,8 @@
     versionCode = "10"
     version     = "1.0.0">
   <name>10maggio87.it</name>
-  <description>A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.</description>
-  <author href="http://www.10maggio87.it" email="dev@cordova.apache.org">10maggio87.it Team</author>
+  <description>Statistiche Società Sportiva Calcio Napoli. News, foto, curiosità e tanto altro sul Napoli</description>
+  <author href="http://www.10maggio87.it" email="diegofiore83@gmail.com">10maggio87.it Team</author>
   <content src="index.html" />
   
   <gap:plugin name="cordova-plugin-whitelist" source="npm" />

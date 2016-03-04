@@ -33,7 +33,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
 
 .config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
 
-    $httpProvider.interceptors.push('hmacInterceptor');
+    // $httpProvider.interceptors.push('hmacInterceptor');
 
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
     // // Use $compileProvider.urlSanitizationWhitelist(...) for Angular 1.2

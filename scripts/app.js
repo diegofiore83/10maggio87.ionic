@@ -23,7 +23,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
 .run(['hmacInterceptor', function (hmacInterceptor) {
     console.log('Run Hmac Interceptor');
     // Configure the interceptor
-    hmacInterceptor.host = 'localhost:38589'; // 'localhost:3000';
+    hmacInterceptor.host = 'api.10maggio87.it'; // 'localhost:3000';
     hmacInterceptor.whitelist = '/authenticate';
     hmacInterceptor.accessId = '4d53bce03ec34c0a911182d4c228ee6c';
     hmacInterceptor.secretKey = 'A93reRTUJHsCuQSHR+L3GxqOJyDmQpCgps102ciuabc=';
@@ -33,7 +33,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
 
 .config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
 
-    // $httpProvider.interceptors.push('hmacInterceptor');
+    $httpProvider.interceptors.push('hmacInterceptor');
 
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
     // // Use $compileProvider.urlSanitizationWhitelist(...) for Angular 1.2

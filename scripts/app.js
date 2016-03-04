@@ -6,6 +6,21 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'hmacAuthInterceptor'])
 
+.service('sharedSettings', function () {
+    var webapi = 'http://api.10maggio87.it';
+    return {
+        getWebapi: function () {
+            return webapi;
+        },
+        getHost: function () {
+            return webapi.replace('http://', '');
+        },
+        setWebapi: function (value) {
+            webapi = value;
+        }
+    };
+})
+
 .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,10 +35,11 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     });
 })
 
-.run(['hmacInterceptor', function (hmacInterceptor) {
-    console.log('Run Hmac Interceptor');
+.run(['hmacInterceptor', 'sharedSettings', function (hmacInterceptor, sharedSettings) {
+
+    console.log('Run Hmac Interceptor on ' + sharedSettings.getWebapi());
     // Configure the interceptor
-    hmacInterceptor.host = 'api.10maggio87.it'; // 'localhost:3000';
+    hmacInterceptor.host = sharedSettings.getHost(); // 'localhost:3000';
     hmacInterceptor.whitelist = '/authenticate';
     hmacInterceptor.accessId = '4d53bce03ec34c0a911182d4c228ee6c';
     hmacInterceptor.secretKey = 'A93reRTUJHsCuQSHR+L3GxqOJyDmQpCgps102ciuabc=';

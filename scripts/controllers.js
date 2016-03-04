@@ -33,14 +33,14 @@
     };
 })
 
-.controller('CalendarCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('CalendarCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.season = $stateParams.season;
     $scope.matches = [];
 
     // Setup the loader
     $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-    $http.get('http://api.10maggio87.it/api/matches/season/' + $scope.season).then(function (resp) {
+    $http.get(sharedSettings.getWebapi() + '/api/matches/season/' + $scope.season).then(function (resp) {
         $scope.matches = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
@@ -55,7 +55,7 @@
     });
 })
 
-.controller('MatchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('MatchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.matchId = $stateParams.matchId;
     $scope.hasDetails = true;
     $scope.hasMatchHistory = false;
@@ -64,7 +64,7 @@
     $scope.getMatch = function (hasDetails) {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
         $scope.hasDetails = hasDetails;
-        $http.get('http://api.10maggio87.it/api/match/' + $scope.matchId + '/' + hasDetails).then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/match/' + $scope.matchId + '/' + hasDetails).then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -81,7 +81,7 @@
 
     $scope.getMatchHistory = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        $http.get('http://api.10maggio87.it/api/matches/previous/' + $scope.match.Profile.Opponent + '/').then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/matches/previous/' + $scope.match.Profile.Opponent + '/').then(function (resp) {
             $scope.matchHistory = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -151,16 +151,14 @@
 
 })
 
-.controller('NewsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('NewsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.id = $stateParams.newsId;
     $scope.news = {};
 
     // Setup the loader
     $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-    $http.get('http://api.10maggio87.it/api/news/id/' + $scope.id).then(function (resp) {
-    // $http.get('http://api.10maggio87.it/api/news/last/1').then(function (resp) {
-        // $scope.news = resp.data;
+    $http.get(sharedSettings.getWebapi() + '/api/news/id/' + $scope.id).then(function (resp) {
         $scope.news = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
@@ -175,20 +173,20 @@
     });
 })
 
-.controller('NewsListCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('NewsListCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
 
-    var url = 'http://api.10maggio87.it/api/news/last/';
+    var url = sharedSettings.getWebapi() + '/api/news/last/';
     if (typeof $stateParams.keyword == "string") {
-        url = 'http://api.10maggio87.it/api/news/keyword/' + $scope.keyword + '/';
+        url = sharedSettings.getWebapi() + '/api/news/keyword/' + $scope.keyword + '/';
     }
     $scope.newsLoaded = 10;
 
     $scope.getNextMatch = function () {
         $scope.match = {};
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        $http.get('http://api.10maggio87.it/api/matches/next').then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/matches/next').then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -228,7 +226,7 @@
     
 })
 
-.controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.playerTag = $stateParams.playerTag;
     $scope.hasDetails = false;
     $scope.currentCompetition = [0, 0, 0, 0, 0];
@@ -243,7 +241,7 @@
 
         $scope.hasDetails = hasDetails;
 
-        $http.get('http://api.10maggio87.it/api/player/' + $stateParams.playerTag + '/' + hasDetails).then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/player/' + $stateParams.playerTag + '/' + hasDetails).then(function (resp) {
             $scope.player = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -261,13 +259,13 @@
     $scope.getPlayer(false);
 })
 
-.controller('PrimatesCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('PrimatesCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
 
     $scope.getPrimates = function () {
 
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/primates/').then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/primates/').then(function (resp) {
             $scope.primates = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -315,7 +313,7 @@
     $scope.getPrimates();
 })
 
-.controller('RecordCtrl', function($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('RecordCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.recordId = $stateParams.recordId;
     $scope.showTotal = 'Total';
     $scope.recordLoaded = 25;
@@ -327,7 +325,7 @@
 
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/record/story/' + $stateParams.recordId + '/' + $scope.recordLoaded + '/' + $scope.showTotal).then(function(resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/record/story/' + $stateParams.recordId + '/' + $scope.recordLoaded + '/' + $scope.showTotal + '/').then(function (resp) {
             $scope.players = resp.data;
         }, function(err) {
             var alertPopup = $ionicPopup.alert({
@@ -352,14 +350,14 @@
 
 })
 
-.controller('SearchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('SearchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.type = $stateParams.type;
     $scope.results = [];
     $scope.filters = {};
     $scope.recordSearch = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
         if ($scope.filters.text != '') {
-            $http.get('http://api.10maggio87.it/api/' + $scope.type + '/search/' + $scope.filters.text + '/25').then(function (resp) {
+            $http.get(sharedSettings.getWebapi() + '/api/' + $scope.type + '/search/' + $scope.filters.text + '/25/').then(function (resp) {
                 $scope.results = resp.data;
             }, function(err) {
                 var alertPopup = $ionicPopup.alert({
@@ -379,7 +377,7 @@
     }
 })
 
-.controller('SeasonCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('SeasonCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.season = $stateParams.season;
     $scope.players = [];
     $scope.tab = 'players';
@@ -389,7 +387,7 @@
         // Setup the loader
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/players/team/' + $scope.season).then(function(resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/players/team/' + $scope.season).then(function (resp) {
             $scope.players = resp.data;
         }, function(err) {
             var alertPopup = $ionicPopup.alert({
@@ -409,7 +407,7 @@
         // Setup the loader
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/season/' + $scope.season).then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/season/' + $scope.season).then(function (resp) {
             $scope.info = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -429,7 +427,7 @@
         // Setup the loader
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/matches/season/' + $scope.season).then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/matches/season/' + $scope.season).then(function (resp) {
             $scope.matches = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -449,7 +447,7 @@
         // Setup the loader
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-        $http.get('http://api.10maggio87.it/api/formation/' + $scope.season).then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/formation/' + $scope.season).then(function (resp) {
             $scope.formation = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
@@ -468,13 +466,13 @@
 
 })
 
-.controller('SeasonsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('SeasonsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.seasons = [];
 
     // Setup the loader
     $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
 
-    $http.get('http://api.10maggio87.it/api/seasons/').then(function (resp) {
+    $http.get(sharedSettings.getWebapi() + '/api/seasons/').then(function (resp) {
         $scope.seasons = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
@@ -489,12 +487,12 @@
     });
 })
 
-.controller('TeamCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup) {
+.controller('TeamCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.name = $stateParams.name;
     $scope.matchHistory = [];
 
     $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-    $http.get('http://api.10maggio87.it/api/team/' + $scope.name + '/').then(function (resp) {
+    $http.get(sharedSettings.getWebapi() + '/api/team/' + $scope.name + '/').then(function (resp) {
         $scope.records = resp.data;
         $scope.total = $scope.getTotal();
     }, function (err) {
@@ -512,7 +510,7 @@
 
     $scope.getMatchHistory = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        $http.get('http://api.10maggio87.it/api/matches/previous/' + $scope.name + '/').then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/matches/previous/' + $scope.name + '/').then(function (resp) {
             $scope.matchHistory = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({

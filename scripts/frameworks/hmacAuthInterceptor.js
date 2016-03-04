@@ -113,7 +113,7 @@
             var csa = [
                 accessId,
                 request.method,
-                request.url,
+                hmacUtil.getRelativePath(request.url),
                 getRequestTimeStamp(),
                 generateGuid(),
                 contentMD5(request)

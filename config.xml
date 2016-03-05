@@ -17,7 +17,8 @@
   <preference name="Fullscreen" value="false" />
   <preference name="SplashScreen" value="splash" />
   <preference name="SplashScreenDelay" value="4000" />
-   
+  <preference name="Orientation" value="portrait" />
+  
   <!--
 	  If you do not want any permissions to be added to your app, add the
 	  following tag to your config.xml; you will still have the INTERNET

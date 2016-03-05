@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <widget xmlns   = "http://www.w3.org/ns/widgets"
     xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "apk.10maggio87.it"
+    id          = "com.10maggio87-it.apk"
     versionCode = "10"
     version     = "1.0.0">
   <name>10maggio87.it</name>

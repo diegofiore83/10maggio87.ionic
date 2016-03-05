@@ -16,7 +16,14 @@
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />
   <preference name="SplashScreen" value="splash" />
-  <preference name="SplashScreenDelay" value="3000" />
+  <preference name="SplashScreenDelay" value="4000" />
+   
+  <!--
+	  If you do not want any permissions to be added to your app, add the
+	  following tag to your config.xml; you will still have the INTERNET
+	  permission on your app, which PhoneGap requires.
+  -->
+  <preference name="permissions" value="none"/>
    
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />

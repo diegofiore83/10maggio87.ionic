@@ -44,8 +44,8 @@
         $scope.matches = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
+            title: 'Loading Error - ' + err.status,
+            template: err.statusText
         });
         alertPopup.then(function (res) {
             console.log(err);
@@ -68,8 +68,8 @@
             $scope.match = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -85,8 +85,8 @@
             $scope.matchHistory = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -162,8 +162,8 @@
         $scope.news = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
+            title: 'Loading Error - ' + err.status,
+            template: err.statusText
         });
         alertPopup.then(function (res) {
             console.log(err);
@@ -190,8 +190,8 @@
             $scope.match = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -209,8 +209,8 @@
             $scope.newsList = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -245,8 +245,8 @@
             $scope.player = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -269,8 +269,8 @@
             $scope.primates = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -329,8 +329,8 @@
             $scope.players = resp.data;
         }, function(err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function(res) {
                 console.log(err);
@@ -356,13 +356,13 @@
     $scope.filters = {};
     $scope.recordSearch = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        if ($scope.filters.text != '') {
+        if ($scope.filters.text.length > 2) {
             $http.get(sharedSettings.getWebapi() + '/api/' + $scope.type + '/search/' + $scope.filters.text + '/25/').then(function (resp) {
                 $scope.results = resp.data;
             }, function(err) {
                 var alertPopup = $ionicPopup.alert({
-                    title: 'Loading Error',
-                    template: 'Check your connection'
+                    title: 'Loading Error - ' + err.status,
+                    template: err.statusText
                 });
                 alertPopup.then(function(res) {
                     console.log(err);
@@ -389,10 +389,10 @@
 
         $http.get(sharedSettings.getWebapi() + '/api/players/team/' + $scope.season).then(function (resp) {
             $scope.players = resp.data;
-        }, function(err) {
+        }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function(res) {
                 console.log(err);
@@ -411,8 +411,8 @@
             $scope.info = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -431,8 +431,8 @@
             $scope.matches = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -451,8 +451,8 @@
             $scope.formation = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);
@@ -476,8 +476,8 @@
         $scope.seasons = resp.data;
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
+            title: 'Loading Error - ' + err.status,
+            template: err.statusText
         });
         alertPopup.then(function (res) {
             console.log(err);
@@ -497,8 +497,8 @@
         $scope.total = $scope.getTotal();
     }, function (err) {
         var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error',
-            template: 'Check your connection'
+            title: 'Loading Error - ' + err.status,
+            template: err.statusText
         });
         alertPopup.then(function (res) {
             console.log(err);
@@ -514,8 +514,8 @@
             $scope.matchHistory = resp.data;
         }, function (err) {
             var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error',
-                template: 'Check your connection'
+                title: 'Loading Error - ' + err.status,
+                template: err.statusText
             });
             alertPopup.then(function (res) {
                 console.log(err);

@@ -4,11 +4,19 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'hmacAuthInterceptor'])
+angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'authService', 'authInterceptorService', 'LocalStorageModule'])
 
 .service('sharedSettings', function () {
-    var webapi = 'http://api.10maggio87.it';
+    var webapi = 'http://api2.10maggio87.it';
+    var username = 'appuser%4010maggio87.it';
+    var password = 'UQAL92anF-U4zvX';
     return {
+        getUsername: function () {
+            return username;
+        },
+        getPassword: function () {
+            return password;
+        },
         getWebapi: function () {
             return webapi;
         },
@@ -21,35 +29,9 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     };
 })
 
-.run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-    });
-})
-
-.run(['hmacInterceptor', 'sharedSettings', function (hmacInterceptor, sharedSettings) {
-
-    console.log('Run Hmac Interceptor on ' + sharedSettings.getWebapi());
-    // Configure the interceptor
-    hmacInterceptor.host = sharedSettings.getHost(); // 'localhost:3000';
-    hmacInterceptor.whitelist = '/authenticate';
-    hmacInterceptor.accessId = '4d53bce03ec34c0a911182d4c228ee6c';
-    hmacInterceptor.secretKey = 'A93reRTUJHsCuQSHR+L3GxqOJyDmQpCgps102ciuabc=';
-
-    // hmacInterceptor.headers.authorization = 'Authorization';
-}])
-
 .config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
 
-    $httpProvider.interceptors.push('hmacInterceptor');
+    $httpProvider.interceptors.push('authInterceptorService');
 
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
     // // Use $compileProvider.urlSanitizationWhitelist(...) for Angular 1.2
@@ -191,9 +173,35 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
                 controller: 'NewsListCtrl'
             }
         }
+    })
+
+    .state('app.error', {
+        url: "/error/:errorCode",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/error.html",
+                controller: 'ErrorCtrl'
+            }
+        }
     });
 
-    // if none of the above states are matched, use this as the fallback
-    // $urlRouterProvider.otherwise('/app/calendar/2015-16');
-    $urlRouterProvider.otherwise('/app/news/last');
+    $urlRouterProvider.otherwise('/app/error/0');
+    
+})
+
+.run(function ($ionicPlatform, authService) {
+
+    authService.fillAuthData();
+
+    $ionicPlatform.ready(function () {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if (window.StatusBar) {
+            // org.apache.cordova.statusbar required
+            StatusBar.styleDefault();
+        }
+    });
 });

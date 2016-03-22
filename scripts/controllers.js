@@ -1,36 +1,43 @@
 ﻿angular.module('angularApp.controllers', [])
 
-.controller('AppCtrl', function ($scope, $ionicModal, $timeout) {
-    // Form data for the login modal
-    $scope.loginData = {};
+.controller('AppCtrl', function () {
 
-    // Create the login modal that we will use later
-    $ionicModal.fromTemplateUrl('templates/login.html', {
-        scope: $scope
-    }).then(function (modal) {
-        $scope.modal = modal;
-    });
+})
 
-    // Triggered in the login modal to close it
-    $scope.closeLogin = function () {
-        $scope.modal.hide();
-    };
+.controller('ErrorCtrl', function ($scope, $stateParams, authService, $state, $ionicHistory, $ionicLoading, localStorageService) {
+    $scope.errorCode = $stateParams.errorCode;
 
-    // Open the login modal
+    if ($scope.errorCode == 0 && authService.authentication.isAuth) {
+        $ionicHistory.nextViewOptions({
+            historyRoot: true
+        });
+        $state.go('app.newsLast', {}, { relaod: true });
+    }
+
     $scope.login = function () {
-        $scope.modal.show();
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        authService.login().then(function (response) {
+            $ionicHistory.nextViewOptions({
+                historyRoot: true
+            });
+            $ionicLoading.hide();
+            $state.go('app.newsLast', {}, { relaod: true });
+
+        },
+         function (err) {
+             $ionicLoading.hide();
+         });
     };
 
-    // Perform the login action when the user submits the login form
-    $scope.doLogin = function () {
-        console.log('Doing login', $scope.loginData);
-
-        // Simulate a login delay. Remove this and replace with your login
-        // code if using a login system
-        $timeout(function () {
-            $scope.closeLogin();
-        }, 1000);
-    };
+    var errorData = localStorageService.get('errorData');
+    if ($scope.errorCode != 0 && errorData) {
+        if (errorData.code)
+            $scope.message = errorData.code;
+        else
+            $scope.message = errorData.statusText;
+    }
 })
 
 .controller('CalendarCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
@@ -43,13 +50,7 @@
     $http.get(sharedSettings.getWebapi() + '/api/matches/season/' + $scope.season).then(function (resp) {
         $scope.matches = resp.data;
     }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error - ' + err.status,
-            template: err.statusText
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
+        console.log('Loading Error - ' + err.status + ': ' + err.statusText);
     }).finally(function () {
         $ionicLoading.hide();
     });
@@ -67,13 +68,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/match/' + $scope.matchId + '/' + hasDetails).then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -84,13 +79,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/matches/previous/' + $scope.match.Profile.Opponent + '/').then(function (resp) {
             $scope.matchHistory = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
             $scope.hasMatchHistory = true;
@@ -161,19 +150,14 @@
     $http.get(sharedSettings.getWebapi() + '/api/news/id/' + $scope.id).then(function (resp) {
         $scope.news = resp.data;
     }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error - ' + err.status,
-            template: err.statusText
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
+        console.log('Loading Error - ' + err.status + ': ' + err.statusText);
     }).finally(function () {
         $ionicLoading.hide();
     });
 })
 
-.controller('NewsListCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
 
@@ -189,32 +173,20 @@
         $http.get(sharedSettings.getWebapi() + '/api/matches/next').then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
             $scope.getNews($scope.newsLoaded);
         });
     };
 
-    $scope.getNews = function(news) {
+    $scope.getNews = function (news) {
         $scope.newsLoaded = news;
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
         $http.get(url + $scope.newsLoaded).then(function (resp) {
             $scope.newsList = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
             //Stop the ion-refresher from spinning
@@ -223,7 +195,7 @@
     };
 
     $scope.getNextMatch();
-    
+
 })
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
@@ -244,13 +216,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/player/' + $stateParams.playerTag + '/' + hasDetails).then(function (resp) {
             $scope.player = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -268,13 +234,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/primates/').then(function (resp) {
             $scope.primates = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -319,7 +279,7 @@
     $scope.recordLoaded = 25;
     $scope.players = [];
 
-    $scope.getRecords = function(records, order) {
+    $scope.getRecords = function (records, order) {
         $scope.showTotal = order;
         $scope.recordLoaded = records;
 
@@ -327,15 +287,9 @@
 
         $http.get(sharedSettings.getWebapi() + '/api/record/story/' + $stateParams.recordId + '/' + $scope.recordLoaded + '/' + $scope.showTotal + '/').then(function (resp) {
             $scope.players = resp.data;
-        }, function(err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function(res) {
-                console.log(err);
-            });
-        }).finally(function() {
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
             $ionicLoading.hide();
         });
     };
@@ -359,15 +313,9 @@
         if ($scope.filters.text.length > 2) {
             $http.get(sharedSettings.getWebapi() + '/api/' + $scope.type + '/search/' + $scope.filters.text + '/25/').then(function (resp) {
                 $scope.results = resp.data;
-            }, function(err) {
-                var alertPopup = $ionicPopup.alert({
-                    title: 'Loading Error - ' + err.status,
-                    template: err.statusText
-                });
-                alertPopup.then(function(res) {
-                    console.log(err);
-                });
-            }).finally(function() {
+            }, function (err) {
+                console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+            }).finally(function () {
                 $ionicLoading.hide();
             });
         } else {
@@ -390,14 +338,8 @@
         $http.get(sharedSettings.getWebapi() + '/api/players/team/' + $scope.season).then(function (resp) {
             $scope.players = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function(res) {
-                console.log(err);
-            });
-        }).finally(function() {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
             $ionicLoading.hide();
         });
     }
@@ -410,13 +352,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/season/' + $scope.season).then(function (resp) {
             $scope.info = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -430,13 +366,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/matches/season/' + $scope.season).then(function (resp) {
             $scope.matches = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -450,13 +380,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/formation/' + $scope.season).then(function (resp) {
             $scope.formation = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });
@@ -475,13 +399,7 @@
     $http.get(sharedSettings.getWebapi() + '/api/seasons/').then(function (resp) {
         $scope.seasons = resp.data;
     }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error - ' + err.status,
-            template: err.statusText
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
+        console.log('Loading Error - ' + err.status + ': ' + err.statusText);
     }).finally(function () {
         $ionicLoading.hide();
     });
@@ -496,13 +414,7 @@
         $scope.records = resp.data;
         $scope.total = $scope.getTotal();
     }, function (err) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Loading Error - ' + err.status,
-            template: err.statusText
-        });
-        alertPopup.then(function (res) {
-            console.log(err);
-        });
+        console.log('Loading Error - ' + err.status + ': ' + err.statusText);
     }).finally(function () {
         $ionicLoading.hide();
         $scope.getMatchHistory();
@@ -513,13 +425,7 @@
         $http.get(sharedSettings.getWebapi() + '/api/matches/previous/' + $scope.name + '/').then(function (resp) {
             $scope.matchHistory = resp.data;
         }, function (err) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Loading Error - ' + err.status,
-                template: err.statusText
-            });
-            alertPopup.then(function (res) {
-                console.log(err);
-            });
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
         });

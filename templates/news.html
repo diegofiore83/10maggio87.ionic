@@ -1,4 +1,13 @@
 ﻿<ion-view view-title="{{news.Tag}}" ng-cloak>
+    <ion-header-bar align-title="left" class="bar-positive">
+        <div class="buttons">
+            <button class="button" ng-click="doSomething()">Left Button</button>
+        </div>
+        <h1 class="title">Title!</h1>
+        <div class="buttons">
+            <button class="button">Right Button</button>
+        </div>
+    </ion-header-bar>
     <ion-content>
         <div class="card">
             <div class="item item-text-wrap">
@@ -13,6 +22,9 @@
             </div>
             <div class="item item-text-wrap">
                 <div class="item-html text-justify" ng-bind-html="news.Html | toTrusted"></div>
+                <div class="item-source">
+                    <img class="item-source-image" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Fonti/{{news.Source}}.png" />
+                </div>
             </div>
         </div>
     </ion-content>

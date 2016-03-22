@@ -24,7 +24,10 @@
             <ul class="list">
                 <li class="item item-text-wrap item-news-card" ng-repeat="news in newsList">
                     <a ng-href="#/app/news/id/{{news.Id}}">
-                        <img ng-src="{{news.Image}}" />
+                        <div>
+                            <img class="item-photo-news" ng-src="{{news.Image}}" />
+                            <img class="item-source" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Fonti/{{news.Source}}.png" />
+                        </div>
                         <h2 class="text-center">{{news.Title}}</h2>
                     </a>
                 </li>

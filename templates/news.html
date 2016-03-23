@@ -21,8 +21,10 @@
                 <a class="button button-small button-assertive" ng-repeat="keyword in news.Keywords.split(', ')" ng-href="#/app/news/keyword/{{keyword}}">{{keyword}}</a>
             </div>
             <div class="item item-text-wrap">
-                <div class="item-html text-justify" ng-bind-html="news.Html | toTrusted"></div>
-                <div class="item-source">
+                <div class="item-html text-justify" ng-bind-html="news.Html | toTrusted"></div>             
+            </div>
+            <div class="item item-text-wrap">
+				<div class="item-source">
                     <img class="item-source-image" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Fonti/{{news.Source}}.png" />
                 </div>
             </div>

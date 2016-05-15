@@ -1,5 +1,10 @@
 ﻿<ion-view view-title="Elenco Primati" ng-cloak>
     <ion-content>
+        <ion-refresher on-refresh="getPrimates()"
+                       pulling-text="Aggiorna"
+                       refreshing-text="Caricamento ..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
         <div class="card" ng-repeat="primacy in primates" ng-class="{ 'isRecord' : isRecord(primacy) }">
             <div class="item item-text-wrap" ng-bind-html="primacy.Description | makeitbold : bolds | toTrusted">
             </div>

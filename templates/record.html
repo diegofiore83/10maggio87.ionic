@@ -1,5 +1,10 @@
 ﻿<ion-view view-title="{{recordId | record}}" ng-cloak>
     <ion-content>
+        <ion-refresher on-refresh="getRecords(recordLoaded, showTotal)"
+                       pulling-text="Aggiorna"
+                       refreshing-text="Caricamento ..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
         <div class="padding-side">
             <div class="button-bar button-filter">
                 <a class="button button-assertive button-full" ng-click="getRecords(25, 'Total')">Tutte</a>

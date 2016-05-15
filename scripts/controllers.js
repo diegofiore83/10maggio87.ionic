@@ -194,7 +194,9 @@
         });
     };
 
-    $scope.getNextMatch();
+    // Disable before new season start
+    // $scope.getNextMatch();
+    $scope.getNews($scope.newsLoaded);
 
 })
 
@@ -237,6 +239,8 @@
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
         });
     };
 
@@ -291,6 +295,8 @@
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
         });
     };
 

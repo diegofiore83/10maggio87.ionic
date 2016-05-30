@@ -111,8 +111,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="css\overrides.css" />
-    <Content Include="images\image1-50x25.png" />
-    <Content Include="images\image2-400x200.png" />
+    <Content Include="images\icons\calciomercato.svg" />
+    <Content Include="images\icons\calendario.svg" />
+    <Content Include="images\icons\media-reti.svg" />
+    <Content Include="images\icons\notizie.svg" />
+    <Content Include="images\icons\nuova.svg" />
+    <Content Include="images\icons\panchine.svg" />
+    <Content Include="images\icons\presenze-anno.svg" />
+    <Content Include="images\icons\presenze.svg" />
+    <Content Include="images\icons\primati.svg" />
+    <Content Include="images\icons\reti-anno.svg" />
+    <Content Include="images\icons\reti.svg" />
+    <Content Include="images\icons\ricerca.svg" />
+    <Content Include="images\icons\rosa.svg" />
+    <Content Include="images\icons\stagioni.svg" />
     <Content Include="lib\ionic\css\ionic.css" />
     <Content Include="lib\ionic\css\ionic.min.css" />
     <Content Include="lib\ionic\fonts\ionicons.eot" />

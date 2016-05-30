@@ -97,3 +97,18 @@ ion-content { background-color: #1b91ce; }
 
 .item-error img.full-image { width: 100%; }
 .item-error img.middle-image { width: 50%; margin-left: 25%; margin-top: 20px; margin-bottom: 20px;}
+
+.icon.icon-rosa { background: url('/images/icons/rosa.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-notizie { background: url('/images/icons/notizie.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-calendario { background: url('/images/icons/calendario.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-primati { background: url('/images/icons/primati.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-calciomercato { background: url('/images/icons/calciomercato.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-media-reti { background: url('/images/icons/media-reti.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-reti { background: url('/images/icons/reti.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-panchine { background: url('/images/icons/panchine.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-presenze { background: url('/images/icons/presenze.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-reti-anno { background: url('/images/icons/reti-anno.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-presenze-anno { background: url('/images/icons/presenze-anno.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-stagioni { background: url('/images/icons/stagioni.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-ricerca { background: url('/images/icons/ricerca.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-nuova { background: url('/images/icons/nuova.svg') no-repeat center; width: 32px; background-size: 32px; right: 11px; left: initial; }

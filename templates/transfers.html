@@ -1,0 +1,53 @@
+﻿<ion-view view-title="Speciale Calciomercato" ng-cloak>
+    <ion-content>
+        <div class="padding-side">
+            <div class="button-bar button-filter">
+                <a class="button button-assertive button-full" ng-click="getNews(10)">Notizie</a>
+                <a class="button button-assertive button-full" ng-click="getTransfers()">Trasferimenti Ufficiali</a>
+            </div>
+        </div>
+        <div class="card" ng-if="tab == 'news'">
+            <ul class="list">
+                <li class="item item-text-wrap item-news" ng-repeat="news in newsList">
+                    <a ng-href="#/app/news/id/{{news.Id}}">
+                        <img ng-src="{{news.Image}}" />
+                        <p class="item-tag text-left">{{news.Tag}}</p>
+                        <p class="item-date text-right">{{news.Date | date:'dd/MM/yyyy - HH:mm'}}</p>
+                        <h2 class="text-justify">{{news.Title}}</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card" ng-if="tab == 'transfers'">
+            <div class="item card-title">
+                <h2 class="text-center text-top">In Entrata</h2>
+            </div>
+            <ul class="list">
+                <li class="item item-text-wrap item-news-card" ng-repeat="transfer in transfersIn">
+                    <a ng-href="#/app/news/id/{{transfer.NewsId}}">
+                        <div>
+                            <img class="item-photo-news" ng-src="{{transfer.Image}}" />
+                        </div>
+                        <h2 class="text-center">{{transfer.Channel}} - {{transfer.Television}}</h2>
+                    </a>
+                </li>
+            </ul>
+            <div class="item card-title">
+                <h2 class="text-center text-top">In Uscita</h2>
+            </div>
+            <ul class="list">
+                <li class="item item-text-wrap item-news-card" ng-repeat="transfer in transfersOut">
+                    <a ng-href="#/app/news/id/{{transfer.NewsId}}">
+                        <div>
+                            <img class="item-photo-news" ng-src="{{transfer.Image}}" />
+                        </div>
+                        <h2 class="text-center">{{transfer.Channel}} - {{transfer.Television}}</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="button-bar button-filter" ng-if="tab == 'news'">
+            <a class="button button-assertive button-full" ng-show="newsList.length == newsLoaded" ng-click="getNews(newsLoaded + 10)">Altre notizie</a>
+        </div>
+    </ion-content>
+</ion-view>

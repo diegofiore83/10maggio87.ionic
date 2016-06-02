@@ -17,6 +17,24 @@
                 <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png" />
             </ion-item>
         </div>
+        <div class="card flat-card">
+            <ion-slide-box on-slide-changed="slideHasChanged($index)" class="list-events">
+                <ion-slide ng-repeat="event in eventsList">
+                    <div class="item item-text-wrap item-event">
+                        <a ng-href="#/app/news/id/{{event.NewsId}}">
+                            <div class="image-preview" ng-style="{'background-image': 'url(' + event.Image + ')'}"></div>
+                            <p class="item-tag text-left">{{event.Tag}}</p>
+                            <p class="item-date text-right">{{event.Date | date:'dd/MM/yyyy - HH:mm'}}</p>
+                            <h2 class="text-justify">{{event.Title}}</h2>
+                            <p class="item-channel text-right">in diretta su {{event.Channel}}</p>
+                        </a>
+                    </div>
+                </ion-slide>
+            </ion-slide-box>
+            <div class="item card-title">
+                <h2 class="text-center text-top">Prossimi Eventi</h2>
+            </div>
+        </div>
         <div class="card">
             <div class="item card-title">
                 <h2 class="text-center text-top">Ultime Notizie</h2>

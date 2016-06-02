@@ -158,6 +158,7 @@
     <Content Include="templates\loading.html" />
     <Content Include="templates\login.html" />
     <Content Include="templates\error.html" />
+    <Content Include="templates\transfers.html" />
     <Content Include="templates\primates.html" />
     <Content Include="templates\seasons.html" />
     <Content Include="templates\team.html" />

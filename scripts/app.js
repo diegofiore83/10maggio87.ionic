@@ -7,7 +7,7 @@
 angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'authService', 'authInterceptorService', 'LocalStorageModule'])
 
 .service('sharedSettings', function () {
-    var webapi = 'http://api2.10maggio87.it';
+    var webapi = 'http://api.10maggio87.it'; /* 'http://api2.10maggio87.it'; */
     var username = 'appuser%4010maggio87.it';
     var password = 'UQAL92anF-U4zvX';
     return {
@@ -171,6 +171,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
             'menuContent': {
                 templateUrl: "templates/news-cards.html",
                 controller: 'NewsListCtrl'
+            }
+        }
+    })
+
+    .state('app.transfers', {
+        url: "/transfers",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/transfers.html",
+                controller: 'TransfersCtrl'
             }
         }
     })

@@ -160,18 +160,33 @@
 
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
+    $scope.events = [];
 
     var url = sharedSettings.getWebapi() + '/api/news/last/';
     if (typeof $stateParams.keyword == "string") {
         url = sharedSettings.getWebapi() + '/api/news/keyword/' + $scope.keyword + '/';
     }
     $scope.newsLoaded = 10;
+    $scope.eventsLoaded = 5;
 
     $scope.getNextMatch = function () {
         $scope.match = {};
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
         $http.get(sharedSettings.getWebapi() + '/api/matches/next').then(function (resp) {
             $scope.match = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+            $scope.getNews($scope.newsLoaded);
+        });
+    };
+
+    $scope.getEvents = function (events) {
+        $scope.eventsLoaded = events;
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(sharedSettings.getWebapi() + '/api/events/last/' + $scope.eventsLoaded).then(function (resp) {
+            $scope.eventsList = resp.data;
         }, function (err) {
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
@@ -196,8 +211,8 @@
 
     // Disable before new season start
     // $scope.getNextMatch();
-    $scope.getNews($scope.newsLoaded);
-
+    // $scope.getNews($scope.newsLoaded);
+    $scope.getEvents($scope.eventsLoaded);
 })
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
@@ -450,5 +465,57 @@
         }
         return total;
     };
+
+})
+
+.controller('TransfersCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+
+    $scope.newsList = [];
+    $scope.transfersIn = [];
+    $scope.transfersOut = [];
+    $scope.tab = 'news';
+
+    var url = sharedSettings.getWebapi() + '/api/news/tag/Calciomercato/';
+
+    $scope.newsLoaded = 10;
+
+    $scope.getTransfers = function () {
+
+        $scope.tab = 'transfers';
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(sharedSettings.getWebapi() + '/api/events/transfers').then(function (resp) {
+            $scope.transfersIn = [];
+            $scope.transfersOut = [];
+            resp.data.forEach(function (transfer) {
+                if (transfer.Payperview) { // Type of Transfers
+                    $scope.transfersIn.push(transfer);
+                } else {
+                    $scope.transfersOut.push(transfer);
+                }
+            }, this);
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getNews = function (news) {
+
+        $scope.tab = 'news';
+
+        $scope.newsLoaded = news;
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(url + $scope.newsLoaded).then(function (resp) {
+            $scope.newsList = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getNews($scope.newsLoaded);
 
 });

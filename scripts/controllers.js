@@ -156,7 +156,7 @@
     });
 })
 
-.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings, $ionicSlideBoxDelegate) {
 
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
@@ -192,7 +192,6 @@
         }).finally(function () {
             $ionicLoading.hide();
             $scope.getNews($scope.newsLoaded);
-            $ionicSlideBoxDelegate.update();
         });
     };
 
@@ -214,6 +213,8 @@
     // $scope.getNextMatch();
     // $scope.getNews($scope.newsLoaded);
     $scope.getEvents($scope.eventsLoaded);
+
+    $ionicSlideBoxDelegate.update();
 })
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {

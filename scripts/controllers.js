@@ -191,6 +191,7 @@
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
+            $ionicSlideBoxDelegate.update();
             $scope.getNews($scope.newsLoaded);
         });
     };

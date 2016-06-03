@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.diecimaggioottantasette" versionCode="14" version="1.0.4">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.app-10maggio87-it" versionCode="14" version="1.0.4">
   <name>10maggio87.it</name>
   <description>Statistiche Società Sportiva Calcio Napoli. News, foto, curiosità e tanto altro sul Napoli</description>
   <author href="http://www.10maggio87.it" email="diegofiore83@gmail.com">10maggio87.it Team</author>
@@ -31,5 +31,4 @@
   <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
   <allow-navigation href="http://*/*" />
   <allow-intent href="https://*/*" />
-  <plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
 </widget>

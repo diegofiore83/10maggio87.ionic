@@ -160,14 +160,13 @@
 
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
-    $scope.events = [];
+    $scope.event = null;
 
     var url = sharedSettings.getWebapi() + '/api/news/last/';
     if (typeof $stateParams.keyword == "string") {
         url = sharedSettings.getWebapi() + '/api/news/keyword/' + $scope.keyword + '/';
     }
     $scope.newsLoaded = 10;
-    $scope.eventsLoaded = 5;
 
     $scope.getNextMatch = function () {
         $scope.match = {};
@@ -182,16 +181,14 @@
         });
     };
 
-    $scope.getEvents = function (events) {
-        $scope.eventsLoaded = events;
+    $scope.getEvent = function () {
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        $http.get(sharedSettings.getWebapi() + '/api/events/last/' + $scope.eventsLoaded).then(function (resp) {
-            $scope.eventsList = resp.data;
+        $http.get(sharedSettings.getWebapi() + '/api/events/last/1').then(function (resp) {
+            $scope.event = resp.data[0];
         }, function (err) {
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
-            $ionicSlideBoxDelegate.update();
             $scope.getNews($scope.newsLoaded);
         });
     };
@@ -213,7 +210,7 @@
     // Disable before new season start
     // $scope.getNextMatch();
     // $scope.getNews($scope.newsLoaded);
-    $scope.getEvents($scope.eventsLoaded);
+    $scope.getEvent();
 
     $ionicSlideBoxDelegate.update();
 })

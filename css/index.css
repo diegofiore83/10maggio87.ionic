@@ -16,8 +16,12 @@ ion-content { background-color: #1b91ce; }
 .card.flat-card { padding: 0; }
 .card.isRecord { outline: 5px solid greenyellow; }
 .card > h3 { font-size: 16px; }
-.card-title { padding: 2px !important; }
-.card-title h2 { font-weight: bold; }
+.card-title, .card-subtitle { padding: 5px !important; }
+.card-title h2, .card-subtitle h2 { font-weight: bold; }
+.card.with-title { margin: 40px 10px 10px 10px !important; position: relative; overflow: visible; }
+.card.with-title .item.card-title { position: absolute; top: -26px; left: 0; min-width: 125px; }
+.card.with-title .item.card-subtitle { position: absolute; bottom: 26px; right: 0; min-width: 90px; }
+.card.with-title.event-container { max-height: 74px; }
 .padding-side { padding-left: 10px; padding-right: 10px;}
 .item-avatar.item-logo > img:first-child { border-radius: 0; }
 
@@ -100,10 +104,10 @@ ion-content { background-color: #1b91ce; }
 .list-events .slider-pager { display: none; }
 .item-event { padding: 1px; display: inline-block; border: none; }
 .item-event .image-preview { float: left; width: 30%; height: 72px; background-size: cover; background-position: center center; }
-.item-event .item-tag { float: left; margin-left: 2%; width: 33%; }
-.item-event .item-date { float: left; margin-right: 2%; width: 33%; }
-.item-event .item-channel { float: left; margin-right: 2%; width: 68%; text-align: right; margin-top: 5px; }
-.item-event h2 { float: left; width: 68%; text-align: center; margin-top: 5px; font-weight: bold; font-size: 14px; }
+.item-event .event-preview { float: left; width: 70%; height: 72px; }
+.item-event .event-preview .item-channel { float: left; width: 100%; margin: 4px 0; }
+.item-event .event-preview .item-info-event { float: left; width: 50%; margin: 4px 0; }
+.item-event .event-preview h2 { float: left; width: 100%; text-align: center; font-weight: bold; font-size: 14px; }
 
 .item-error img.full-image { width: 100%; }
 .item-error img.middle-image { width: 50%; margin-left: 25%; margin-top: 20px; margin-bottom: 20px;}

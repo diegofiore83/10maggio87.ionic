@@ -1,0 +1,19 @@
+﻿<ion-view view-title="News su {{keyword}}" ng-cloak>
+    <ion-content>
+        <div class="card">
+            <ul class="list">
+                <li class="item item-text-wrap item-news" ng-repeat="news in newsList">
+                    <a ng-href="#/app/news/id/{{news.Id}}">
+                        <img ng-src="{{news.Image}}" />
+                        <p class="item-tag text-left">{{news.Tag}}</p>
+                        <p class="item-date text-right">{{news.Date | date:'dd/MM/yyyy - HH:mm'}}</p>
+                        <h2 class="text-justify">{{news.Title}}</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="button-bar button-filter">
+            <a class="button button-assertive button-full" ng-show="newsList.length == newsLoaded" ng-click="getNews(newsLoaded + 10)">Altre notizie</a>
+        </div>
+    </ion-content>
+</ion-view>

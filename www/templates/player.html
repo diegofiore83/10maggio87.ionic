@@ -1,0 +1,128 @@
+﻿<ion-view view-title="Profilo Giocatore" ng-cloak>
+    <ion-content>
+        <div class="card">
+            <div class="item item-avatar">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Profile.Tag}}.jpg">
+                <h2>{{player.Profile.Name}}</h2>
+                <p>{{player.Profile.Position | position}}</p>
+                <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Profile.Nation}}.png">
+            </div>
+            <div class="item item-text-wrap">
+                <img class="full-image" ng-if="player.Profile.CurrentTeam" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/2015-16/{{player.Profile.Tag}}.jpg">
+                <h2 class="text-center text-top">Dati Personali</h2>
+                <p>Nazionalità: <span class="text-value">{{player.Profile.Nation}}</span></p>
+                <p>Nato a: <span class="text-value">{{player.Profile.PlaceOfBirth}}</span></p>
+                <p>Il: <span class="text-value">{{player.Profile.DateOfBirth | date:'dd/MM/yyyy'}}</span></p>
+                <div class="ion-trophies">
+                    <div class="ion-custom-trophy" ng-repeat="trophy in player.Career.Trophies">
+                        <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Trofei/{{trophy.Competition.split(' ').join('_')}}.png" />
+                        <p>{{trophy.Season}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-text-wrap">
+                <div class="button-bar">
+                    <a class="button button-positive icon-left button-value ion-ios-list-outline" ng-href="#/app/record/16">{{player.Career.SeasonsTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-tshirt" ng-if="player.Profile.Position != 'All'" ng-href="#/app/record/14">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-compose" ng-if="player.Profile.Position == 'All'" ng-href="#/app/record/22">{{player.Career.AppearancesTot}}</a>
+                    <a class="button button-positive icon-left button-value ion-ios-football" ng-if="player.Profile.Position != 'All'" ng-href="#/app/record/13">{{player.Career.GoalsTot}}</a>
+                </div>
+                <h2 class="text-center text-top">Riepilogo Stagioni</h2>
+                <div class="row">
+                    <div class="col col-20 text-center"><h5>Anno</h5></div>
+                    <div class="col col-20 text-center"><h5>Totale</h5></div>
+                    <div class="col col-20 text-center"><h5>Campionato</h5></div>
+                    <div class="col col-20 text-center"><h5>Europa</h5></div>
+                    <div class="col col-20 text-center"><h5>Altre Coppe</h5></div>
+                </div>
+                <div class="row item" ng-repeat="season in player.Career.SeasonsStats">
+                    <div class="col col-20 text-center">{{season.Season}}</div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa + season.Appearance.AppearancesCi + season.Appearance.AppearancesEu}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCa + season.Appearance.GoalsCi + season.Appearance.GoalsEu}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCa}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCa}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesEu}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsEu}}</span></p></div>
+                    <div class="col col-20 text-center"><p>{{season.Appearance.AppearancesCi}}<span ng-if="player.Profile.Position != 'All'"> - {{season.Appearance.GoalsCi}}</span></p></div>
+                </div>
+                <div class="row item">
+                    <div class="col col-20 text-center"></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCaTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsCaTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesEuTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsEuTot}}</span></div>
+                    <div class="col col-20 text-center">{{player.Career.AppearancesCiTot}}<span ng-if="player.Profile.Position != 'All'"> - {{player.Career.GoalsCiTot}}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card" ng-repeat="season in player.Career.SeasonsStats" ng-if="season.CompetitionsStats.length > 0">
+            <div class="item item-tabs">
+                <h2 class="text-center text-top">{{season.Season}} - {{season.CompetitionsStats[currentCompetition[$parent.$index]].Competition}}</h2>
+                <div ng-repeat="competition in season.CompetitionsStats">
+                    <div ng-show="$index === currentCompetition[$parent.$index]">
+                        <div class="row item">
+                            <div class="col col-25 text-center">
+                                <h5>Presenze</h5><h2>{{competition.Stat.Appearances}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Reti</h5><h2>{{competition.Stat.Goals}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Reti Subite</h5><h2>{{competition.Stat.GoalsConceded}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Ammonizioni</h5><h2>{{competition.Stat.YellowCards}}</h2>
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col col-25 text-center">
+                                <h5>Minuti</h5><h2>{{competition.Stat.Minutes}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>% Min/Reti</h5><h2>{{competition.Stat.ScoringPerMinutes}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>% Min/Subiti</h5><h2>{{competition.Stat.ConcededPerMinutes}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Espulsioni</h5><h2>{{competition.Stat.RedCards}}</h2>
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col col-25 text-center">
+                                <h5>Titolare</h5><h2>{{competition.Stat.Starting11}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Subentrato</h5><h2>{{competition.Stat.SubIn}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Sostituito</h5><h2>{{competition.Stat.SubOut}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Assist</h5><h2>{{competition.Stat.Assist}}</h2>
+                            </div>
+                        </div>
+                        <div class="row item">
+                            <div class="col col-25 text-center">
+                                <h5>Migliore</h5><h2>{{competition.Stat.TheBest}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Peggiore</h5><h2>{{competition.Stat.TheWorst}}</h2>
+                            </div>
+                            <div class="col col-25 text-center">
+                                <h5>Media Voto</h5><h2>{{competition.Stat.VotesAverage}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs tabs-icon-top">
+                    <span class="tab-item" ng-repeat="competition in season.CompetitionsStats" ng-click="selectCompetition($parent.$index, $index)">
+                        <i class="icon ion-{{competition.Competition.split(' ').join('-')}}"></i>
+                        {{competition.Competition}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="padding-side">
+            <div class="button-bar button-filter" ng-if="player.Career.HasStats && !hasDetails">
+                <a class="button button-assertive button-full" ng-click="getPlayer(true)">Mostra Statistiche</a>
+            </div>
+        </div>
+</ion-content>
+</ion-view>

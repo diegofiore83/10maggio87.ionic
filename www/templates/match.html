@@ -1,0 +1,52 @@
+﻿<ion-view view-title="Tabellino Partita" ng-cloak>
+    <ion-content>
+        <div class="card">
+            <div class="item item-avatar">
+                <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Profile.Competition.split(' ').join('_')}}.png" />
+                <h2>{{match.Profile.Teams}} {{match.Profile.Result}}</h2>
+                <p>{{match.Profile.Competition}}</p>
+                <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Profile.Opponent}}.png">
+            </div>
+            <div class="item item-text-wrap">
+                <h2 class="text-center text-top">{{match.Profile.Date | date:'EEEE d MMMM yyyy'}}{{ {true: '', false: ' - ore ' + (match.Profile.Time | date:'HH:mm')}[(match.Profile.Time | date:'HH:mm') == '00:00'] }}</h2>
+                <div style="background: url('http://www.10maggio87.it/Images/Assets/Stadi/{{match.Profile.Stadium.split(' ').join('_')}}.jpg') center no-repeat; min-height: 150px;"></div>
+                <h2 class="text-center text-top">{{match.Profile.Stadium}} di {{match.Profile.HostCity}}</h2>
+            </div>
+        </div>
+        <div class="card" ng-if="match.Scoreboard">
+            <h3 class="text-center text-top">Tabellino Partita</h3>
+            <ion-item class="item item-avatar item-scoreboard" ng-repeat="player in match.Scoreboard" ng-class="{'ion-best': isThe(player, 'Mig'), 'ion-worst': isThe(player, 'Peg')}" ng-show="player.Status != 'Mig' && player.Status != 'Peg'" ng-href="#/app/player/{{player.Tag}}">
+                <img class="item-photo-player" ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <h2>{{player.Name}}</h2>
+                <p>{{player.Position | position}} - {{player.Nation}}</p>
+                <span class="item-info" ng-bind-html="displayScoreboard(player)"></span>
+                <span class="item-vote" ng-bind-html="displayVote(player)"></span>
+                <span class="item-sub-in" ng-show="player.Status == 'Sub'"><img src="http://www.10maggio87.it/Images/Layout/Tabellino/sostituzione-in.png" /></span>
+                <span class="item-sub-out" ng-show="isSub(player)"><img src="http://www.10maggio87.it/Images/Layout/Tabellino/sostituzione-out.png" /></span>
+            </ion-item>
+        </div>
+        <div class="card" ng-if="match.Scoreboard">
+            <h3 class="text-center text-top">Cronaca Partita</h3>
+            <div class="item item-text-wrap">
+                <div class="item-html text-justify" ng-bind-html="match.Profile.Commentary | toTrusted"></div>
+            </div>
+        </div>
+        <div class="card" ng-if="matchHistory.length > 0">
+            <h3 class="text-center text-top">Precedenti</h3>
+            <ion-item class="item-match" ng-repeat="matchH in matchHistory" ng-href="#/app/match/{{matchH.Id}}">
+                <span class="item-match-teams text-left">{{matchH.Teams}}</span>
+                <span class="item-match-date text-left">{{matchH.Date | date:'EEEE d MMMM yyyy'}}{{ {true: '', false: ' - ore ' + (matchH.Time | date:'HH:mm')}[(matchH.Time | date:'HH:mm') == '00:00'] }}</span>
+                <img class="item-match-logo-opponent" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{matchH.Opponent}}.png" />
+                <span class="item-match-result text-center" ng-if="matchH.Result != '' && matchH.Result.length == 3">{{matchH.Result}}</span>
+                <span class="item-match-result-long text-center" ng-if="matchH.Result != '' && matchH.Result.length > 3">{{matchH.Result.split(' ')[0]}}</span>
+                <span class="item-match-result-dcr text-center" ng-if="matchH.Result != '' && matchH.Result.length > 3">{{matchH.Result.split(' ')[1]}}</span>
+                <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{matchH.Competition.split(' ').join('_')}}.png" />
+            </ion-item>
+        </div>
+        <div class="padding-side">
+            <div class="button-bar button-filter" ng-if="!hasMatchHistory">
+                <a class="button button-assertive button-full" ng-click="getMatchHistory()">Mostra Precedenti</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

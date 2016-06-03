@@ -252,7 +252,9 @@ paket-files/
 *.sln.iml
 
 #Cordova
-*/platforms
-*/plugins
-*/hooks
+platforms/
+plugins/
+hooks
 */.cordova
+
+node_modules/

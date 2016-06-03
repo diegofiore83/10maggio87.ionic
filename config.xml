@@ -1,17 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget xmlns   = "http://www.w3.org/ns/widgets"
-    xmlns:gap   = "http://phonegap.com/ns/1.0"
-    id          = "com.phonegap.app-10maggio87-it"
-    versionCode = "14"
-    version     = "1.0.4">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.diecimaggioottantasette" versionCode="14" version="1.0.4">
   <name>10maggio87.it</name>
   <description>Statistiche Società Sportiva Calcio Napoli. News, foto, curiosità e tanto altro sul Napoli</description>
   <author href="http://www.10maggio87.it" email="diegofiore83@gmail.com">10maggio87.it Team</author>
   <content src="index.html" />
-  
   <gap:plugin name="cordova-plugin-whitelist" source="npm" />
   <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
-  
   <preference name="windows-target-version" value="8.0" />
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />
@@ -19,26 +13,23 @@
   <preference name="SplashScreenDelay" value="4000" />
   <preference name="Orientation" value="portrait" />
   <preference name="BackupWebStorage" value="none" />
-  
   <!--
 	  If you do not want any permissions to be added to your app, add the
 	  following tag to your config.xml; you will still have the INTERNET
 	  permission on your app, which PhoneGap requires.
   -->
-  <preference name="permissions" value="none"/>
-   
+  <preference name="permissions" value="none" />
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />
-  <icon src="res/icons/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-  <icon src="res/icons/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-  <icon src="res/icons/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-  <icon src="res/icons/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
-
+  <icon src="res/icons/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi" />
+  <icon src="res/icons/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi" />
+  <icon src="res/icons/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi" />
+  <icon src="res/icons/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi" />
   <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screens/android/screen-ldpi-portrait.png" />
   <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screens/android/screen-mdpi-portrait.png" />
   <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screens/android/screen-hdpi-portrait.png" />
   <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screens/android/screen-xhdpi-portrait.png" />
-  
   <allow-navigation href="http://*/*" />
   <allow-intent href="https://*/*" />
+  <plugin name="cordova-plugin-whitelist" version="1.1.1-dev" />
 </widget>

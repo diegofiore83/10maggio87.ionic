@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Android">
       <Configuration>Debug</Configuration>
@@ -30,11 +29,11 @@
       <Configuration>Debug</Configuration>
       <Platform>Windows Phone 8</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Debug|Windows Phone (Universal)">
-      <Configuration>Debug</Configuration>
-      <Platform>Windows Phone (Universal)</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Android">
+	<ProjectConfiguration Include="Debug|Windows Phone (Universal)">
+	  <Configuration>Debug</Configuration>
+	  <Platform>Windows Phone (Universal)</Platform>
+	</ProjectConfiguration>
+	<ProjectConfiguration Include="Release|Android">
       <Configuration>Release</Configuration>
       <Platform>Android</Platform>
     </ProjectConfiguration>
@@ -66,210 +65,19 @@
       <Configuration>Release</Configuration>
       <Platform>Windows Phone (Universal)</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Android">
-      <Configuration>Distribution</Configuration>
-      <Platform>Android</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|iOS">
-      <Configuration>Distribution</Configuration>
-      <Platform>iOS</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows-AnyCPU">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows-AnyCPU</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows-x64">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows-x64</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows-x86">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows-x86</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows-ARM">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows-ARM</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows Phone 8">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows Phone 8</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Distribution|Windows Phone (Universal)">
-      <Configuration>Distribution</Configuration>
-      <Platform>Windows Phone (Universal)</Platform>
-    </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>77678a35-f59b-4be9-a277-1e79a9014d7e</ProjectGuid>
-  </PropertyGroup>
-  <PropertyGroup>
-    <DefaultReferenceGroup>Implicit (Multi-Device Apps)</DefaultReferenceGroup>
+    <ProjectGuid>93fb6f4e-b6b9-4a69-b98a-bbacd9aa05a5</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0'">
-    <VisualStudioVersion>12.0</VisualStudioVersion>
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0'">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Content Include="css\overrides.css" />
-    <Content Include="images\icons\calciomercato.svg" />
-    <Content Include="images\icons\calendario.svg" />
-    <Content Include="images\icons\media-reti.svg" />
-    <Content Include="images\icons\notizie.svg" />
-    <Content Include="images\icons\nuova.svg" />
-    <Content Include="images\icons\panchine.svg" />
-    <Content Include="images\icons\presenze-anno.svg" />
-    <Content Include="images\icons\presenze.svg" />
-    <Content Include="images\icons\primati.svg" />
-    <Content Include="images\icons\reti-anno.svg" />
-    <Content Include="images\icons\reti.svg" />
-    <Content Include="images\icons\ricerca.svg" />
-    <Content Include="images\icons\rosa.svg" />
-    <Content Include="images\icons\stagioni.svg" />
-    <Content Include="lib\ionic\css\ionic.css" />
-    <Content Include="lib\ionic\css\ionic.min.css" />
-    <Content Include="lib\ionic\fonts\ionicons.eot" />
-    <Content Include="lib\ionic\fonts\ionicons.svg" />
-    <Content Include="lib\ionic\fonts\ionicons.ttf" />
-    <Content Include="lib\ionic\fonts\ionicons.woff" />
-    <Content Include="lib\ionic\js\angular-ui\angular-ui-router.js" />
-    <Content Include="lib\ionic\js\angular-ui\angular-ui-router.min.js" />
-    <Content Include="lib\ionic\js\angular\angular-animate.js" />
-    <Content Include="lib\ionic\js\angular\angular-animate.min.js" />
-    <Content Include="lib\ionic\js\angular\angular-resource.js" />
-    <Content Include="lib\ionic\js\angular\angular-resource.min.js" />
-    <Content Include="lib\ionic\js\angular\angular-sanitize.js" />
-    <Content Include="lib\ionic\js\angular\angular-sanitize.min.js" />
-    <Content Include="lib\ionic\js\angular\angular.js" />
-    <Content Include="lib\ionic\js\angular\angular.min.js" />
-    <Content Include="lib\ionic\js\ionic-angular.js" />
-    <Content Include="lib\ionic\js\ionic-angular.min.js" />
-    <Content Include="lib\ionic\js\ionic.bundle.js" />
-    <Content Include="lib\ionic\js\ionic.bundle.min.js" />
-    <Content Include="lib\ionic\js\ionic.js" />
-    <Content Include="lib\ionic\js\ionic.min.js" />
-    <Content Include="lib\ionic\version.json" />
-    <Content Include="merges\wp8\css\overrides.css" />
-    <Content Include="scripts\filters.js" />
-    <Content Include="scripts\frameworks\angular-local-storage.min.js" />
-    <Content Include="scripts\frameworks\angular-locale_it-it.js" />
-    <Content Include="scripts\frameworks\authService.js" />
-    <Content Include="scripts\frameworks\authInterceptorService.js" />
-    <Content Include="templates\browse.html" />
-    <Content Include="templates\loading.html" />
-    <Content Include="templates\login.html" />
-    <Content Include="templates\error.html" />
-    <Content Include="templates\transfers.html" />
-    <Content Include="templates\primates.html" />
-    <Content Include="templates\seasons.html" />
-    <Content Include="templates\team.html" />
-    <Content Include="templates\news-cards.html" />
-    <Content Include="templates\news-list.html" />
-    <Content Include="templates\news.html" />
-    <Content Include="templates\menu.html" />
-    <Content Include="templates\match.html" />
-    <Content Include="templates\player.html" />
-    <Content Include="templates\calendar.html" />
-    <Content Include="templates\season.html" />
-    <Content Include="res\native\windows\CordovaApp_TemporaryKey.pfx" />
-    <Content Include="scripts\frameworks\angular-resource.min.js" />
-    <Content Include="scripts\frameworks\angular-route.min.js" />
-    <Content Include="scripts\frameworks\angular.min.js" />
-    <Content Include="merges\android\scripts\android2.3-jscompat.js" />
-    <Content Include="merges\android\scripts\platformOverrides.js" />
-    <Content Include="merges\windows\scripts\platformOverrides.js" />
-    <Content Include="merges\windows\scripts\winstore-jscompat.js" />
-    <Content Include="templates\record.html" />
-    <Content Include="templates\search.html" />
-    <Folder Include="merges\ios\scripts\" />
-    <Folder Include="plugins\" />
-    <Folder Include="res\icons\android\" />
-    <Folder Include="res\icons\ios\" />
-    <Folder Include="res\icons\wp8\" />
-    <Folder Include="res\icons\windows\" />
-    <Folder Include="res\screens\android\" />
-    <Folder Include="res\screens\ios\" />
-    <Folder Include="res\screens\windows\" />
-    <Folder Include="res\screens\wp8\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="config.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="index.html" />
-    <Content Include="scripts\app.js" />
-    <Content Include="scripts\controllers.js" />
-    <Content Include="scripts\index.js" />
-    <Content Include="scripts\platformOverrides.js" />
-    <Content Include="css\index.css" />
-    <Content Include="res\icons\android\icon-36-ldpi.png" />
-    <Content Include="res\icons\android\icon-48-mdpi.png" />
-    <Content Include="res\icons\android\icon-72-hdpi.png" />
-    <Content Include="res\icons\android\icon-96-xhdpi.png" />
-    <Content Include="res\icons\ios\icon-40.png" />
-    <Content Include="res\icons\ios\icon-40-2x.png" />
-    <Content Include="res\icons\ios\icon-50.png" />
-    <Content Include="res\icons\ios\icon-50-2x.png" />
-    <Content Include="res\icons\ios\icon-57.png" />
-    <Content Include="res\icons\ios\icon-57-2x.png" />
-    <Content Include="res\icons\ios\icon-60.png" />
-    <Content Include="res\icons\ios\icon-60-2x.png" />
-    <Content Include="res\icons\ios\icon-72.png" />
-    <Content Include="res\icons\ios\icon-72-2x.png" />
-    <Content Include="res\icons\ios\icon-76.png" />
-    <Content Include="res\icons\ios\icon-76-2x.png" />
-    <Content Include="res\icons\ios\icon-small.png" />
-    <Content Include="res\icons\ios\icon-small-2x.png" />
-    <Content Include="res\icons\windows\logo.png" />
-    <Content Include="res\icons\windows\smalllogo.png" />
-    <Content Include="res\icons\windows\Square150x150Logo.scale-240.png" />
-    <Content Include="res\icons\windows\Square44x44Logo.scale-240.png" />
-    <Content Include="res\icons\windows\Square71x71Logo.scale-240.png" />
-    <Content Include="res\icons\windows\storelogo.png" />
-    <Content Include="res\icons\windows\StoreLogo.scale-240.png" />
-    <Content Include="res\icons\windows\Wide310x150Logo.scale-240.png" />
-    <Content Include="res\icons\wp8\icon-62-tile.png" />
-    <Content Include="res\icons\wp8\icon-173-tile.png" />
-    <Content Include="res\native\android\ant.properties" />
-    <Content Include="res\screens\android\screen-hdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-hdpi-portrait.png" />
-    <Content Include="res\screens\android\screen-ldpi-landscape.png" />
-    <Content Include="res\screens\android\screen-ldpi-portrait.png" />
-    <Content Include="res\screens\android\screen-mdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-mdpi-portrait.png" />
-    <Content Include="res\screens\android\screen-xhdpi-landscape.png" />
-    <Content Include="res\screens\android\screen-xhdpi-portrait.png" />
-    <Content Include="res\screens\ios\screen-ipad-landscape.png" />
-    <Content Include="res\screens\ios\screen-ipad-landscape-2x.png" />
-    <Content Include="res\screens\ios\screen-ipad-portrait.png" />
-    <Content Include="res\screens\ios\screen-ipad-portrait-2x.png" />
-    <Content Include="res\screens\ios\screen-iphone-568h-2x.png" />
-    <Content Include="res\screens\ios\screen-iphone-portrait.png" />
-    <Content Include="res\screens\ios\screen-iphone-portrait-2x.png" />
-    <Content Include="res\screens\windows\splashscreen.png" />
-    <Content Include="res\screens\windows\SplashScreen.scale-240.png" />
-    <Content Include="res\screens\wp8\screen-portrait.jpg" />
-  </ItemGroup>
   <PropertyGroup>
-    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
-    <DefaultReferenceGroup>Implicit (Multi-Device Apps)</DefaultReferenceGroup>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
-    <TypeScriptSourceMap>true</TypeScriptSourceMap>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-    <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
-    <TypeScriptSourceMap>false</TypeScriptSourceMap>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)' == 'Distribution'">
-    <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
-    <TypeScriptSourceMap>false</TypeScriptSourceMap>
-  </PropertyGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CordovaTools\vs-mda-targets\Microsoft.MDA.targets" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CordovaTools\vs-mda-targets\Microsoft.TypeScript.MDA.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\ApacheCordovaTools\vs-mda-targets\Microsoft.TypeScript.MDA.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\ApacheCordovaTools\vs-mda-targets\Microsoft.MDA.FileMirroring.targets" />
   <PropertyGroup>
     <ProjectUISubcaption>Tools for Apache Cordova</ProjectUISubcaption>
   </PropertyGroup>
@@ -280,16 +88,25 @@
     <!-- These errors will trigger if building from inside Visual Studio and requirements could not be determined -->
     <Error Condition="$(MDAPropertiesEvaluated) == 'true' And $(NodeJsDir) == ''" Text="Path to NodeJs could not be determined. Please check that NodeJs has been installed." />
     <Error Condition="$(MDAPropertiesEvaluated) == 'true' And $(MDAVsixDir) == ''" Text="Path to the Visual Studio Extension for Tools for Apache Cordova could not be determined. Please check that the extension has been installed." />
+
     <!-- These errors will trigger if building from outside Visual Studio (e.g. command line) and environment variables have not been set -->
     <Error Condition="$(MDAPropertiesEvaluated) == '' And $(NodeJsDir) == ''" Text="Path to NodeJs has not been specified. Please check that NodeJs has been installed and set the NodeJsDir environment variable before building." />
     <Error Condition="$(MDAPropertiesEvaluated) == '' And $(MDAVsixDir) == ''" Text="Path to Visual Studio Extension for Tools for Apache Cordova has not been specified. Please install it and set the MDAVsixDir environment variable before building." />
+
     <!-- Sanity check that things exist in the specified places. These are more likely to fail if building outside Visual Studio and the required environment variables have not been set, or set incorrectly. -->
     <Error Condition="!Exists('$(NodeJsDir)') Or !Exists('$(NodeJsDir)\node.exe')" Text="The specified NodeJs directory $(NodeJsDir) either does not exist, or does not contain node.exe. Please check that NodeJs has been installed, and set the NodeJsDir variable to the correct directory." />
-    <Error Condition="!Exists('$(MDAVsixDir)') Or !Exists('$(MDAVsixDir)\packages\vs-mda')" Text="The specified directory to the Visual Studio extension $(MDAVsixDir)\node.exe either does not exist, or does not contain a packages\vs-mda sub-directory. Please check that the extension directory exists and set the MDAVsixDir variable to the correct directory." />
+    <Error Condition="!Exists('$(MDAVsixDir)') Or !Exists('$(MDAVsixDir)\packages\vs-tac')" Text="The specified directory to the Visual Studio extension $(MDAVsixDir)\node.exe either does not exist, or does not contain a packages\vs-tac sub-directory. Please check that the extension directory exists and set the MDAVsixDir variable to the correct directory." />
+
     <!-- Installs (if necessary) the supporting Nodejs module -->
-    <Exec Command="&quot;$(MDAVsixDir)&quot;\packages\vs-mda\install &quot;$(NodeJsDir)&quot; &quot;$(MDAVsixDir)&quot;\packages\vs-mda" />
+    <Exec Command='"$(MDAVsixDir)"\packages\vs-tac\install "$(NodeJsDir)" "$(MDAVsixDir)"\packages\vs-tac'/>
   </Target>
-  <Target Name="BeforeBuild">
-    <!-- Fetches dependencies -->
-  </Target>
+
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties project_1json__JSONSchema="http://www.asp.net/media/4878834/project.json" />
+    </VisualStudio>
+  </ProjectExtensions>
+
+  <Import Project="_apacheCordovaProjectSourceItems.Targets" Condition="Exists('_apacheCordovaProjectSourceItems.Targets')"  />
+
 </Project>

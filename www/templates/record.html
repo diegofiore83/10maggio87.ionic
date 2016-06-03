@@ -1,0 +1,33 @@
+﻿<ion-view view-title="{{recordId | record}}" ng-cloak>
+    <ion-content>
+        <ion-refresher on-refresh="getRecords(recordLoaded, showTotal)"
+                       pulling-text="Aggiorna"
+                       refreshing-text="Caricamento ..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
+        <div class="padding-side">
+            <div class="button-bar button-filter">
+                <a class="button button-assertive button-full" ng-click="getRecords(25, 'Total')">Tutte</a>
+                <a class="button button-assertive button-full" ng-click="getRecords(25, 'TotalCa')">Campionato</a>
+                <a class="button button-assertive button-full" ng-click="getRecords(25, 'TotalCi')">Coppa Italia</a>
+                <a class="button button-assertive button-full" ng-click="getRecords(25, 'TotalEu')">Europa</a>
+            </div>
+        </div>
+        <div class="list card">
+            <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : ['Season', showTotal] : true)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/player/{{player.Tag}}">
+                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <h2>{{player.Season ? player.Season + ' - ' : ''}}{{player.Name}}</h2>
+                <p>{{player.Position | position}} - {{player.Nation}}</p>
+                <h1 class="ion-record-text" ng-if="showTotal == 'Total'">{{player.Total | number: getDigits()}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCa'">{{player.TotalCa | number: getDigits()}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalCi'">{{player.TotalCi | number: getDigits()}}</h1>
+                <h1 class="ion-record-text" ng-if="showTotal == 'TotalEu'">{{player.TotalEu | number: getDigits()}}</h1>
+            </ion-item>
+        </div>
+        <div class="padding-side">
+            <div class="button-bar button-filter">
+                <a class="button button-assertive button-full" ng-click="getRecords(recordLoaded + 50, showTotal)">Mostra altri</a>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

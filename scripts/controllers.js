@@ -192,6 +192,7 @@
         }).finally(function () {
             $ionicLoading.hide();
             $scope.getNews($scope.newsLoaded);
+            $ionicSlideBoxDelegate.update();
         });
     };
 

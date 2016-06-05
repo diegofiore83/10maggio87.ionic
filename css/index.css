@@ -100,11 +100,10 @@ ion-content { background-color: #1b91ce; }
 .item-shirt img.Kappa { top: 60px; left: 90px; width: 40px; }
 .item-shirt img.nessuno { top: 60px; left: 160px; width: 25px; }
 
-.list-events { margin: 0; padding: 0; }
-.list-events .slider-pager { display: none; }
+.list .item-event { border-bottom: 1px solid #EEE; }
 .item-event { padding: 1px; display: inline-block; border: none; }
 .item-event .image-preview { float: left; width: 30%; height: 72px; background-size: cover; background-position: center center; }
-.item-event .event-preview { float: left; width: 70%; height: 72px; }
+.item-event .event-preview { float: left; width: 70%; }
 .item-event .event-preview .item-channel { float: left; width: 100%; margin: 4px 0; }
 .item-event .event-preview .item-info-event { float: left; width: 50%; margin: 4px 0; }
 .item-event .event-preview h2 { float: left; width: 100%; text-align: center; font-weight: bold; font-size: 14px; }
@@ -125,4 +124,5 @@ ion-content { background-color: #1b91ce; }
 .icon.icon-presenze-anno { background: url('http://www.10maggio87.it/Images/Layout/Icons/presenze-anno.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-stagioni { background: url('http://www.10maggio87.it/Images/Layout/Icons/stagioni.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-ricerca { background: url('http://www.10maggio87.it/Images/Layout/Icons/ricerca.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-eventi { background: url('http://www.10maggio87.it/Images/Layout/Icons/eventi.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-nuova { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; width: 32px; background-size: 32px; right: 11px; left: initial; }

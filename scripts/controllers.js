@@ -56,6 +56,33 @@
     });
 })
 
+.controller('EventsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+
+    $scope.eventsList = [];
+
+    var url = sharedSettings.getWebapi() + '/api/events/last/';
+
+    $scope.eventsLoaded = 10;
+
+    $scope.getEvents = function (events) {
+
+        $scope.eventsLoaded = events;
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(url + $scope.eventsLoaded).then(function (resp) {
+            $scope.eventsList = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide()
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    };
+
+    $scope.getEvents($scope.eventsLoaded);
+
+})
+
 .controller('MatchCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.matchId = $stateParams.matchId;
     $scope.hasDetails = true;

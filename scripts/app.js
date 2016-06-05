@@ -185,6 +185,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
+    .state('app.events', {
+        url: "/events",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/events.html",
+                controller: 'EventsCtrl'
+            }
+        }
+    })
+
     .state('app.error', {
         url: "/error/:errorCode",
         views: {

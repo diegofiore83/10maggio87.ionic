@@ -1,0 +1,27 @@
+﻿<ion-view view-title="Prossimi Eventi" ng-cloak>
+    <ion-content>
+        <ion-refresher on-refresh="getEvents(eventsLoaded)"
+                       pulling-text="Aggiorna"
+                       refreshing-text="Caricamento ..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
+        <div class="card">
+            <ul class="list">
+                <li class="item item-text-wrap item-event" ng-repeat="event in eventsList">
+                    <a ng-href="#/app/news/id/{{event.NewsId}}">
+                        <div class="event-preview">
+                            <p class="item-channel text-center">{{event.Date | dayFilter}}</p>
+                            <h2 class="text-justify">{{event.Title}}</h2>
+                            <p class="item-info-event text-center">{{event.Tag}}</p>
+                            <p class="item-info-event text-center">{{event.Channel}}</p>
+                        </div>
+                        <div class="image-preview" ng-style="{'background-image': 'url(' + event.Image + ')'}"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="button-bar button-filter">
+            <a class="button button-assertive button-full" ng-show="eventsList.length == eventsLoaded" ng-click="getEvents(eventsLoaded + 10)">Altri eventi</a>
+        </div>
+    </ion-content>
+</ion-view>

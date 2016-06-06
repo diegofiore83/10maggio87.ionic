@@ -126,3 +126,6 @@ ion-content { background-color: #1b91ce; }
 .icon.icon-ricerca { background: url('http://www.10maggio87.it/Images/Layout/Icons/ricerca.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-eventi { background: url('http://www.10maggio87.it/Images/Layout/Icons/eventi.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-nuova { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; width: 32px; background-size: 32px; right: 11px; left: initial; }
+
+.icon.icon-nuova-inline { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; min-width: 32px; min-height: 32px; float: right; margin-top: -5px; }
+    

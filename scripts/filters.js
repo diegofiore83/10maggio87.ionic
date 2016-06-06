@@ -20,22 +20,23 @@
     .filter('dayFilter', ['$filter', function ($filter) {
         function chooseDay(date) {
             var day = new Date(date);
-            var timeToEvent = day.getTime() - Date.now();
+            var dayUTC = new Date(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate(), day.getUTCHours(), day.getUTCMinutes(), day.getUTCSeconds());
+            var timeToEvent = dayUTC.getTime() - Date.now();
             var hoursToEvent = ((timeToEvent / 1000) / 60) / 60;
 
             if (hoursToEvent > 168) // Più di una settimana
-                return $filter('date')(day, "EEE d MMM yyyy - H:mm");
+                return $filter('date')(dayUTC, "EEE d MMM yyyy - H:mm");
 
             if (hoursToEvent > 48) // Più di 2 giorni
-                return $filter('date')(day, "EEEE d 'alle' H:mm");
+                return $filter('date')(dayUTC, "EEEE d 'alle' H:mm");
 
             if (hoursToEvent > 24) // Domani
-                return $filter('date')(day, "'Domani alle' H:mm");
+                return $filter('date')(dayUTC, "'Domani alle' H:mm");
 
             if (hoursToEvent > 2) // Oggi
-                return $filter('date')(day, "'Oggi alle' H:mm");
+                return $filter('date')(dayUTC, "'Oggi alle' H:mm");
 
-            return $filter('date')(day, 'dd/MM/yyyy - H:mm');
+            return $filter('date')(dayUTC, 'dd/MM/yyyy - H:mm');
         }
 
         return function (eventDate) {

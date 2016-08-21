@@ -33,13 +33,15 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     };
 })
 
-.config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider) {
+.config(function ($compileProvider, $stateProvider, $urlRouterProvider, $httpProvider, $ionicConfigProvider) {
 
     $httpProvider.interceptors.push('authInterceptorService');
 
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|ghttps?|ms-appx|x-wmapp0):/);
     // // Use $compileProvider.urlSanitizationWhitelist(...) for Angular 1.2
     $compileProvider.imgSrcSanitizationWhitelist(/^\s*(https?|ftp|file|ms-appx|x-wmapp0):|data:image\//);
+
+    $ionicConfigProvider.scrolling.jsScrolling(true);
 
     $stateProvider
 

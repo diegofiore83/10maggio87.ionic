@@ -2,8 +2,8 @@
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, 
 .tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-ion-content { background-color: #1b91ce; }
-.napoli {color: #1b91ce; }
+ion-content { background-color: #2e98d2; }
+.napoli {color: #2e98d2; }
 
 .text-center { text-align: center; }
 .text-justify { text-align: justify; }
@@ -21,6 +21,7 @@ ion-content { background-color: #1b91ce; }
 .card.with-title { margin: 40px 10px 10px 10px !important; position: relative; overflow: visible; }
 .card.with-title .item.card-title { position: absolute; top: -26px; left: 0; min-width: 125px; }
 .card.with-title .item.card-subtitle { position: absolute; bottom: 26px; right: 0; min-width: 90px; }
+.card.with-title .item-match { border-top: 0; }
 .card.with-title.event-container { max-height: 74px; }
 .padding-side { padding-left: 10px; padding-right: 10px;}
 .item-avatar.item-logo > img:first-child { border-radius: 0; }
@@ -45,7 +46,6 @@ ion-content { background-color: #1b91ce; }
 .item-tabs { padding: 0; }
 .item-tabs .tabs { position: relative; }
 
-.item-match { }
 .item-match .item-content { height: 50px; padding: 0;}
 .item-match .item-match-teams { position: absolute; left: 55px; top: 5px; }
 .item-match .item-match-logo-opponent { position: absolute; right: 50px; top: 13px; width: 28px; }
@@ -100,12 +100,12 @@ ion-content { background-color: #1b91ce; }
 .item-shirt img.Kappa { top: 60px; left: 90px; width: 40px; }
 .item-shirt img.nessuno { top: 60px; left: 160px; width: 25px; }
 
-.list .item-event { border-bottom: 1px solid #EEE; }
-.item-event { padding: 1px; display: inline-block; border: none; }
-.item-event .image-preview { float: left; width: 30%; height: 72px; background-size: cover; background-position: center center; }
-.item-event .event-preview { float: left; width: 70%; }
-.item-event .event-preview .item-channel { float: left; width: 100%; margin: 4px 0; }
-.item-event .event-preview .item-info-event { float: left; width: 50%; margin: 4px 0; }
+.item-event { border: none; padding: 1px; height: 72px; }
+.item-event:nth-child(odd) { background-color: #EEE; }
+.item-event .image-preview { width: 30%; height: 70px; float: left; background-size: cover; background-position: center center; }
+.item-event .event-preview { width: 70%; float: left; }
+.item-event .event-preview .item-channel { float: left; width: 100%; margin: 3px 0; }
+.item-event .event-preview .item-info-event { float: left; width: 50%; margin: 3px 0; }
 .item-event .event-preview h2 { float: left; width: 100%; text-align: center; font-weight: bold; font-size: 14px; }
 
 .item-error img.full-image { width: 100%; }
@@ -129,3 +129,13 @@ ion-content { background-color: #1b91ce; }
 
 .icon.icon-nuova-inline { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; min-width: 32px; min-height: 32px; float: right; margin-top: -5px; }
     
+.button.button-assertive { border-color: #2e98d2; background-color: #041e3b; color: #fff; }
+.button.button-assertive.active, .button.button-assertive.activated { border-color: #2e98d2; background-color: #2e98d2; }
+
+.slider { height: 100%; }
+.slider .slider-slide { background-color:  #2e98d2; text-align: center; min-height: 100px; }
+.slider .slider-slide a { text-decoration: none; }
+.slider .slider-slide a h3 { margin: 20px 0 5px 0; color: #fff; }
+.slider .slider-slide a h4 { margin: 0 0 10px 0; color: #fff; }
+.slider .slider-pager { margin: 20px 0; float: left; position: static; }
+.slider .slider-pager .slider-pager-page { color: #fff; }

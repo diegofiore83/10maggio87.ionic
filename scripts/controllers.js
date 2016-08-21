@@ -188,6 +188,7 @@
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
     $scope.event = null;
+    $scope.showEvent = false;
 
     var url = sharedSettings.getWebapi() + '/api/news/last/';
     if (typeof $stateParams.keyword == "string") {
@@ -195,16 +196,16 @@
     }
     $scope.newsLoaded = 10;
 
-    $scope.getNextMatch = function () {
+    $scope.getLastMatch = function () {
         $scope.match = {};
         $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
-        $http.get(sharedSettings.getWebapi() + '/api/matches/next').then(function (resp) {
+        $http.get(sharedSettings.getWebapi() + '/api/matches/last').then(function (resp) {
             $scope.match = resp.data;
         }, function (err) {
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
-            $scope.getNews($scope.newsLoaded);
+            $scope.getEvent();
         });
     };
 
@@ -216,6 +217,7 @@
             console.log('Loading Error - ' + err.status + ': ' + err.statusText);
         }).finally(function () {
             $ionicLoading.hide();
+            $scope.checkDatesNextEvent();
             $scope.getNews($scope.newsLoaded);
         });
     };
@@ -234,10 +236,20 @@
         });
     };
 
+    $scope.checkDatesNextEvent = function () {
+        var dateMatch = new Date($scope.match.Date);
+        var dateEvent = new Date($scope.event.Date);
+        var dateNow = new Date();
+        var timeDiffMatch = Math.abs(dateMatch.getTime() - dateNow.getTime());
+        var timeDiffEvent = Math.abs(dateEvent.getTime() - dateNow.getTime());
+        debugger;
+        if (timeDiffEvent < timeDiffMatch) {
+            $scope.showEvent = true;
+        }
+    };
+
     // Disable before new season start
-    // $scope.getNextMatch();
-    // $scope.getNews($scope.newsLoaded);
-    $scope.getEvent();
+    $scope.getLastMatch();
 
     $ionicSlideBoxDelegate.update();
 })
@@ -452,6 +464,28 @@
         $ionicLoading.hide();
     });
 })
+
+.controller('SquadCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+    $scope.players = [];
+
+    $scope.getTeamPlayers = function () {
+
+        // Setup the loader
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+
+        $http.get(sharedSettings.getWebapi() + '/api/players/squad').then(function (resp) {
+            $scope.players = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getTeamPlayers();
+
+})
+
 
 .controller('TeamCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.name = $stateParams.name;

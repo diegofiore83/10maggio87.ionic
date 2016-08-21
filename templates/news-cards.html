@@ -5,9 +5,9 @@
                        refreshing-text="Caricamento ..."
                        refreshing-icon="ion-loading-c">
         </ion-refresher>
-        <div class="card" ng-if="match">
+        <div class="card with-title" ng-if="match && !showEvent">
             <div class="item card-title">
-                <h2 class="text-center text-top">Prossima Partita</h2>
+                <h2 class="text-center">Ultima Partita</h2>
             </div>
             <ion-item class="item-match" ng-href="#/app/match/{{match.Id}}">
                 <span class="item-match-teams text-left">{{match.Teams}}</span>
@@ -17,7 +17,7 @@
                 <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Competition.split(' ').join('_')}}.png" />
             </ion-item>
         </div>
-        <div class="card with-title event-container" ng-if="event">
+        <div class="card with-title event-container" ng-if="event && showEvent">
             <div class="item card-title">
                 <h2 class="text-center">Prossimo Evento</h2>
             </div>

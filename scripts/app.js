@@ -10,7 +10,11 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     var webapi = 'http://api.10maggio87.it'; /* 'http://api2.10maggio87.it'; */
     var username = 'appuser%4010maggio87.it';
     var password = 'UQAL92anF-U4zvX';
+    var currentSeason = '2016-17';
     return {
+        getCurrentSeason: function () {
+            return currentSeason;
+        },
         getUsername: function () {
             return username;
         },
@@ -62,6 +66,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
             'menuContent': {
                 templateUrl: "templates/team.html",
                 controller: 'TeamCtrl'
+            }
+        }
+    })
+    
+    .state('app.squad', {
+        url: "/squad",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/squad.html",
+                controller: 'SquadCtrl'
             }
         }
     })

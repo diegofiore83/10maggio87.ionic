@@ -3,8 +3,8 @@
         <div class="card">
             <div class="item item-avatar">
                 <img class="item-match-logo-competition" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Mini/{{match.Profile.Competition.split(' ').join('_')}}.png" />
-                <h2>{{match.Profile.Teams}} {{match.Profile.Result}}</h2>
-                <p>{{match.Profile.Competition}}</p>
+                <h2 class="text-left">{{match.Profile.Teams}} {{match.Profile.Result}}</h2>
+                <p class="text-left">{{match.Profile.Competition}}</p>
                 <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{match.Profile.Opponent}}.png">
             </div>
             <div class="item item-text-wrap">
@@ -17,8 +17,8 @@
             <h3 class="text-center text-top">Tabellino Partita</h3>
             <ion-item class="item item-avatar item-scoreboard" ng-repeat="player in match.Scoreboard" ng-class="{'ion-best': isThe(player, 'Mig'), 'ion-worst': isThe(player, 'Peg')}" ng-show="player.Status != 'Mig' && player.Status != 'Peg'" ng-href="#/app/player/{{player.Tag}}">
                 <img class="item-photo-player" ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
-                <h2>{{player.Name}}</h2>
-                <p>{{player.Position | position}} - {{player.Nation}}</p>
+                <h2 class="text-left">{{player.Name}}</h2>
+                <p class="text-left">{{player.Position | position}} - {{player.Nation}}</p>
                 <span class="item-info" ng-bind-html="displayScoreboard(player)"></span>
                 <span class="item-vote" ng-bind-html="displayVote(player)"></span>
                 <span class="item-sub-in" ng-show="player.Status == 'Sub'"><img src="http://www.10maggio87.it/Images/Layout/Tabellino/sostituzione-in.png" /></span>

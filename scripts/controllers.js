@@ -183,7 +183,7 @@
     });
 })
 
-.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings, $ionicSlideBoxDelegate) {
+.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
 
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
@@ -242,7 +242,6 @@
         var dateNow = new Date();
         var timeDiffMatch = Math.abs(dateMatch.getTime() - dateNow.getTime());
         var timeDiffEvent = Math.abs(dateEvent.getTime() - dateNow.getTime());
-        debugger;
         if (timeDiffEvent < timeDiffMatch) {
             $scope.showEvent = true;
         }
@@ -250,8 +249,6 @@
 
     // Disable before new season start
     $scope.getLastMatch();
-
-    $ionicSlideBoxDelegate.update();
 })
 
 .controller('PlayerCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
@@ -467,6 +464,7 @@
 
 .controller('SquadCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.players = [];
+    $scope.season = sharedSettings.getCurrentSeason();
 
     $scope.getTeamPlayers = function () {
 
@@ -480,6 +478,14 @@
         }).finally(function () {
             $ionicLoading.hide();
         });
+    };
+
+    $scope.sliderOptions = {
+        loop: false,
+        effect: "fade",
+        slidesPerView: 1,
+        nextButton: ".slider-button-next",
+        prevButton: ".slider-button-prev"
     };
 
     $scope.getTeamPlayers();

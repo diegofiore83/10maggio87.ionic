@@ -1,24 +1,23 @@
 ﻿<ion-view view-title="Rosa attuale" ng-cloak>
-    <ion-content>
-        <ion-slide-box does-continue="true" show-pager="false" on-slide-changed="slideChanged(index)">
-            <ion-slide ng-repeat="player in players">
-                <div>
-                    <a ng-href="#/app/player/{{player.Tag}}">
-                        <h3>{{player.Name}}</h3>
-                        <h4>#{{player.Shirt}} - {{player.Position | position}}</h4>
-                        <img ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Profili/{{player.Tag}}.jpg">
-                        <h4>{{player.DateOfBirth | date:'dd/MM/yyyy'}} - {{player.DateOfBirth | ageFilter : season }} anni - {{player.Nation}}</h4>
-                    </a>
-                </div>
-            </ion-slide>
-        </ion-slide-box>
-    </ion-content>
+    <ion-slides options="sliderOptions" slider="playerSlider">
+        <ion-slide-page ng-repeat="player in players">
+            <ion-content>
+                <a ng-href="#/app/player/{{player.Tag}}">
+                    <h3>{{player.Name}}</h3>
+                    <h4>#{{player.Shirt}} - {{player.Position | position}}</h4>
+                    <img ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Profili/{{player.Tag}}.jpg">
+                    <h4>{{player.DateOfBirth | date:'dd/MM/yyyy'}} - {{player.DateOfBirth | ageFilter : season }} anni - {{player.Nation}}</h4>
+                </a>
+            </ion-content>
+        </ion-slide-page>
+    </ion-slides>
+
     <ion-footer-bar class="button-bar">
-        <div class="buttons" ng-click="previous()">
+        <div class="buttons slider-button-prev" ng-click="previous()">
             <button class="button icon ion-arrow-left-a"></button>
         </div>
-        <h1 class="title">scorri la Rosa</h1>
-        <div class="buttons" ng-click="next()">
+        <h1 class="title"></h1>
+        <div class="buttons slider-button-next" ng-click="next()">
             <button class="button icon ion-arrow-right-a"></button>
         </div>
     </ion-footer-bar>

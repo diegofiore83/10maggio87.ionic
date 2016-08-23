@@ -10,8 +10,8 @@
             <div class="card">
                 <ion-item class=" item item-avatar" ng-repeat="player in filtered = (results | orderBy : 'Tag' : false)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/player/{{player.Tag}}">
                     <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
-                    <h2>{{player.Name}}</h2>
-                    <p>{{player.Position | position}} - {{player.Nation}}</p>
+                    <h2 class="text-left">{{player.Name}}</h2>
+                    <p class="text-left">{{player.Position | position}} - {{player.Nation}}</p>
                 </ion-item>
             </div>
         </div>
@@ -25,8 +25,8 @@
             <div class="card">
                 <ion-item class=" item item-avatar" ng-repeat="team in filtered = (results | orderBy : 'Name' : false)" ng-href="#/app/team/{{team.Name}}">
                     <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{team.Name}}.png">
-                    <h2>{{team.Name}}</h2>
-                    <p>{{team.Nation}}</p>
+                    <h2 class="text-left">{{team.Name}}</h2>
+                    <p class="text-left">{{team.Nation}}</p>
                     <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{team.Nation}}.png">
                 </ion-item>
             </div>

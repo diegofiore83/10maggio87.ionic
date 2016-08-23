@@ -482,10 +482,10 @@
 
     $scope.sliderOptions = {
         loop: false,
-        effect: "fade",
-        slidesPerView: 1,
         nextButton: ".slider-button-next",
-        prevButton: ".slider-button-prev"
+        prevButton: ".slider-button-prev",
+        paginationType: 'fraction',
+        lazyLoading: true
     };
 
     $scope.getTeamPlayers();

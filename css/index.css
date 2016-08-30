@@ -12,7 +12,7 @@ ion-content { background-color: #2e98d2; }
 .text-value { color: #000; }
 .button-filter a { font-size: 14px; padding: 0 4px !important; }
 .button-value { line-height: 46px; font-size: 28px; }
-.ion-highlighted a{ background-color: #73c8ee !important; }
+.ion-highlighted a{ background-color: #ADD8E6 !important; }
 .card { margin: 10px !important; }
 .card.flat-card { padding: 0; }
 .card.isRecord { outline: 5px solid greenyellow; }
@@ -112,6 +112,28 @@ ion-content { background-color: #2e98d2; }
 .item-event .event-preview .item-info-event { float: left; width: 50%; margin: 3px 0; }
 .item-event .event-preview h2 { float: left; width: 100%; text-align: center; font-weight: bold; font-size: 14px; }
 
+.item-ranking { padding: 5px; }
+.item-ranking div { display: inline-block; font-weight: bold; }
+.item-ranking.titles { background-color: #EEE8AA; }
+.item-ranking.napoli { background-color: #ADD8E6; color: #000; }
+.item-ranking .team-position { width: 8%; }
+.item-ranking .team-image { width: 10%; }
+.item-ranking .team-image img { width: 25px; vertical-align: middle; }
+.item-ranking .team-name { width: 40%; margin-left: 10px; }
+.item-ranking .team-points { width: 8%; }
+.item-ranking .team-goals { width: 8%; font-weight: normal;  }
+.item-ranking .team-goals-diff { width: 8%; font-weight: normal; }
+
+.item-fixtures .card-title { background-color: #EEE8AA; padding: 3px 0 6px 0 !important; }
+.item-fixtures .item-fixture { padding: 5px; }
+.item-fixtures .item-fixture div { display: inline-block; font-weight: bold; }
+.item-fixtures .item-fixture.titles { background-color: #EEE8AA; }
+.item-fixtures .item-fixture.napoli { background-color: #ADD8E6; color: #000; }
+.item-fixtures .item-fixture .team-result { width: 10%; }
+.item-fixtures .item-fixture .team-image { width: 10%; }
+.item-fixtures .item-fixture .team-image img { width: 25px; vertical-align: middle; }
+.item-fixtures .item-fixture .team-name { width: 30%; }
+
 .item-error img.full-image { width: 100%; }
 .item-error img.middle-image { width: 50%; margin-left: 25%; margin-top: 20px; margin-bottom: 20px;}
 
@@ -129,6 +151,8 @@ ion-content { background-color: #2e98d2; }
 .icon.icon-stagioni { background: url('http://www.10maggio87.it/Images/Layout/Icons/stagioni.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-ricerca { background: url('http://www.10maggio87.it/Images/Layout/Icons/ricerca.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-eventi { background: url('http://www.10maggio87.it/Images/Layout/Icons/eventi.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-champions { background: url('http://www.10maggio87.it/Images/Layout/Icons/champions.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-serie-a { background: url('http://www.10maggio87.it/Images/Layout/Icons/serie-a.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-nuova { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; width: 32px; background-size: 32px; right: 11px; left: initial; }
 
 .icon.icon-nuova-inline { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; min-width: 32px; min-height: 32px; float: right; margin-top: -5px; }

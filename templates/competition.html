@@ -1,0 +1,83 @@
+﻿<ion-view view-title="{{competition}}" ng-cloak>
+    <ion-content>
+        <div class="padding-side">
+            <div class="button-bar button-filter">
+                <a class="button button-assertive button-full" ng-click="getNews(10)">Notizie</a>
+                <a class="button button-assertive button-full" ng-click="getRanking()">Classifica</a>
+                <a class="button button-assertive button-full" ng-click="getFixtures()">Calendario</a>
+            </div>
+        </div>
+        <div class="card" ng-if="tab == 'news'">
+            <ul class="list">
+                <li class="item item-text-wrap item-news" ng-repeat="news in newsList">
+                    <a ng-href="#/app/news/id/{{news.Id}}">
+                        <img ng-src="{{news.Image}}" />
+                        <p class="item-tag text-left">{{news.Tag}}</p>
+                        <p class="item-date text-right">{{news.Date | date:'dd/MM/yyyy - HH:mm'}}</p>
+                        <h2 class="text-justify">{{news.Title}}</h2>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="card" ng-if="tab == 'ranking'">
+            <div class="item card-title">
+                <h2 class="text-center text-top">Classifica</h2>
+            </div>
+            <ul class="list">
+                <li class="item item-text-wrap item-ranking titles">
+                    <div class="team-position">#</div>
+                    <div class="team-image"></div>
+                    <div class="team-name text-left">Squadra</div>
+                    <div class="team-points">P</div>
+                    <div class="team-goals">GF</div>
+                    <div class="team-goals">GS</div>
+                    <div class="team-goals-diff">+/-</div>
+                </li>
+                <li class="item item-text-wrap item-ranking" ng-repeat="team in ranking" ng-class="{'napoli': team.Team === 'Napoli'}">
+                    <div class="team-position">{{$index + 1}}°</div>
+                    <div class="team-image">
+                        <a ng-href="#/app/team/{{team.Team}}">
+                            <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{team.Team}}.png" />
+                        </a>
+                    </div>
+                    <div class="team-name text-left">{{team.Team}}</div>
+                    <div class="team-points">{{team.Points}}</div>
+                    <div class="team-goals">{{team.Goals}}</div>
+                    <div class="team-goals">{{team.GoalsConceded}}</div>
+                    <div class="team-goals-diff">
+                        <span ng-if="team.GoalsDifference > 0">+</span>{{team.GoalsDifference}}
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="item-fixtures" ng-if="tab == 'fixtures'">
+            <div ng-repeat="(fase, fases) in fixtures | groupBy : 'Fase'">
+                <div class="card" ng-repeat="(day, days) in fases | groupBy : 'Day'">
+                    <div class="item card-title">
+                        <h2 class="text-center text-top">{{day}}° Giornata - {{fase}}</h2>
+                    </div>
+                    <ul class="list">
+                        <li class="item item-text-wrap item-fixture" ng-repeat="fixture in days" ng-class="{'napoli': fixture.HomeTeam === 'Napoli' || fixture.AwayTeam === 'Napoli'}">
+                            <div class="team-image">
+                                <a ng-href="#/app/team/{{fixture.HomeTeam}}">
+                                    <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{fixture.HomeTeam}}.png" />
+                                </a>
+                            </div>
+                            <div class="team-name text-right">{{fixture.HomeTeam}}</div>
+                            <div class="team-result text-center">{{fixture.Result}}</div>
+                            <div class="team-name text-left">{{fixture.AwayTeam}}</div>
+                            <div class="team-image">
+                                <a ng-href="#/app/team/{{fixture.AwayTeam}}">
+                                    <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{fixture.AwayTeam}}.png" />
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="button-bar button-filter" ng-if="tab == 'news'">
+            <a class="button button-assertive button-full" ng-show="newsList.length == newsLoaded" ng-click="getNews(newsLoaded + 10)">Altre notizie</a>
+        </div>
+    </ion-content>
+</ion-view>

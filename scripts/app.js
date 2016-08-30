@@ -71,6 +71,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
             }
         }
     })
+
+    .state('app.competition', {
+        url: "/competition/:competition",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/competition.html",
+                controller: 'CompetitionCtrl'
+            }
+        }
+    })
     
     .state('app.squad', {
         url: "/squad",

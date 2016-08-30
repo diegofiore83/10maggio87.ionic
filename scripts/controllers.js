@@ -56,6 +56,68 @@
     });
 })
 
+.controller('CompetitionCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+
+    $scope.season = sharedSettings.getCurrentSeason();
+    $scope.competition = $stateParams.competition.replace('-',' ');
+
+    $scope.newsList = [];
+    $scope.ranking = [];
+    $scope.fixtures = [];
+
+    $scope.tab = 'news';
+
+    var url = sharedSettings.getWebapi() + '/api/news/tag/' + $scope.competition + '/';
+
+    $scope.newsLoaded = 10;
+
+    $scope.getRanking = function () {
+
+        $scope.tab = 'ranking';
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(sharedSettings.getWebapi() + '/api/ranking/' + $scope.season + '/' + $scope.competition).then(function (resp) {
+            $scope.ranking = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getFixtures = function () {
+
+        $scope.tab = 'fixtures';
+
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(sharedSettings.getWebapi() + '/api/fixtures/' + $scope.season + '/' + $scope.competition).then(function (resp) {
+            $scope.fixtures = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getNews = function (news) {
+
+        $scope.tab = 'news';
+
+        $scope.newsLoaded = news;
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(url + $scope.newsLoaded).then(function (resp) {
+            $scope.newsList = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+        });
+    };
+
+    $scope.getNews($scope.newsLoaded);
+
+})
+
 .controller('EventsCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
 
     $scope.eventsList = [];
@@ -255,6 +317,7 @@
     $scope.playerTag = $stateParams.playerTag;
     $scope.hasDetails = false;
     $scope.currentCompetition = [0, 0, 0, 0, 0];
+    $scope.currentSeason = sharedSettings.getCurrentSeason();
 
     $scope.selectCompetition = function (seasonIndex, competitionIndex) {
         $scope.currentCompetition[seasonIndex] = competitionIndex;
@@ -491,7 +554,6 @@
     $scope.getTeamPlayers();
 
 })
-
 
 .controller('TeamCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
     $scope.name = $stateParams.name;

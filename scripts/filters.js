@@ -97,4 +97,26 @@
             }
             return text;
         }
-    });
+    })
+    .filter('groupBy', function ($parse) {
+        return function (collection, property) {
+            //if (!isUndefined(collection) || isUndefined(property)) {
+            //    return collection;
+            //}
+
+            var getter = $parse(property);
+
+            var result = {};
+            var prop;
+
+            collection.forEach(function (elm) {
+                prop = getter(elm);
+
+                if (!result[prop]) {
+                    result[prop] = [];
+                }
+                result[prop].push(elm);
+            });
+            return result;
+    }
+});

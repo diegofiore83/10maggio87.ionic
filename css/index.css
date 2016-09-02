@@ -132,7 +132,7 @@ ion-content { background-color: #2e98d2; }
 .item-fixtures .item-fixture .team-result { width: 10%; }
 .item-fixtures .item-fixture .team-image { width: 10%; }
 .item-fixtures .item-fixture .team-image img { width: 25px; vertical-align: middle; }
-.item-fixtures .item-fixture .team-name { width: 30%; }
+.item-fixtures .item-fixture .team-name { width: 33%; }
 
 .item-error img.full-image { width: 100%; }
 .item-error img.middle-image { width: 50%; margin-left: 25%; margin-top: 20px; margin-bottom: 20px;}
@@ -160,9 +160,9 @@ ion-content { background-color: #2e98d2; }
 .button.button-assertive { border-color: #2e98d2; background-color: #041e3b; color: #fff; }
 .button.button-assertive.active, .button.button-assertive.activated { border-color: #2e98d2; background-color: #2e98d2; }
 
-.scroll-content  { background-color:  #2e98d2; text-align: center; min-height: 100px; }
-.scroll-content a { text-decoration: none; }
-.scroll-content a h3 { margin: 20px 0 5px 0; color: #fff; }
-.scroll-content a h4 { margin: 0 0 10px 0; color: #fff; }
+.swiper-slide  { background-color:  #2e98d2; text-align: center; min-height: 100px; }
+.swiper-slide a { text-decoration: none; }
+.swiper-slide a h3 { margin: 20px 0 5px 0; color: #fff; }
+.swiper-slide a h4 { margin: 0 0 10px 0; color: #fff; }
 .slider-button-prev.swiper-button-disabled { display: none; }
 .slider-button-next.swiper-button-disabled { display: none; }

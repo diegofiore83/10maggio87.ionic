@@ -19,40 +19,42 @@
                 </li>
             </ul>
         </div>
-        <div class="card" ng-if="tab == 'ranking'">
-            <div class="item card-title">
-                <h2 class="text-center text-top">Classifica</h2>
+        <div ng-if="tab == 'ranking'">
+            <div class="card" ng-repeat="(fase, fases) in ranking | groupBy : 'Fase'">
+                <div class="item card-title">
+                    <h2 class="text-center text-top">Classifica {{fase}}</h2>
+                </div>
+                <ul class="list">
+                    <li class="item item-text-wrap item-ranking titles">
+                        <div class="team-position">#</div>
+                        <div class="team-image"></div>
+                        <div class="team-name text-left">Squadra</div>
+                        <div class="team-points">P</div>
+                        <div class="team-goals">GF</div>
+                        <div class="team-goals">GS</div>
+                        <div class="team-goals-diff">+/-</div>
+                    </li>
+                    <li class="item item-text-wrap item-ranking" ng-repeat="team in fases" ng-class="{'napoli': team.Team === 'Napoli'}">
+                        <div class="team-position">{{$index + 1}}°</div>
+                        <div class="team-image">
+                            <a ng-href="#/app/team/{{team.Team}}">
+                                <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{team.Team}}.png" />
+                            </a>
+                        </div>
+                        <div class="team-name text-left">{{team.Team}}</div>
+                        <div class="team-points">{{team.Points}}</div>
+                        <div class="team-goals">{{team.Goals}}</div>
+                        <div class="team-goals">{{team.GoalsConceded}}</div>
+                        <div class="team-goals-diff">
+                            <span ng-if="team.GoalsDifference > 0">+</span>{{team.GoalsDifference}}
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <ul class="list">
-                <li class="item item-text-wrap item-ranking titles">
-                    <div class="team-position">#</div>
-                    <div class="team-image"></div>
-                    <div class="team-name text-left">Squadra</div>
-                    <div class="team-points">P</div>
-                    <div class="team-goals">GF</div>
-                    <div class="team-goals">GS</div>
-                    <div class="team-goals-diff">+/-</div>
-                </li>
-                <li class="item item-text-wrap item-ranking" ng-repeat="team in ranking" ng-class="{'napoli': team.Team === 'Napoli'}">
-                    <div class="team-position">{{$index + 1}}°</div>
-                    <div class="team-image">
-                        <a ng-href="#/app/team/{{team.Team}}">
-                            <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/{{team.Team}}.png" />
-                        </a>
-                    </div>
-                    <div class="team-name text-left">{{team.Team}}</div>
-                    <div class="team-points">{{team.Points}}</div>
-                    <div class="team-goals">{{team.Goals}}</div>
-                    <div class="team-goals">{{team.GoalsConceded}}</div>
-                    <div class="team-goals-diff">
-                        <span ng-if="team.GoalsDifference > 0">+</span>{{team.GoalsDifference}}
-                    </div>
-                </li>
-            </ul>
         </div>
         <div class="item-fixtures" ng-if="tab == 'fixtures'">
             <div ng-repeat="(fase, fases) in fixtures | groupBy : 'Fase'">
-                <div class="card" ng-repeat="(day, days) in fases | groupBy : 'Day'">
+                <div class="card" ng-repeat="(day, days) in fases | orderBy : 'Day' : false | groupBy : 'Day'">
                     <div class="item card-title">
                         <h2 class="text-center text-top">{{day}}° Giornata - {{fase}}</h2>
                     </div>

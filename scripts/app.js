@@ -235,9 +235,13 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     
 })
 
-.run(function ($ionicPlatform, authService) {
+.run(function ($ionicPlatform, authService, $rootScope) {
 
     authService.fillAuthData();
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        debugger;
+    });
 
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -245,9 +249,17 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
+        
         if (window.StatusBar) {
             // org.apache.cordova.statusbar required
             StatusBar.styleDefault();
+        }
+
+        if (typeof analytics !== "undefined") {
+            console.log("Google Analytics Available");
+            analytics.startTrackerWithId("UA-83643991-1");
+        } else {
+            console.log("Google Analytics Unavailable");
         }
     });
 });

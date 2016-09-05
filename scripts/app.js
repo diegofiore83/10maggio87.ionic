@@ -240,7 +240,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     authService.fillAuthData();
 
     var convertStateToUrl = function (state, params) {
-        debugger;
+        
         var urlParts = state.url.split(":");
         var finalUrl = urlParts[0];
 

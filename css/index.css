@@ -2,6 +2,8 @@
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, 
 .tab-item, input, button, select, textarea  { font-family: 'Ubuntu Condensed', "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+a { text-decoration: none !important; }
+
 ion-content { background-color: #2e98d2; }
 .napoli {color: #2e98d2; }
 

@@ -239,9 +239,21 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
 
     authService.fillAuthData();
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+    var convertStateToUrl = function (state, params) {
         debugger;
-    });
+        var urlParts = state.url.split(":");
+        var finalUrl = urlParts[0];
+
+        for (var i = 1; i < urlParts.length; i++) {
+            finalUrl += params[urlParts[i]] + "/";
+        }
+
+        return finalUrl;
+    };
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
+        analytics.trackView(convertStateToUrl(toState, toParams));
+    });  
 
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

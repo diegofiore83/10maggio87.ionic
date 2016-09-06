@@ -11,7 +11,7 @@
         <div class="card" ng-if="tab == 'players'">
             <ion-list>
                 <ion-item class="item item-thumbnail-left" ng-repeat="player in players" ng-href="#/app/player/{{player.Tag}}">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.PlayerImage}}.jpg">
+                    <img ng-src="{{player.PlayerImage}}">
                     <h2>{{player.Name}}</h2>
                     <p>{{player.Nation}}</p>
                     <p>{{player.DateOfBirth | date:'dd/MM/yyyy'}} ({{player.DateOfBirth | ageFilter : season }} anni)</p>
@@ -25,17 +25,17 @@
                 <h3 class="text-center text-top">Organigramma</h3>
                 <img ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/Napoli/{{season}}.png" class="item-teamlogo" />
                 <ion-item class="item item-avatar" ng-if="info.President">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{info.President.PlayerImage}}.jpg">
+                    <img ng-src="{{info.President.PlayerImage}}">
                     <h2>{{info.President.Name}}</h2>
                     <p>Presidente</p>
                 </ion-item>
-                <ion-item class=" item item-avatar" ng-if="info.Director">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{info.Director.PlayerImage}}.jpg">
+                <ion-item class="item item-avatar" ng-if="info.Director">
+                    <img ng-src="{{info.Director.PlayerImage}}">
                     <h2>{{info.Director.Name}}</h2>
                     <p>Direttore Sportivo</p>
                 </ion-item>
                 <ion-item class="item item-avatar" ng-href="#/app/player/{{info.Captain.Tag}}">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{info.Captain.PlayerImage}}.jpg">
+                    <img ng-src="{{info.Captain.PlayerImage}}">
                     <h2>{{info.Captain.Name}}</h2>
                     <p>Capitano</p>
                     <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{info.Captain.Nation}}.png">
@@ -81,8 +81,8 @@
         <div class="card" ng-if="tab == 'formation'">
             <h3 class="text-center text-top">Formazione Tipo</h3>
             <ion-list>
-                <ion-item class=" item item-avatar" ng-repeat="player in formation.slice(0,11)" ng-href="#/app/player/{{player.Tag}}">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.PlayerImage}}.jpg">
+                <ion-item class="item item-avatar" ng-repeat="player in formation.slice(0,11)" ng-href="#/app/player/{{player.Tag}}">
+                    <img ng-src="{{player.PlayerImage}}">
                     <h2>{{player.Name}}</h2>
                     <p>{{player.Position | position}}</p>
                     <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">
@@ -90,8 +90,8 @@
             </ion-list>
             <h3 class="text-center text-top">Riserve</h3>
             <ion-list>
-                <ion-item class=" item item-avatar" ng-repeat="player in formation.slice(11)" ng-href="#/app/player/{{player.Tag}}">
-                    <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.PlayerImage}}.jpg">
+                <ion-item class="item item-avatar" ng-repeat="player in formation.slice(11)" ng-href="#/app/player/{{player.Tag}}">
+                    <img ng-src="{{player.PlayerImage}}">
                     <h2>{{player.Name}}</h2>
                     <p>{{player.Position | position}}</p>
                     <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Nation}}.png">

@@ -7,7 +7,7 @@
 angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.controllers', 'authService', 'authInterceptorService', 'LocalStorageModule'])
 
 .service('sharedSettings', function () {
-    var webapi = 'http://api.10maggio87.it'; /* 'http://api2.10maggio87.it'; */
+    var webapi = 'http://api2.10maggio87.it';
     var username = 'appuser%4010maggio87.it';
     var password = 'UQAL92anF-U4zvX';
     var currentSeason = '2016-17';
@@ -252,7 +252,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     };
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState, fromParams) {
-        analytics.trackView(convertStateToUrl(toState, toParams));
+        ga.trackView(convertStateToUrl(toState, toParams));
     });  
 
     $ionicPlatform.ready(function () {
@@ -267,9 +267,9 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
             StatusBar.styleDefault();
         }
 
-        if (typeof analytics !== "undefined") {
+        if (typeof ga !== "undefined") {
             console.log("Google Analytics Available");
-            analytics.startTrackerWithId("UA-83643991-1");
+            ga.startTrackerWithId("UA-83643991-1");
         } else {
             console.log("Google Analytics Unavailable");
         }

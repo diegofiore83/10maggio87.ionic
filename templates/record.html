@@ -15,7 +15,7 @@
         </div>
         <div class="list card">
             <ion-item class=" item item-avatar" ng-repeat="player in filtered = (players | orderBy : ['Season', showTotal] : true)" ng-class="{'ion-highlighted': player.CurrentTeam}" ng-href="#/app/player/{{player.Tag}}">
-                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <img ng-src="{{player.PlayerImage}}">
                 <h2 class="text-left">{{player.Season ? player.Season + ' - ' : ''}}{{player.Name}}</h2>
                 <p class="text-left">{{player.Position | position}} - {{player.Nation}}</p>
                 <h1 class="ion-record-text" ng-if="showTotal == 'Total'">{{player.Total | number: getDigits()}}</h1>

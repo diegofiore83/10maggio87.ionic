@@ -16,7 +16,7 @@
         <div class="card" ng-if="match.Scoreboard">
             <h3 class="text-center text-top">Tabellino Partita</h3>
             <ion-item class="item item-avatar item-scoreboard" ng-repeat="player in match.Scoreboard" ng-class="{'ion-best': isThe(player, 'Mig'), 'ion-worst': isThe(player, 'Peg')}" ng-show="player.Status != 'Mig' && player.Status != 'Peg'" ng-href="#/app/player/{{player.Tag}}">
-                <img class="item-photo-player" ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Tag}}.jpg">
+                <img class="item-photo-player" ng-src="{{player.PlayerImage}}">
                 <h2 class="text-left">{{player.Name}}</h2>
                 <p class="text-left">{{player.Position | position}} - {{player.Nation}}</p>
                 <span class="item-info" ng-bind-html="displayScoreboard(player)"></span>

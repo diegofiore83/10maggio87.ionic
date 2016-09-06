@@ -10,7 +10,7 @@
             <ul class="list">
                 <li class="item item-text-wrap item-news" ng-repeat="news in newsList">
                     <a ng-href="#/app/news/id/{{news.Id}}">
-                        <img ng-src="{{news.Image}}" />
+                        <img ng-src="{{news.NewsImage}}" />
                         <p class="item-tag text-left">{{news.Tag}}</p>
                         <p class="item-date text-right">{{news.Date | date:'dd/MM/yyyy - HH:mm'}}</p>
                         <h2 class="text-justify">{{news.Title}}</h2>

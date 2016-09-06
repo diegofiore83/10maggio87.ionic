@@ -9,7 +9,7 @@
             <div class="item item-text-wrap text-left" ng-bind-html="primacy.Description | makeitbold : bolds | toTrusted">
             </div>
             <ion-item class="item item-avatar" ng-href="{{getLink(primacy.Type, primacy.Recordman)}}">
-                <img ng-if="primacy.Type=='Giocatore'" ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{primacy.Recordman.split(' - ')[0]}}.jpg" />
+                <img ng-if="primacy.Type=='Giocatore'" ng-src="{{primacy.RecordmanImage}}" />
                 <img ng-if="primacy.Type!='Giocatore'" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/Napoli/{{primacy.Recordman.split(' - ')[0]}}.png" />
                 <h2 ng-class="{'cn-longtext': primacy.Recordman.split(' - ').length > 2}" class="ion-recordman-text text-left">{{primacy.Recordman}}</h2>
                 <h1 class="ion-primacy-text">{{displayPrimacy(primacy.Type, primacy.Record)}}</h1>
@@ -17,7 +17,7 @@
                 <!--<img class="ion-record-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/Italia.png" />-->
             </ion-item>
             <ion-item class="item item-avatar" ng-href="{{getLink(primacy.Type, primacy.ActualRecordman)}}">
-                <img ng-if="primacy.Type=='Giocatore'" ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{primacy.ActualRecordman.split(' - ')[0]}}.jpg" />
+                <img ng-if="primacy.Type=='Giocatore'" ng-src="{{primacy.ActualRecordmanImage}}" />
                 <img ng-if="primacy.Type!='Giocatore'" ng-src="http://www.10maggio87.it/Images/Assets/Loghi/Squadre/Napoli/{{primacy.ActualRecordman.split(' - ')[0]}}.png" />
                 <h2 class="ion-recordman-text text-left">{{primacy.ActualRecordman}}</h2>
                 <h1 class="ion-primacy-text">{{displayPrimacy(primacy.Type, primacy.ActualRecord)}}</h1>

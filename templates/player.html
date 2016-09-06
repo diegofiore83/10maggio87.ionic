@@ -2,13 +2,13 @@
     <ion-content>
         <div class="card">
             <div class="item item-avatar">
-                <img ng-src="http://www.10maggio87.it/Images/Assets/Foto/{{player.Profile.Tag}}.jpg">
+                <img ng-src="{{player.Profile.PlayerImage}}">
                 <h2 class="text-left">{{player.Profile.Name}}</h2>
                 <p class="text-left">{{player.Profile.Position | position}}</p>
                 <img class="ion-nation-image" ng-src="http://www.10maggio87.it/Images/Assets/Bandiere/{{player.Profile.Nation}}.png">
             </div>
             <div class="item item-text-wrap">
-                <img class="full-image" ng-if="player.Profile.CurrentTeam" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/{{currentSeason}}/{{player.Profile.Tag}}.jpg">
+                <!--<img class="full-image" ng-if="player.Profile.CurrentTeam" ng-src="http://www.10maggio87.it/Images/Assets/Copertine/Giocatori/{{currentSeason}}/{{player.Profile.Tag}}.jpg">-->
                 <h2 class="text-center text-top">Dati Personali</h2>
                 <p class="text-left">Nazionalità: <span class="text-value">{{player.Profile.Nation}}</span></p>
                 <p class="text-left">Nato a: <span class="text-value">{{player.Profile.PlaceOfBirth}}</span></p>

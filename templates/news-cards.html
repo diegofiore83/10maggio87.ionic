@@ -5,6 +5,15 @@
                        refreshing-text="Caricamento ..."
                        refreshing-icon="ion-loading-c">
         </ion-refresher>
+        <div class="card with-title">
+            <div class="item card-title">
+                <h2 class="text-center">Video</h2>
+            </div>
+            <video controls="controls" preload="none" webkit-playsinline="webkit-playsinline" class="videoPlayer" poster="https://scontent.xx.fbcdn.net/v/t15.0-10/p128x128/14299334_881527225310861_1190525434_n.jpg?oh=0409db699abe8bc11abc68491020c245&oe=5875579A" style="max-width: 100%; width: 100%; height: auto; padding: 1px;">
+                <source src="https://video.xx.fbcdn.net/v/t43.1792-2/14294535_1703455023311505_1828615408_n.mp4?efg=eyJybHIiOjE1MDAsInJsYSI6NDA5NiwidmVuY29kZV90YWciOiJzdmVfaGQifQ%3D%3D&rl=1500&vabr=721&oh=e030d0d7025528ff0afca6a6045e6fb1&oe=57E0D907" type="video/mp4" />
+            </video>
+        </div>
+
         <div class="card with-title" ng-if="match && !showEvent">
             <div class="item card-title">
                 <h2 class="text-center">Ultima Partita</h2>

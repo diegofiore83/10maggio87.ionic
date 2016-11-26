@@ -59,7 +59,7 @@
 .controller('CompetitionCtrl', function ($scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
 
     $scope.season = sharedSettings.getCurrentSeason();
-    $scope.competition = $stateParams.competition.replace('-',' ');
+    $scope.competition = $stateParams.competition.replace('-', ' ');
 
     $scope.newsList = [];
     $scope.ranking = [];
@@ -245,7 +245,7 @@
     });
 })
 
-.controller('NewsListCtrl', function ($state, $scope, $http, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+.controller('NewsListCtrl', function ($state, $scope, $http, $window, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
 
     $scope.keyword = $stateParams.keyword;
     $scope.news = [];
@@ -308,6 +308,14 @@
             $scope.showEvent = true;
         }
     };
+
+    $scope.setVideoDimensions = function () {
+        var width = $window.innerWidth - 20;
+        $scope.videoWidth = width + 'px';
+        $scope.videoHeight = (width * 9 / 16) + 'px';
+    };
+
+    $scope.setVideoDimensions();
 
     // Disable before new season start
     $scope.getLastMatch();

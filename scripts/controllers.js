@@ -655,4 +655,39 @@
 
     $scope.getNews($scope.newsLoaded);
 
+})
+
+.controller('VideosCtrl', function ($state, $scope, $http, $window, $sce, $stateParams, $ionicLoading, $ionicPopup, sharedSettings) {
+
+    $scope.keyword = $stateParams.keyword;
+    $scope.videos = [];
+
+    var url = sharedSettings.getWebapi() + '/api/videos/last/';
+
+    $scope.videosLoaded = 10;
+
+    $scope.getVideos = function (videos) {
+        $scope.videosLoaded = videos;
+        $ionicLoading.show({ templateUrl: "templates/loading.html", content: 'Loading', animation: 'fade-in', showBackdrop: true, maxWidth: 200, showDelay: 0 });
+        $http.get(url + $scope.videosLoaded).then(function (resp) {
+            $scope.videosList = resp.data;
+        }, function (err) {
+            console.log('Loading Error - ' + err.status + ': ' + err.statusText);
+        }).finally(function () {
+            $ionicLoading.hide();
+            //Stop the ion-refresher from spinning
+            $scope.$broadcast('scroll.refreshComplete');
+        });
+    };
+
+    $scope.setVideoDimensions = function () {
+        var width = $window.innerWidth - 22;
+        $scope.videoWidth = width + 'px';
+        $scope.videoHeight = (width * 9 / 16) + 'px';
+    };
+
+    $scope.setVideoDimensions();
+
+    // Disable before new season start
+    $scope.getVideos($scope.videosLoaded);
 });

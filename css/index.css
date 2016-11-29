@@ -22,7 +22,7 @@ ion-content { background-color: #2e98d2; }
 .card-title, .card-subtitle { padding: 5px !important; }
 .card-title h2, .card-subtitle h2 { font-weight: bold; }
 .card.with-title { margin: 40px 10px 10px 10px !important; position: relative; overflow: visible; }
-.card.with-title .item.card-title { position: absolute; top: -26px; left: 0; min-width: 125px; }
+.card.with-title .item.card-title { position: absolute; top: -27px; left: 0; min-width: 125px; }
 .card.with-title .item.card-subtitle { position: absolute; bottom: 26px; right: 0; min-width: 90px; }
 .card.with-title .item-match { border-top: 0; }
 .card.with-title.event-container { max-height: 74px; }
@@ -159,6 +159,7 @@ ion-content { background-color: #2e98d2; }
 .icon.icon-eventi { background: url('http://www.10maggio87.it/Images/Layout/Icons/eventi.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-champions { background: url('http://www.10maggio87.it/Images/Layout/Icons/champions.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-serie-a { background: url('http://www.10maggio87.it/Images/Layout/Icons/serie-a.svg') no-repeat center; width: 32px; background-size: 32px; }
+.icon.icon-tv { background: url('http://www.10maggio87.it/Images/Layout/Icons/tv.svg') no-repeat center; width: 32px; background-size: 32px; }
 .icon.icon-nuova { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; width: 32px; background-size: 32px; right: 11px; left: initial; }
 
 .icon.icon-nuova-inline { background: url('http://www.10maggio87.it/Images/Layout/Icons/nuova.svg') no-repeat center; min-width: 32px; min-height: 32px; float: right; margin-top: -5px; }

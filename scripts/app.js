@@ -221,6 +221,16 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
         }
     })
 
+    .state('app.videos', {
+        url: "/videos",
+        views: {
+            'menuContent': {
+                templateUrl: "templates/videos.html",
+                controller: 'VideosCtrl'
+            }
+        }
+    })
+
     .state('app.error', {
         url: "/error/:errorCode",
         views: {

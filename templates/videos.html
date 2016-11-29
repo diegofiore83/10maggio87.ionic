@@ -1,0 +1,25 @@
+﻿<ion-view view-title="10maggio87 TV" ng-cloak>
+    <ion-content>
+        <ion-refresher on-refresh="getVideos(videosLoaded)"
+                       pulling-text="Aggiorna"
+                       refreshing-text="Caricamento ..."
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
+        <div class="card with-title">
+            <div class="item card-title">
+                <h2 class="text-center">Napoli Channel</h2>
+            </div>
+            <ul class="list">
+                <li class="item item-text-wrap item-news-card" ng-repeat="video in videosList">
+                    <div class="item-video">
+                        <iframe ng-src="{{video.Url | trusted}}" ng-style="{'width': videoWidth, 'height': videoHeight}" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+                        <h2 class="text-center">{{video.Title}}</h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="button-bar button-filter">
+            <a class="button button-assertive button-full" ng-show="videosList.length == videosLoaded" ng-click="getVideos(videosLoaded + 10)">Altri video</a>
+        </div>
+    </ion-content>
+</ion-view>

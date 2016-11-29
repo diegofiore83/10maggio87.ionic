@@ -74,6 +74,11 @@
             return $sce.trustAsHtml(value);
         };
     })
+    .filter('trusted', ['$sce', function ($sce) {
+        return function (url) {
+            return $sce.trustAsResourceUrl(url);
+        };
+    }])
     .filter('translate', function () {
         return function (text) {
             switch (text) {

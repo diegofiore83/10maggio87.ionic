@@ -20,7 +20,12 @@
     .filter('dayFilter', ['$filter', function ($filter) {
         function chooseDay(date) {
             var day = new Date(date);
-            var dayUTC = new Date(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate(), day.getUTCHours(), day.getUTCMinutes(), day.getUTCSeconds());
+
+            // disable UTC doesn't work
+            // var dayUTC = new Date(day.getUTCFullYear(), day.getUTCMonth(), day.getUTCDate(), day.getUTCHours(), day.getUTCMinutes(), day.getUTCSeconds());
+            var dayUTC = day;
+            // end disable UTC doesn't work
+
             var timeToEvent = dayUTC.getTime() - Date.now();
             var hoursToEvent = ((timeToEvent / 1000) / 60) / 60;
 

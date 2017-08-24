@@ -10,7 +10,7 @@ angular.module('angularApp', ['ionic', 'angularApp.filters', 'angularApp.control
     var webapi = 'http://api2.10maggio87.it';
     var username = 'appuser%4010maggio87.it';
     var password = 'UQAL92anF-U4zvX';
-    var currentSeason = '2016-17';
+    var currentSeason = '2017-18';
     return {
         getCurrentSeason: function () {
             return currentSeason;

@@ -7,6 +7,7 @@
   <gap:plugin name="cordova-plugin-whitelist" source="npm" />
   <gap:plugin name="cordova-plugin-splashscreen" source="npm" />
   <gap:plugin name="cordova-plugin-google-analytics" source="npm" />
+  <gap:plugin name="cordova-android-play-services-gradle-release" source="npm" />
   <preference name="windows-target-version" value="8.0" />
   <preference name="windows-phone-target-version" value="8.1" />
   <preference name="Fullscreen" value="false" />
